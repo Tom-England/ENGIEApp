@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "FVGgmn5pLGxflH6XKQ05ZTT2Q7X7N51/zYxdEe0T6414quAY7Tv8gFqc1qoS4Bdt5hBipNkw/7+JMuTAgIs7vA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\tomen\\OneDrive - Newcastle University\\Stage 2\\Team Project\\ENGIE_App\\ENGIE_App.iOS\\ENGIE_App.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\tomen\\.nuget\\packages\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512",
+    "C:\\Users\\tomen\\.nuget\\packages\\xamarin.forms\\4.8.0.1451\\xamarin.forms.4.8.0.1451.nupkg.sha512"
+  ],
+  "logs": []
+}
