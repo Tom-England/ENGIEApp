@@ -10,7 +10,12 @@ C:\Users\tomen\OneDrive - Newcastle University\Stage 2\Team Project\ENGIE_App\EN
 C:\Users\tomen\OneDrive - Newcastle University\Stage 2\Team Project\ENGIE_App\ENGIE_App\obj\Debug\netstandard2.0\ENGIE_App.dll
 C:\Users\tomen\OneDrive - Newcastle University\Stage 2\Team Project\ENGIE_App\ENGIE_App\obj\Debug\netstandard2.0\ref\ENGIE_App.dll
 C:\Users\tomen\OneDrive - Newcastle University\Stage 2\Team Project\ENGIE_App\ENGIE_App\obj\Debug\netstandard2.0\ENGIE_App.pdb
-C:\Users\tomen\OneDrive - Newcastle University\Stage 2\Team Project\ENGIE_App\ENGIE_App\obj\Debug\netstandard2.0\views\App.xaml.g.cs
 C:\Users\tomen\OneDrive - Newcastle University\Stage 2\Team Project\ENGIE_App\ENGIE_App\obj\Debug\netstandard2.0\views\MainPage.xaml.g.cs
 C:\Users\tomen\OneDrive - Newcastle University\Stage 2\Team Project\ENGIE_App\ENGIE_App\obj\Debug\netstandard2.0\views\MenuPage.xaml.g.cs
 C:\Users\tomen\OneDrive - Newcastle University\Stage 2\Team Project\ENGIE_App\ENGIE_App\obj\Debug\netstandard2.0\views\RootPage.xaml.g.cs
+C:\Users\tomen\OneDrive - Newcastle University\Stage 2\Team Project\ENGIE_App\ENGIE_App\obj\Debug\netstandard2.0\views\FormPage.xaml.g.cs
+C:\Users\tomen\OneDrive - Newcastle University\Stage 2\Team Project\ENGIE_App\ENGIE_App\obj\Debug\netstandard2.0\views\HelpPage.xaml.g.cs
+C:\Users\tomen\OneDrive - Newcastle University\Stage 2\Team Project\ENGIE_App\ENGIE_App\obj\Debug\netstandard2.0\views\LoginPage.xaml.g.cs
+C:\Users\tomen\OneDrive - Newcastle University\Stage 2\Team Project\ENGIE_App\ENGIE_App\obj\Debug\netstandard2.0\views\RecentlySubmitted.xaml.g.cs
+C:\Users\tomen\OneDrive - Newcastle University\Stage 2\Team Project\ENGIE_App\ENGIE_App\obj\Debug\netstandard2.0\views\ScanPage.xaml.g.cs
+C:\Users\tomen\OneDrive - Newcastle University\Stage 2\Team Project\ENGIE_App\ENGIE_App\obj\Debug\netstandard2.0\App.xaml.g.cs

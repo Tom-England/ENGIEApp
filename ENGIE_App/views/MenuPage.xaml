@@ -7,8 +7,29 @@
         <StackLayout>
             <!--Buttons for navigation go here-->
             <Button
-                Text="Page1"
-                Padding="0, 30, 0, 30"/>
+                Text="Home"
+                Padding="0, 30, 0, 30"
+                Clicked="GoHome"/>
+            <Button
+                Text="Help"
+                Padding="0, 30, 0, 30"
+                Clicked="GoHelp"/>
+            <Button
+                Text="Forms"
+                Padding="0, 30, 0, 30"
+                Clicked="GoForm"/>
+            <Button
+                Text="Recently Submitted"
+                Padding="0, 30, 0, 30"
+                Clicked="GoRecentlySubmitted"/>
+            <Button
+                Text="Scan"
+                Padding="0, 30, 0, 30"
+                Clicked="GoScan"/>
+            <Button
+                Text="Login"
+                Padding="0, 30, 0, 30"
+                Clicked="GoLogin"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
