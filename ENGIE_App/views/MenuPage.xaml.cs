@@ -22,35 +22,35 @@ namespace ENGIE_App
 
         void GoHome(object sender, EventArgs args)
         {
-            App.NavigationPage.Navigation.PopToRootAsync();
             App.MenuIsPresented = false;
+            App.NavigationPage.Navigation.PopToRootAsync();
         }
 
         void GoHelp(object sender, EventArgs args)
         {
-            App.NavigationPage.Navigation.PushModalAsync(new HelpPage());
             App.MenuIsPresented = false;
+            App.NavigationPage.Navigation.PushAsync(new HelpPage());
         }
 
         void GoForm(object sender, EventArgs args)
         {
-            App.NavigationPage.Navigation.PushModalAsync(new FormPage());
             App.MenuIsPresented = false;
+            App.NavigationPage.Navigation.PushAsync(new FormPage());
         }
         void GoRecentlySubmitted(object sender, EventArgs args)
         {
-            App.NavigationPage.Navigation.PushModalAsync(new RecentlySubmitted());
             App.MenuIsPresented = false;
+            App.NavigationPage.Navigation.PushAsync(new RecentlySubmitted());
         }
         void GoScan(object sender, EventArgs args)
         {
-            App.NavigationPage.Navigation.PushModalAsync(new ScanPage());
             App.MenuIsPresented = false;
+            App.NavigationPage.Navigation.PushAsync(new ScanPage());
         }
         void GoLogin(object sender, EventArgs args)
         {
-            App.NavigationPage.Navigation.PushModalAsync(new LoginPage());
             App.MenuIsPresented = false;
+            App.NavigationPage.Navigation.PushAsync(new LoginPage());
         }
     }
 }

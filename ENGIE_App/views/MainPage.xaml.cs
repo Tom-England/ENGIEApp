@@ -13,6 +13,7 @@ namespace ENGIE_App
         public MainPage()
         {
             NavigationPage.SetHasNavigationBar(this, false);
+            NavigationPage.SetHasBackButton(this, false);
             InitializeComponent();
         }
     }
