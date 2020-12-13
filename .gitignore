@@ -1,4 +1,7 @@
-﻿ENGIE_App.Android/bin/Debug/
+ENGIE_App.Android/bin/Debug/
 ENGIE_App/bin/Debug/
 ENGIE_App.Android/obj/Debug/90/
-ENGIE_App/obj/Debug/n
+ENGIE_App/obj/Debug/
+.vs/
+ENGIE_App.Android.csproj.user
+ENGIE_App.Android/obj/
