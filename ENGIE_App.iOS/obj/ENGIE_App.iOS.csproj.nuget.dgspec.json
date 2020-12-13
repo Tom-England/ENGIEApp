@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tomen\\OneDrive - Newcastle University\\Stage 2\\Team Project\\ENGIE_App\\ENGIE_App.iOS\\ENGIE_App.iOS.csproj": {}
+    "C:\\Users\\zayn\\Source\\Repos\\engie-app\\ENGIE_App.iOS\\ENGIE_App.iOS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tomen\\OneDrive - Newcastle University\\Stage 2\\Team Project\\ENGIE_App\\ENGIE_App.iOS\\ENGIE_App.iOS.csproj": {
+    "C:\\Users\\zayn\\Source\\Repos\\engie-app\\ENGIE_App.iOS\\ENGIE_App.iOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tomen\\OneDrive - Newcastle University\\Stage 2\\Team Project\\ENGIE_App\\ENGIE_App.iOS\\ENGIE_App.iOS.csproj",
+        "projectUniqueName": "C:\\Users\\zayn\\Source\\Repos\\engie-app\\ENGIE_App.iOS\\ENGIE_App.iOS.csproj",
         "projectName": "ENGIE_App.iOS",
-        "projectPath": "C:\\Users\\tomen\\OneDrive - Newcastle University\\Stage 2\\Team Project\\ENGIE_App\\ENGIE_App.iOS\\ENGIE_App.iOS.csproj",
-        "packagesPath": "C:\\Users\\tomen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tomen\\OneDrive - Newcastle University\\Stage 2\\Team Project\\ENGIE_App\\ENGIE_App.iOS\\obj\\",
+        "projectPath": "C:\\Users\\zayn\\Source\\Repos\\engie-app\\ENGIE_App.iOS\\ENGIE_App.iOS.csproj",
+        "packagesPath": "C:\\Users\\zayn\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\zayn\\Source\\Repos\\engie-app\\ENGIE_App.iOS\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\tomen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\zayn\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -32,8 +32,8 @@
         "frameworks": {
           "xamarinios10": {
             "projectReferences": {
-              "C:\\Users\\tomen\\OneDrive - Newcastle University\\Stage 2\\Team Project\\ENGIE_App\\ENGIE_App\\ENGIE_App.csproj": {
-                "projectPath": "C:\\Users\\tomen\\OneDrive - Newcastle University\\Stage 2\\Team Project\\ENGIE_App\\ENGIE_App\\ENGIE_App.csproj"
+              "C:\\Users\\zayn\\Source\\Repos\\engie-app\\ENGIE_App\\ENGIE_App.csproj": {
+                "projectPath": "C:\\Users\\zayn\\Source\\Repos\\engie-app\\ENGIE_App\\ENGIE_App.csproj"
               }
             }
           }
@@ -65,20 +65,21 @@
         }
       }
     },
-    "C:\\Users\\tomen\\OneDrive - Newcastle University\\Stage 2\\Team Project\\ENGIE_App\\ENGIE_App\\ENGIE_App.csproj": {
+    "C:\\Users\\zayn\\Source\\Repos\\engie-app\\ENGIE_App\\ENGIE_App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tomen\\OneDrive - Newcastle University\\Stage 2\\Team Project\\ENGIE_App\\ENGIE_App\\ENGIE_App.csproj",
+        "projectUniqueName": "C:\\Users\\zayn\\Source\\Repos\\engie-app\\ENGIE_App\\ENGIE_App.csproj",
         "projectName": "ENGIE_App",
-        "projectPath": "C:\\Users\\tomen\\OneDrive - Newcastle University\\Stage 2\\Team Project\\ENGIE_App\\ENGIE_App\\ENGIE_App.csproj",
-        "packagesPath": "C:\\Users\\tomen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tomen\\OneDrive - Newcastle University\\Stage 2\\Team Project\\ENGIE_App\\ENGIE_App\\obj\\",
+        "projectPath": "C:\\Users\\zayn\\Source\\Repos\\engie-app\\ENGIE_App\\ENGIE_App.csproj",
+        "packagesPath": "C:\\Users\\zayn\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\zayn\\Source\\Repos\\engie-app\\ENGIE_App\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\tomen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\zayn\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -130,7 +131,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

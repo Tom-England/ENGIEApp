@@ -18,5 +18,10 @@ namespace ENGIE_App.views
             NavigationPage.SetHasBackButton(this, false);
             InitializeComponent();
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

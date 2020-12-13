@@ -981,24 +981,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tomen\\.nuget\\packages\\": {},
+    "C:\\Users\\zayn\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tomen\\OneDrive - Newcastle University\\Stage 2\\Team Project\\ENGIE_App\\ENGIE_App.iOS\\ENGIE_App.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\zayn\\Source\\Repos\\engie-app\\ENGIE_App.iOS\\ENGIE_App.iOS.csproj",
       "projectName": "ENGIE_App.iOS",
-      "projectPath": "C:\\Users\\tomen\\OneDrive - Newcastle University\\Stage 2\\Team Project\\ENGIE_App\\ENGIE_App.iOS\\ENGIE_App.iOS.csproj",
-      "packagesPath": "C:\\Users\\tomen\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tomen\\OneDrive - Newcastle University\\Stage 2\\Team Project\\ENGIE_App\\ENGIE_App.iOS\\obj\\",
+      "projectPath": "C:\\Users\\zayn\\Source\\Repos\\engie-app\\ENGIE_App.iOS\\ENGIE_App.iOS.csproj",
+      "packagesPath": "C:\\Users\\zayn\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\zayn\\Source\\Repos\\engie-app\\ENGIE_App.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\tomen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\zayn\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -1012,8 +1012,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\tomen\\OneDrive - Newcastle University\\Stage 2\\Team Project\\ENGIE_App\\ENGIE_App\\ENGIE_App.csproj": {
-              "projectPath": "C:\\Users\\tomen\\OneDrive - Newcastle University\\Stage 2\\Team Project\\ENGIE_App\\ENGIE_App\\ENGIE_App.csproj"
+            "C:\\Users\\zayn\\Source\\Repos\\engie-app\\ENGIE_App\\ENGIE_App.csproj": {
+              "projectPath": "C:\\Users\\zayn\\Source\\Repos\\engie-app\\ENGIE_App\\ENGIE_App.csproj"
             }
           }
         }
