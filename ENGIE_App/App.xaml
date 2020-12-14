@@ -12,7 +12,7 @@
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <BoxView BackgroundColor="White" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5"/>
+                    <BoxView BackgroundColor="Transparent" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5"/>
                     <Label Text="{TemplateBinding Title}"
                            Grid.Column="1"
                            FontSize="Large"

@@ -2,9 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ENGIE_App.views.LoginPage"
-             BackgroundColor="White"
-             ControlTemplate="{StaticResource MainPageTemplate}"
+             BackgroundColor="#009fe3"
              Title="Welcome">
+    <!--ControlTemplate="{StaticResource MainPageTemplate}"-->
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
@@ -18,31 +18,43 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <StackLayout Grid.Row="0" Padding="0, 10, 0, 100">
-                        <Image Source="engielogo.png"
+                    <StackLayout Grid.Row="0" Padding="0, 10, 0, 70">
+                        <Image Source="engiewhite.png"
                                />
                     </StackLayout>
 
-                    <StackLayout Grid.Row="1">
-                        <Entry Placeholder="FirstName" FontSize="16" x:Name="EntryFirstName"/>
-                    </StackLayout>
+                    <Frame Padding="25, 0, 25, 0"
+                           CornerRadius="25"
+                           BackgroundColor="White"
+                           Grid.Row="1">
+                        <Entry Placeholder="First Name" FontSize="16" x:Name="EntryFirstName"/>
+                    </Frame>
 
-                    <StackLayout Grid.Row="2">
-                        <Entry Placeholder="LastName" FontSize="16" x:Name="EntryLastName"/>
-                    </StackLayout>
+                    <Frame Padding="25, 0, 25, 0"
+                           CornerRadius="25"
+                           BackgroundColor="White"
+                           Grid.Row="2">
+                        <Entry Placeholder="Last Name" FontSize="16" x:Name="EntryLastName"/>
+                    </Frame>
 
-                    <StackLayout Grid.Row="3">
+                    <Frame Padding="25, 0, 25, 0"
+                           CornerRadius="25"
+                           BackgroundColor="White"
+                           Grid.Row="3">
                         <Entry Placeholder="Email" FontSize="16" x:Name="EntryUserEmail"/>
-                    </StackLayout>
+                    </Frame>
 
-                    <StackLayout Grid.Row="4">
-                        <Entry Placeholder="PhoneNumber" FontSize="16" x:Name="EntryUserPhoneNumber"/>
-                    </StackLayout>
+                    <Frame Padding="25, 0, 25, 0"
+                           CornerRadius="25"
+                           BackgroundColor="White"
+                           Grid.Row="4">
+                        <Entry Placeholder="Phone Number" FontSize="16" x:Name="EntryUserPhoneNumber"/>
+                    </Frame>
 
-                    <StackLayout Grid.Row="5" Padding="0, 0, 0, 150">
-                        <Button Text="Login" HorizontalOptions="CenterAndExpand" TextColor="White" BackgroundColor="#00a9ff" Clicked="Button_Clicked"/>
+                    <StackLayout Grid.Row="5" Padding="0, 50, 0, 100">
+                        <Button Text="Login" HorizontalOptions="CenterAndExpand" TextColor="#000" BackgroundColor="#fff" Clicked="Button_Clicked" Padding="125, 20, 125, 20" CornerRadius="10"/>
                     </StackLayout>
-
+    
                 </Grid>
             </StackLayout>
         </ScrollView>

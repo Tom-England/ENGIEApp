@@ -21,7 +21,7 @@ namespace ENGIE_App.views
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-
+            App.NavigationPage.Navigation.PushAsync(new MainPage());
         }
     }
 }
