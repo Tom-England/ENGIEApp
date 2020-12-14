@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ENGIE_App.MainPage"
              BackgroundColor="White"
-             ControlTemplate="{StaticResource MainPageTemplate}">
+             ControlTemplate="{StaticResource MainPageTemplate}"
+             Title="Home">
     <ContentPage.Content>
         <StackLayout Margin="20">
             <Image Source="test.jpg"
