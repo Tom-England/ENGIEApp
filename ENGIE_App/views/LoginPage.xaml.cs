@@ -1,5 +1,8 @@
-﻿using System;
+﻿using ENGIE_App.Tables;
+using SQLite;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,8 +22,26 @@ namespace ENGIE_App.views
             InitializeComponent();
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        void Button_Clicked(object sender, System.EventArgs e)
         {
+            var dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "UserDatabase.db");
+            var db = new SQLiteConnection(dbpath);
+            db.CreateTable<LogUserData>();
+
+            var item = new LogUserData()
+            {
+                FirstName = EntryFirstName.Text,
+                LastName = EntryLastName.Text,
+                Email = EntryUserEmail.Text,
+                PhoneNumber = EntryUserPhoneNumber.Text
+            };
+
+            db.Insert(item);
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                var result = await this.DisplayAlert("Congratulations", "User Succesfully Registered", "Continue", "Cancel");
+            }
+            );
 
         }
     }
