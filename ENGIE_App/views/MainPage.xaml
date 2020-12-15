@@ -14,7 +14,7 @@
                 HorizontalTextAlignment="Center"
                 FontSize="Large"
                 Padding="0, 40, 0, 40"/>
-            <Image Source="engielogo.png"
+            <Image Source="engielogo"
                    HorizontalOptions="Center"
                    WidthRequest="500"/>
             <Label 

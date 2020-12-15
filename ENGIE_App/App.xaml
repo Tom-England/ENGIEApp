@@ -19,7 +19,7 @@
                            VerticalTextAlignment="Center"
                            TextColor="#00a9ff"
                            Grid.ColumnSpan="4"></Label>
-                    <ImageButton Source="hamburger.png"
+                    <ImageButton Source="hamburger"
                             Grid.Column="0"
                             HorizontalOptions="Center"
                             VerticalOptions="CenterAndExpand"

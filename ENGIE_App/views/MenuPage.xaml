@@ -18,28 +18,28 @@
                 Padding="10, 20, 10, 20"
                 Clicked="GoHome"
                 ContentLayout="Left, 0"
-                Image="homeicon.png"
+                Image="homeicon"
                 BackgroundColor="White"/>
             <Button
                 Text="Scan Asset"
                 Padding="10, 20, 10, 20"
                 Clicked="GoScan"
                 ContentLayout="Left, 0"
-                Image="cameraicon.png"
+                Image="cameraicon"
                 BackgroundColor="White"/>
             <Button
                 Text="Recently Submitted Forms"
                 Padding="10, 20, 10, 20"
                 Clicked="GoRecentlySubmitted"
                 ContentLayout="Left, 0"
-                Image="formicon.png"
+                Image="formicon"
                 BackgroundColor="White"/>
             <Button
                 Text="Help"
                 Padding="10, 20, 10, 20"
                 Clicked="GoHelp"
                 ContentLayout="Left, 0"
-                Image="helpicon.png"
+                Image="helpicon"
                 BackgroundColor="White"/>
 
 
@@ -54,7 +54,7 @@
                     Padding="10, 40, 10, 40"
                     Clicked="GoLogin"
                     ContentLayout="Left, 0"
-                    Image="logouticon.png"
+                    Image="logouticon"
                     BackgroundColor="White"/>
             </StackLayout>
             
