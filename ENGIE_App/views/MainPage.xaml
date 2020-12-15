@@ -7,12 +7,21 @@
              Title="Home">
     <ContentPage.Content>
         <StackLayout Margin="20">
-            <Image Source="test.jpg"
-                   HorizontalOptions="CenterAndExpand"/>
             <Label
                 x:Name="WecomeLabel"
                 Text="Welcome"
-                TextColor="#444444"/>
+                TextColor="#444444"
+                HorizontalTextAlignment="Center"
+                FontSize="Large"
+                Padding="0, 40, 0, 40"/>
+            <Image Source="engielogo.png"
+                   HorizontalOptions="Center"
+                   WidthRequest="500"/>
+            <Label 
+                x:Name="MainPageMainTextBody"
+                Text="Welcome to the ENGIE assets app. For help or video tutorials visit the help section of the app accessable through the menu at the top left. Bit more text, filler sort of text to pad out this textbox until I write the rest. This section is quite long on the GUI design and theres a fair bit of space to fill"
+                Padding="25, 40, 25, 0"
+                FontSize="Medium"/>
         </StackLayout>
     </ContentPage.Content>
     
