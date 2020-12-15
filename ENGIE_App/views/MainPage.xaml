@@ -13,7 +13,8 @@
                 TextColor="#444444"
                 HorizontalTextAlignment="Center"
                 FontSize="Large"
-                Padding="0, 40, 0, 40"/>
+                Padding="0, 40, 0, 40"
+                FontFamily="{StaticResource NormalFont}"/>
             <Image Source="engielogo"
                    HorizontalOptions="Center"
                    WidthRequest="500"/>
@@ -21,7 +22,8 @@
                 x:Name="MainPageMainTextBody"
                 Text="Welcome to the ENGIE assets app. For help or video tutorials visit the help section of the app accessable through the menu at the top left. Bit more text, filler sort of text to pad out this textbox until I write the rest. This section is quite long on the GUI design and theres a fair bit of space to fill"
                 Padding="25, 40, 25, 0"
-                FontSize="Medium"/>
+                FontSize="Medium"
+                FontFamily="{StaticResource NormalFont}"/>
         </StackLayout>
     </ContentPage.Content>
     

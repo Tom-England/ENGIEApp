@@ -8,6 +8,7 @@
             <Frame BackgroundColor="#009fe3">
                 <Label x:Name="MenuTitle"
                        Text="Menu"
+                       FontFamily="{StaticResource NormalFont}"
                        FontSize="Large"
                        TextColor="White"/>
             </Frame>
@@ -15,6 +16,7 @@
             <StackLayout VerticalOptions="StartAndExpand">
             <Button
                 Text="Home"
+                FontFamily="{StaticResource NormalFont}"
                 Padding="10, 20, 10, 20"
                 Clicked="GoHome"
                 ContentLayout="Left, 0"
@@ -22,6 +24,7 @@
                 BackgroundColor="White"/>
             <Button
                 Text="Scan Asset"
+                FontFamily="{StaticResource NormalFont}"
                 Padding="10, 20, 10, 20"
                 Clicked="GoScan"
                 ContentLayout="Left, 0"
@@ -29,6 +32,7 @@
                 BackgroundColor="White"/>
             <Button
                 Text="Recently Submitted Forms"
+                FontFamily="{StaticResource NormalFont}"
                 Padding="10, 20, 10, 20"
                 Clicked="GoRecentlySubmitted"
                 ContentLayout="Left, 0"
@@ -36,6 +40,7 @@
                 BackgroundColor="White"/>
             <Button
                 Text="Help"
+                FontFamily="{StaticResource NormalFont}"
                 Padding="10, 20, 10, 20"
                 Clicked="GoHelp"
                 ContentLayout="Left, 0"
@@ -51,6 +56,7 @@
         <StackLayout VerticalOptions="End">
                 <Button
                     Text="Logout"
+                    FontFamily="{StaticResource NormalFont}"
                     Padding="10, 40, 10, 40"
                     Clicked="GoLogin"
                     ContentLayout="Left, 0"
