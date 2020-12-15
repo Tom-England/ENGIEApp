@@ -36,10 +36,16 @@ namespace ENGIE_App.views
                 PhoneNumber = EntryUserPhoneNumber.Text
             };
 
+            Application.Current.Properties["Firstname"] = item.FirstName;
+
             db.Insert(item);
             Device.BeginInvokeOnMainThread(async () =>
             {
                 var result = await this.DisplayAlert("Congratulations", "User Succesfully Registered", "Continue", "Cancel");
+                if (result)
+                {
+                       await App.NavigationPage.Navigation.PushAsync(new MainPage());
+                }
             }
             );
 

@@ -10,7 +10,8 @@
             <Image Source="test.jpg"
                    HorizontalOptions="CenterAndExpand"/>
             <Label
-                Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vulputate lacus vitae ligula pulvinar mattis. Sed velit ante, tincidunt a lectus sit amet, suscipit vehicula ante. Vivamus fringilla, purus sit amet tincidunt luctus, metus est pretium sapien, non lobortis velit nulla in ligula. Praesent non ligula volutpat, elementum nisl ac, gravida leo. Curabitur vestibulum ullamcorper est, a tincidunt arcu mollis sit amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in diam luctus, lacinia tortor in, feugiat eros. Proin euismod porta nunc, id accumsan massa rhoncus vitae. Aliquam in justo egestas, fermentum odio eu, sodales velit. Etiam bibendum ligula pretium, semper risus eu, dignissim libero. Pellentesque enim lorem, dapibus sit amet risus sit amet, mollis iaculis justo. Sed in accumsan justo. Nam ac nibh at justo consequat aliquet id nec mi. "
+                x:Name="WecomeLabel"
+                Text="Welcome"
                 TextColor="#444444"/>
         </StackLayout>
     </ContentPage.Content>

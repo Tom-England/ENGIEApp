@@ -15,6 +15,10 @@ namespace ENGIE_App
             NavigationPage.SetHasNavigationBar(this, false);
             NavigationPage.SetHasBackButton(this, false);
             InitializeComponent();
+            if (Application.Current.Properties.ContainsKey("Firstname")) {
+                WecomeLabel.Text = "Welcome, " + Application.Current.Properties["Firstname"];
+            }
+            
         }
     }
 }
