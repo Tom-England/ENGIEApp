@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "RcBJ+schaNGqnizw87wkagnfFspsvR6j6S2DuPsfrBwl0KzKaxSZph+oC4tQ+7mDHVd0L7nqpmEasofqyb3TQA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\benpa\\Documents\\uni\\CSC2033\\fresh project\\XamUiTest\\XamUiTest.csproj",
+  "expectedPackageFiles": [
+    "C:\\Microsoft\\Xamarin\\NuGet\\nunit\\3.12.0\\nunit.3.12.0.nupkg.sha512",
+    "C:\\Microsoft\\Xamarin\\NuGet\\nunit3testadapter\\3.13.0\\nunit3testadapter.3.13.0.nupkg.sha512",
+    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.uitest\\3.0.5\\xamarin.uitest.3.0.5.nupkg.sha512"
+  ],
+  "logs": []
+}
