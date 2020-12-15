@@ -4,32 +4,60 @@
              x:Class="ENGIE_App.MenuPage"
              >
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout BackgroundColor="White">
+            <Frame BackgroundColor="#009fe3">
+                <Label x:Name="MenuTitle"
+                       Text="Menu"
+                       FontSize="Large"
+                       TextColor="White"/>
+            </Frame>
             <!--Buttons for navigation go here-->
+            <StackLayout VerticalOptions="StartAndExpand">
             <Button
                 Text="Home"
-                Padding="0, 30, 0, 30"
-                Clicked="GoHome"/>
+                Padding="10, 20, 10, 20"
+                Clicked="GoHome"
+                ContentLayout="Left, 0"
+                Image="homeicon.png"
+                BackgroundColor="White"/>
+            <Button
+                Text="Scan Asset"
+                Padding="10, 20, 10, 20"
+                Clicked="GoScan"
+                ContentLayout="Left, 0"
+                Image="cameraicon.png"
+                BackgroundColor="White"/>
+            <Button
+                Text="Recently Submitted Forms"
+                Padding="10, 20, 10, 20"
+                Clicked="GoRecentlySubmitted"
+                ContentLayout="Left, 0"
+                Image="formicon.png"
+                BackgroundColor="White"/>
             <Button
                 Text="Help"
-                Padding="0, 30, 0, 30"
-                Clicked="GoHelp"/>
+                Padding="10, 20, 10, 20"
+                Clicked="GoHelp"
+                ContentLayout="Left, 0"
+                Image="helpicon.png"
+                BackgroundColor="White"/>
+
+
             <Button
-                Text="Forms"
-                Padding="0, 30, 0, 30"
+                Text="Forms (To Be Removed Later)"
+                Padding="10, 20, 10, 20"
                 Clicked="GoForm"/>
-            <Button
-                Text="Recently Submitted"
-                Padding="0, 30, 0, 30"
-                Clicked="GoRecentlySubmitted"/>
-            <Button
-                Text="Scan"
-                Padding="0, 30, 0, 30"
-                Clicked="GoScan"/>
-            <Button
-                Text="Login"
-                Padding="0, 30, 0, 30"
-                Clicked="GoLogin"/>
+            </StackLayout>
+        <StackLayout VerticalOptions="End">
+                <Button
+                    Text="Logout"
+                    Padding="10, 40, 10, 40"
+                    Clicked="GoLogin"
+                    ContentLayout="Left, 0"
+                    Image="logouticon.png"
+                    BackgroundColor="White"/>
+            </StackLayout>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
