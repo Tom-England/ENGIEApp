@@ -37,11 +37,9 @@ namespace XamUiTest
         [Test]
         public void MenuButtonDisplaysMenu()
         {
-
-            app.Repl();
             app.WaitForElement(x => x.Marked("MenuButton"));
             app.Tap(x => x.Marked("MenuButton"));
-            AppResult[] results = app.WaitForElement(c => c.Marked("Welcome to Xamarin.Forms!"));
+            AppResult[] results = app.WaitForElement(c => c.Marked("MenuPage"));
             Assert.IsTrue(results.Any());
         }
             
