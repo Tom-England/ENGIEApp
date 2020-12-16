@@ -37,6 +37,7 @@ namespace XamUiTest
         [Test]
         public void MenuButtonDisplaysMenu()
         {
+
             app.Repl();
             app.WaitForElement(x => x.Marked("MenuButton"));
             app.Tap(x => x.Marked("MenuButton"));
