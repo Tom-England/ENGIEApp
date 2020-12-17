@@ -26,10 +26,10 @@ namespace XamUiTest
         }
 
         [Test]
-        public void WelcomeTextIsDisplayed()
+        public void LoginPageIsDisplayed()
         {
-            AppResult[] results = app.WaitForElement(c => c.Marked("Welcome to Xamarin.Forms!"));
-            app.Screenshot("Welcome screen.");
+            AppResult[] results = app.WaitForElement(x => x.Marked("Login"));
+            app.Screenshot("Login page");
 
             Assert.IsTrue(results.Any());
         }
@@ -37,9 +37,15 @@ namespace XamUiTest
         [Test]
         public void MenuButtonDisplaysMenu()
         {
+            app.WaitForElement(x => x.Marked("Login"));
+            app.Tap(x => x.Marked("Login"));
+            app.WaitForElement(x => x.Marked("Continue"));
+            app.Tap(x => x.Marked("Continue"));
             app.WaitForElement(x => x.Marked("MenuButton"));
             app.Tap(x => x.Marked("MenuButton"));
             AppResult[] results = app.WaitForElement(c => c.Marked("MenuPage"));
+            app.Screenshot("Menu");
+
             Assert.IsTrue(results.Any());
         }
             
