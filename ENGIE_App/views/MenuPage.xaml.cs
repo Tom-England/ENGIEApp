@@ -49,8 +49,11 @@ namespace ENGIE_App
         }
         void GoLogin(object sender, EventArgs args)
         {
+            var mainPage = new LoginPage();
+            var homePage = App.NavigationPage.Navigation.NavigationStack.First();
+            App.NavigationPage.Navigation.InsertPageBefore(mainPage, homePage);
             App.MenuIsPresented = false;
-            App.NavigationPage.Navigation.PushAsync(new LoginPage());
+            App.NavigationPage.PopToRootAsync(false);
         }
     }
 }

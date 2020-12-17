@@ -14,6 +14,7 @@
                     </Grid.RowDefinitions>
                     <BoxView BackgroundColor="Transparent" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5"/>
                     <Label Text="{TemplateBinding Title}"
+                           FontFamily="{StaticResource NormalFont}"
                            Grid.Column="1"
                            FontSize="Large"
                            VerticalTextAlignment="Center"
@@ -33,6 +34,15 @@
                 </Grid>
             </ControlTemplate>
             
+            <!--Platform specific font definitions-->
+            <OnPlatform x:TypeArguments="x:String" x:Key="BoldFont">
+                <On Platform="Android" Value="Lato-Regular.ttf#Lato" />
+                <On Platform="iOS" Value="Lato-Regular" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="NormalFont">
+                <On Platform="Android" Value="Lato-Regular.ttf#Lato" />
+                <On Platform="iOS" Value="Lato-Regular" />
+            </OnPlatform>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
