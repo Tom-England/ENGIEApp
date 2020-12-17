@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ENGIE_App.views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -24,7 +25,7 @@ namespace ENGIE_App
             InitializeComponent();
             // Set Up For Nav Bar
             var menuPage = new MenuPage();
-            NavigationPage = new NavigationPage(new MainPage());
+            NavigationPage = new NavigationPage(new LoginPage());
             rootPage = new RootPage();
             rootPage.Master = menuPage;
             rootPage.Detail = NavigationPage;
