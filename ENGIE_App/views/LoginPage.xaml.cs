@@ -44,7 +44,11 @@ namespace ENGIE_App.views
                 var result = await this.DisplayAlert("Congratulations", "User Succesfully Registered", "Continue", "Cancel");
                 if (result)
                 {
-                       await App.NavigationPage.Navigation.PushAsync(new MainPage());
+                    var mainPage = new MainPage();
+                    var homePage = App.NavigationPage.Navigation.NavigationStack.First();
+                    App.NavigationPage.Navigation.InsertPageBefore(mainPage, homePage);
+                    await App.NavigationPage.PopToRootAsync(false);
+                    //await App.NavigationPage.Navigation.PushAsync(new MainPage());
                 }
             }
             );
