@@ -14,14 +14,14 @@ namespace XamUiTest
 
         protected BaseTest(Platform platform) => _platform = platform;
 
-        protected IApp App { get; private set; }
-        protected Pages.LoginPage Loginpage { get; private set; }
+        protected IApp app { get; private set; }
+        protected Pages.LoginPage LoginPage { get; private set; }
 
         [SetUp]
         public virtual void TestSetup()
         {
-            App = AppInitializer.StartApp(_platform);
-            Loginpage = new Pages.LoginPage(App, "Welcome");
+            app = AppInitializer.StartApp(_platform);
+            LoginPage = new Pages.LoginPage(app, "Welcome");
         }
     }
 }
