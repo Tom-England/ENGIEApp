@@ -35,6 +35,7 @@
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseTest.cs" />
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\LoginPage.cs" />
     <Compile Include="Tests.cs" />

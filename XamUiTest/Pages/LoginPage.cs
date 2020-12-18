@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.UITest;
 using Query = System.Func<Xamarin.UITest.Queries.AppQuery, Xamarin.UITest.Queries.AppQuery>;
 
 namespace XamUiTest.Pages
@@ -12,7 +12,7 @@ namespace XamUiTest.Pages
     {
         readonly Query FirstNameText, LastNameText, EmailText, PhoneText, LoginButton;
 
-        public LoginPage(IAppDomainSetup app, string pageTitle) : base(app, pageTitle)
+        public LoginPage(IApp app, string pageTitle) : base(app, pageTitle)
         {
             FirstNameText = x => x.Marked("FirstName");
             LastNameText = x => x.Marked("LastName");
