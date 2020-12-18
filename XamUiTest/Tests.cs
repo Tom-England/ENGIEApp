@@ -35,6 +35,29 @@ namespace XamUiTest
         }
 
         [Test]
+        public void UserCanLogin()
+        {
+            app.Repl();
+            app.WaitForElement(x => x.Marked("Login"));
+            app.Tap(x => x.Marked("FirstName"));
+            app.EnterText("Joe");
+            app.Tap(x => x.Marked("LastName"));
+            app.EnterText("Bloggs");
+            app.Tap(x => x.Marked("Email"));
+            app.EnterText("joe@bloggs.com");
+            app.Tap(x => x.Marked("Phone"));
+            app.EnterText("07777777777");
+            app.Tap(x => x.Marked("Login"));
+            app.WaitForElement(x => x.Marked("Continue"));
+            app.Tap(x => x.Marked("Continue"));
+
+            AppResult[] results = app.WaitForElement(c => c.Marked("MenuPage"));
+            app.Screenshot("Menu");
+
+            Assert.IsTrue(results.Any());
+        }
+
+        [Test]
         public void MenuButtonDisplaysMenu()
         {
             app.WaitForElement(x => x.Marked("Login"));
@@ -43,6 +66,7 @@ namespace XamUiTest
             app.Tap(x => x.Marked("Continue"));
             app.WaitForElement(x => x.Marked("MenuButton"));
             app.Tap(x => x.Marked("MenuButton"));
+
             AppResult[] results = app.WaitForElement(c => c.Marked("MenuPage"));
             app.Screenshot("Menu");
 
