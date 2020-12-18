@@ -37,23 +37,29 @@ namespace XamUiTest
         [Test]
         public void UserCanLogin()
         {
-            app.Repl();
+            //Arrange
+            const string firstName = "Joe";
+            const string lastName = "Bloggs";
+            const string email = "joe@bloggs.com";
+            const string phone = "07777777777";
+
+            //Act
             app.WaitForElement(x => x.Marked("Login"));
             app.Tap(x => x.Marked("FirstName"));
-            app.EnterText("Joe");
+            app.EnterText(firstName);
             app.Tap(x => x.Marked("LastName"));
-            app.EnterText("Bloggs");
+            app.EnterText(lastName);
             app.Tap(x => x.Marked("Email"));
-            app.EnterText("joe@bloggs.com");
+            app.EnterText(email);
             app.Tap(x => x.Marked("Phone"));
-            app.EnterText("07777777777");
+            app.EnterText(phone);
             app.Tap(x => x.Marked("Login"));
             app.WaitForElement(x => x.Marked("Continue"));
             app.Tap(x => x.Marked("Continue"));
-
             AppResult[] results = app.WaitForElement(c => c.Marked("MenuPage"));
             app.Screenshot("Menu");
 
+            //Assert
             Assert.IsTrue(results.Any());
         }
 
