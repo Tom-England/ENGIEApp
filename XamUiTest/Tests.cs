@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using NUnit.Framework;
 using Xamarin.UITest;
 using Xamarin.UITest.Queries;
@@ -29,16 +30,14 @@ namespace XamUiTest
             LoginPage.EnterLastName(lastName);
             LoginPage.EnterEmail(email);
             LoginPage.EnterPhone(phone);
+            App.DismissKeyboard();
             LoginPage.TapLoginButton();
 
-            LoginPage.WaitForPageToLoad();
-
-            app.WaitForElement(x => x.Marked("Continue"));
-            app.Tap(x => x.Marked("Continue"));
-            AppResult[] results = app.WaitForElement(c => c.Marked("MenuPage"));
-            app.Screenshot("Menu");
-
-
+            App.WaitForElement(x => x.Marked("Continue"));
+            App.Tap(x => x.Marked("Continue"));
+            // TODO is there a more elegant way to check which page you are on with new page object architecture?
+            AppResult[] results = App.WaitForElement(c => c.Marked("Home"));
+            App.Screenshot("Home page shown after login");
 
             //Assert
             Assert.IsTrue(results.Any());

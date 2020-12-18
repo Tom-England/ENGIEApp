@@ -10,7 +10,7 @@ namespace XamUiTest.Pages
 {
     public class LoginPage : BasePage
     {
-        readonly Query FirstNameText, LastNameText, EmailText, PhoneText, LoginButton;
+        Query FirstNameText, LastNameText, EmailText, PhoneText, LoginButton;
 
         public LoginPage(IApp app, string pageTitle) : base(app, pageTitle)
         {

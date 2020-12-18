@@ -10,18 +10,21 @@ namespace XamUiTest
 {
     public abstract class BaseTest
     {
-        readonly Platform _platform;
+        Platform platform;
 
-        protected BaseTest(Platform platform) => _platform = platform;
+        protected BaseTest(Platform platform)
+        {
+            this.platform = platform;
+        }
 
-        protected IApp app { get; private set; }
+        protected IApp App { get; private set; }
         protected Pages.LoginPage LoginPage { get; private set; }
 
         [SetUp]
         public virtual void TestSetup()
         {
-            app = AppInitializer.StartApp(_platform);
-            LoginPage = new Pages.LoginPage(app, "Welcome");
+            App = AppInitializer.StartApp(platform);
+            LoginPage = new Pages.LoginPage(App, "Welcome");
         }
     }
 }
