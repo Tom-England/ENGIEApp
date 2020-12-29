@@ -19,6 +19,7 @@ namespace XamUiTest
 
         protected IApp App { get; private set; }
         protected Pages.LoginPage LoginPage { get; private set; }
+        protected Pages.MainPage MainPage { get; private set; }
 
         [SetUp]
         public virtual void TestSetup()

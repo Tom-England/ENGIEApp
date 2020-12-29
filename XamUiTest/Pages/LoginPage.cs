@@ -54,5 +54,24 @@ namespace XamUiTest.Pages
             App.Tap(LoginButton);
             App.Screenshot("Login button tapped");
         }
+
+        // method to enter valid login credentials to reduce code duplication in all other tests that would require a login to run
+        public void EnterValidLoginCredentials()
+        {
+            const string firstName = "Joe";
+            const string lastName = "Bloggs";
+            const string email = "joe@bloggs.com";
+            const string phone = "07777777777";
+
+            this.EnterFirstName(firstName);
+            this.EnterLastName(lastName);
+            this.EnterEmail(email);
+            this.EnterPhone(phone);
+            App.DismissKeyboard();
+            this.TapLoginButton();
+            App.WaitForElement(x => x.Marked("Continue"));
+            App.Tap(x => x.Marked("Continue"));
+            App.WaitForElement(c => c.Marked("Home"));
+        }
     }
 }

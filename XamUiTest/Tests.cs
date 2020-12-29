@@ -82,5 +82,17 @@ namespace XamUiTest
             Assert.IsFalse(results.Any());
         }
 
+        public void MenuButtonOpensMenu()
+        {
+            //Act
+            LoginPage.EnterValidLoginCredentials();
+            MainPage.TapMenuButton();
+            // TODO again, this is not an elegant way of testing and needs an update
+            AppResult[] results = App.WaitForElement(c => c.Marked("Logout"));
+            App.Screenshot("Menu page shown after menu button pressed");
+
+            //Assert
+            Assert.IsTrue(results.Any());
+        }
     }
 }
