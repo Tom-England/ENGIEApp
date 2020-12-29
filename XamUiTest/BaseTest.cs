@@ -26,6 +26,7 @@ namespace XamUiTest
         {
             App = AppInitializer.StartApp(platform);
             LoginPage = new Pages.LoginPage(App, "Welcome");
+            MainPage = new Pages.MainPage(App, "Home");
         }
     }
 }

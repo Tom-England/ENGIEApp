@@ -23,7 +23,7 @@ namespace XamUiTest
             const string firstName = "Joe";
             const string lastName = "Bloggs";
             const string email = "joe@bloggs.com";
-            const string phone = "07777777777";
+            const string phone = "+447777777777";
 
             //Act
             LoginPage.EnterFirstName(firstName);
@@ -44,21 +44,21 @@ namespace XamUiTest
         }
 
         // test for no first name
-        [TestCase("", "Bloggs", "joe@bloggs.com", "07777777777")]
+        [TestCase("", "Bloggs", "joe@bloggs.com", "+447777777777")]
         // test for no surname
-        [TestCase("Joe", "", "joe@bloggs.com", "07777777777")]
+        [TestCase("Joe", "", "joe@bloggs.com", "+447777777777")]
         // test for no email
-        [TestCase("Joe", "Bloggs", "", "07777777777")]
+        [TestCase("Joe", "Bloggs", "", "+447777777777")]
         // test for invalid email
-        [TestCase("Joe", "Bloggs", "joe", "07777777777")]
+        [TestCase("Joe", "Bloggs", "joe", "+447777777777")]
         // test for another invalid email
-        [TestCase("Joe", "Bloggs", "joe@blogg", "07777777777")]
+        [TestCase("Joe", "Bloggs", "joe@blogg", "+447777777777")]
         // test for no phone number
         [TestCase("Joe", "Bloggs", "joe@bloggs.com", "")]
         // test for phone number too short
-        [TestCase("Joe", "Bloggs", "joe@bloggs.com", "079")]
+        [TestCase("Joe", "Bloggs", "joe@bloggs.com", "+4479")]
         // test for phone number with invalid characters
-        [TestCase("Joe", "Bloggs", "joe@bloggs.com", "0777abc")]
+        [TestCase("Joe", "Bloggs", "joe@bloggs.com", "+44777abc")]
         public void UserDetailsValidated(string firstName, string lastName, string email, string phone)
         {
             //Arrange
@@ -82,8 +82,12 @@ namespace XamUiTest
             Assert.IsFalse(results.Any());
         }
 
+        [Test]
         public void MenuButtonOpensMenu()
         {
+            //Arrange
+            // done via testcases to avoid repitition
+
             //Act
             LoginPage.EnterValidLoginCredentials();
             MainPage.TapMenuButton();

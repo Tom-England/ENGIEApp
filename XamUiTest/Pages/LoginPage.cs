@@ -61,7 +61,7 @@ namespace XamUiTest.Pages
             const string firstName = "Joe";
             const string lastName = "Bloggs";
             const string email = "joe@bloggs.com";
-            const string phone = "07777777777";
+            const string phone = "+447777777777";
 
             this.EnterFirstName(firstName);
             this.EnterLastName(lastName);
