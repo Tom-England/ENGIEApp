@@ -74,7 +74,7 @@ namespace XamUiTest
 
             App.WaitForElement(x => x.Marked("Continue"));
             App.Tap(x => x.Marked("Continue"));
-            AppResult[] results = App.WaitForElement(c => c.Marked("Home"));
+            AppResult[] results = App.Query(c => c.Marked("Home"));
             App.Screenshot("Home page shown after login");
 
             //Assert
