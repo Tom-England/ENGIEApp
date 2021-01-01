@@ -4,7 +4,8 @@
              x:Class="ENGIE_App.views.ScanPage"
              BackgroundColor="White"
              ControlTemplate="{StaticResource MainPageTemplate}"
-             Title="Scan Asset">
+             Title="Scan Asset"
+             AutomationId="ScanPage">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Scan Page"

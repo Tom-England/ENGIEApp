@@ -28,7 +28,7 @@ namespace XamUiTest
             AppResult[] results = App.WaitForElement(c => c.Marked("Home"));
             App.Screenshot("Home page shown after login");
 
-            //Assert
+            // Assert
             Assert.IsTrue(results.Any());
         }
 
@@ -50,10 +50,10 @@ namespace XamUiTest
         [TestCase("Joe", "Bloggs", "joe@bloggs.com", "+44777abc")]
         public void UserDetailsValidated(string firstName, string lastName, string email, string phone)
         {
-            //Arrange
+            // Arrange
             // done via testcases to avoid repitition
 
-            //Act
+            // Act
             LoginPage.EnterFirstName(firstName);
             LoginPage.EnterLastName(lastName);
             LoginPage.EnterEmail(email);
@@ -66,7 +66,7 @@ namespace XamUiTest
             AppResult[] results = App.Query(c => c.Marked("Home"));
             App.Screenshot("Home page shown after login");
 
-            //Assert
+            // Assert
             // assert false if login is successful, since all include invalid credentials
             Assert.IsFalse(results.Any());
         }
@@ -74,18 +74,37 @@ namespace XamUiTest
         [Test]
         public void MenuButtonOpensMenu()
         {
-            //Arrange
-            // done via testcases to avoid repitition
+            // Arrange
+            // done in LoginPage.EnterValidLoginCredentials to avoid repition of login information
 
-            //Act
+            // Act
+            App.Repl();
             LoginPage.EnterValidLoginCredentials();
             MainPage.TapMenuButton();
-            // TODO again, this is not an elegant way of testing and needs an update
+            // TODO must be a better way to check current page
             AppResult[] results = App.WaitForElement(c => c.Marked("Logout"));
             App.Screenshot("Menu page shown after menu button pressed");
 
-            //Assert
+            // Assert
             Assert.IsTrue(results.Any());
+        }
+
+        [Test]
+        public void ScanPageCanBeAccessed()
+        {
+            // Arrange
+            // done in LoginPage.EnterValidLoginCredentials to avoid repition of login information
+
+            // Act
+            LoginPage.EnterValidLoginCredentials();
+            MainPage.TapMenuButton();
+            MenuPage.TapScanPageButton();
+            // TODO also needs overhaul
+            //AppResult[] results = App.WaitForElement(c => c.Marked("Logout"));
+            App.Screenshot("Scan page shown after scan asset button in menu pressed");
+
+            // Assert
+            //Assert.IsTrue(results.Any());
         }
     }
 }
