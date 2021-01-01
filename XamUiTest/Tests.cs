@@ -17,25 +17,14 @@ namespace XamUiTest
         }
 
         [Test]
+        /* This tests the important EnterValidLoginCredentials method from Pages.LoginPage
+         * Not only does this confirm the user can login successfully,
+         * but it also tests logic used in many other tests to reduce code duplication
+        */
         public void UserCanLogin()
         {
-            //Arrange
-            const string firstName = "Joe";
-            const string lastName = "Bloggs";
-            const string email = "joe@bloggs.com";
-            const string phone = "+447777777777";
-
-            //Act
-            LoginPage.EnterFirstName(firstName);
-            LoginPage.EnterLastName(lastName);
-            LoginPage.EnterEmail(email);
-            LoginPage.EnterPhone(phone);
-            App.DismissKeyboard();
-            LoginPage.TapLoginButton();
-
-            App.WaitForElement(x => x.Marked("Continue"));
-            App.Tap(x => x.Marked("Continue"));
-            // TODO is there a more elegant way to check which page you are on with new page object architecture?
+            // Arrange and Act done in LoginPage.EnterValidLoginCredentials
+            LoginPage.EnterValidLoginCredentials();
             AppResult[] results = App.WaitForElement(c => c.Marked("Home"));
             App.Screenshot("Home page shown after login");
 
