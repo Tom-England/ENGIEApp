@@ -54,7 +54,6 @@
 
                     <StackLayout Grid.Row="5" Padding="0, 50, 0, 100">
                         <Button Text="Login" HorizontalOptions="CenterAndExpand" TextColor="#000" BackgroundColor="#fff" Clicked="Button_Clicked" Padding="125, 20, 125, 20" CornerRadius="10"/>
-                        <Label x:Name="LabelError" TextColor="Red"/>
                     </StackLayout>
     
                 </Grid>
