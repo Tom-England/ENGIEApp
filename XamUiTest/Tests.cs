@@ -44,11 +44,9 @@ namespace XamUiTest
         [TestCase("Joe", "Bloggs", "joe@blogg", "+447777777777")]
         // test for no phone number
         [TestCase("Joe", "Bloggs", "joe@bloggs.com", "")]
-        // test for phone number too short
-        [TestCase("Joe", "Bloggs", "joe@bloggs.com", "+4479")]
         // test for phone number with invalid characters
         [TestCase("Joe", "Bloggs", "joe@bloggs.com", "+44777abc")]
-        public void UserDetailsValidated(string firstName, string lastName, string email, string phone)
+        public void IncorrectUserDetailsValidated(string firstName, string lastName, string email, string phone)
         {
             // Arrange
             // done via testcases to avoid repitition
@@ -69,6 +67,35 @@ namespace XamUiTest
             // Assert
             // assert false if login is successful, since all include invalid credentials
             Assert.IsFalse(results.Any());
+        }
+
+        // test for phone number beginning 07
+        [TestCase("Joe", "Bloggs", "joe@bloggs.com", "07777777777")]
+        // test for phone number with space
+        [TestCase("Joe", "Bloggs", "joe@bloggs.com", "07777 777777")]
+        // test for email with . in first segment
+        [TestCase("Joe", "Bloggs", "joe.mail@bloggs.com", "+447777777777")]
+        public void CorrectUserDetailsValidated(string firstName, string lastName, string email, string phone)
+        {
+            // Arrange
+            // done via testcases to avoid repitition
+
+            // Act
+            LoginPage.EnterFirstName(firstName);
+            LoginPage.EnterLastName(lastName);
+            LoginPage.EnterEmail(email);
+            LoginPage.EnterPhone(phone);
+            App.DismissKeyboard();
+            LoginPage.TapLoginButton();
+
+            App.WaitForElement(x => x.Marked("Continue"));
+            App.Tap(x => x.Marked("Continue"));
+            AppResult[] results = App.Query(c => c.Marked("HomePage"));
+            App.Screenshot("Home page shown after login");
+
+            // Assert
+            // assert true if login is successful, since all credentials must have been accepted
+            Assert.IsTrue(results.Any());
         }
 
         [Test]
