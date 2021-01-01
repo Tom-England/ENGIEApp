@@ -20,6 +20,7 @@ namespace XamUiTest
         protected IApp App { get; private set; }
         protected Pages.LoginPage LoginPage { get; private set; }
         protected Pages.MainPage MainPage { get; private set; }
+        protected Pages.MenuPage MenuPage { get; private set; }
 
         [SetUp]
         public virtual void TestSetup()
@@ -27,6 +28,7 @@ namespace XamUiTest
             App = AppInitializer.StartApp(platform);
             LoginPage = new Pages.LoginPage(App, "Welcome");
             MainPage = new Pages.MainPage(App, "Home");
+            MenuPage = new Pages.MenuPage(App, "Menu");
         }
     }
 }
