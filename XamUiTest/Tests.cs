@@ -99,12 +99,11 @@ namespace XamUiTest
             LoginPage.EnterValidLoginCredentials();
             MainPage.TapMenuButton();
             MenuPage.TapScanPageButton();
-            // TODO also needs overhaul
-            //AppResult[] results = App.WaitForElement(c => c.Marked("Logout"));
+            AppResult[] results = App.WaitForElement(c => c.Marked("ScanPage"));
             App.Screenshot("Scan page shown after scan asset button in menu pressed");
 
             // Assert
-            //Assert.IsTrue(results.Any());
+            Assert.IsTrue(results.Any());
         }
     }
 }
