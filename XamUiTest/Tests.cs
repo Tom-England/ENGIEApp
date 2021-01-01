@@ -25,7 +25,7 @@ namespace XamUiTest
         {
             // Arrange and Act done in LoginPage.EnterValidLoginCredentials
             LoginPage.EnterValidLoginCredentials();
-            AppResult[] results = App.WaitForElement(c => c.Marked("Home"));
+            AppResult[] results = App.WaitForElement(c => c.Marked("HomePage"));
             App.Screenshot("Home page shown after login");
 
             // Assert
@@ -63,7 +63,7 @@ namespace XamUiTest
 
             App.WaitForElement(x => x.Marked("Continue"));
             App.Tap(x => x.Marked("Continue"));
-            AppResult[] results = App.Query(c => c.Marked("Home"));
+            AppResult[] results = App.Query(c => c.Marked("HomePage"));
             App.Screenshot("Home page shown after login");
 
             // Assert
@@ -78,11 +78,9 @@ namespace XamUiTest
             // done in LoginPage.EnterValidLoginCredentials to avoid repition of login information
 
             // Act
-            App.Repl();
             LoginPage.EnterValidLoginCredentials();
             MainPage.TapMenuButton();
-            // TODO must be a better way to check current page
-            AppResult[] results = App.WaitForElement(c => c.Marked("Logout"));
+            AppResult[] results = App.WaitForElement(c => c.Marked("MenuPage"));
             App.Screenshot("Menu page shown after menu button pressed");
 
             // Assert
