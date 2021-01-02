@@ -130,5 +130,56 @@ namespace XamUiTest
             // Assert
             Assert.IsTrue(results.Any());
         }
+
+        [Test]
+        public void RecentFormsPageCanBeAccessed()
+        {
+            // Arrange
+            // done in LoginPage.EnterValidLoginCredentials to avoid repition of login information
+
+            // Act
+            LoginPage.EnterValidLoginCredentials();
+            MainPage.TapMenuButton();
+            MenuPage.TapRecentPageButton();
+            AppResult[] results = App.WaitForElement(c => c.Marked("RecentPage"));
+            App.Screenshot("Recently scanned forms page shown after recent forms button in menu pressed");
+
+            // Assert
+            Assert.IsTrue(results.Any());
+        }
+
+        [Test]
+        public void HelpPageCanBeAccessed()
+        {
+            // Arrange
+            // done in LoginPage.EnterValidLoginCredentials to avoid repition of login information
+
+            // Act
+            LoginPage.EnterValidLoginCredentials();
+            MainPage.TapMenuButton();
+            MenuPage.TapHelpPageButton();
+            AppResult[] results = App.WaitForElement(c => c.Marked("HelpPage"));
+            App.Screenshot("Help page shown after help button in menu pressed");
+
+            // Assert
+            Assert.IsTrue(results.Any());
+        }
+
+        [Test]
+        public void LogoutReturnsToLoginPage()
+        {
+            // Arrange
+            // done in LoginPage.EnterValidLoginCredentials to avoid repition of login information
+
+            // Act
+            LoginPage.EnterValidLoginCredentials();
+            MainPage.TapMenuButton();
+            MenuPage.TapLogoutButton();
+            AppResult[] results = App.WaitForElement(c => c.Marked("LoginPage"));
+            App.Screenshot("Login page shown after logout button in menu pressed");
+
+            // Assert
+            Assert.IsTrue(results.Any());
+        }
     }
 }
