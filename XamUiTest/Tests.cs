@@ -17,6 +17,7 @@ namespace XamUiTest
         }
 
         [Test]
+        [Category("Login")]
         /* This tests the important EnterValidLoginCredentials method from Pages.LoginPage
          * Not only does this confirm the user can login successfully,
          * but it also tests logic used in many other tests to reduce code duplication
@@ -46,6 +47,7 @@ namespace XamUiTest
         [TestCase("Joe", "Bloggs", "joe@bloggs.com", "")]
         // test for phone number with invalid characters
         [TestCase("Joe", "Bloggs", "joe@bloggs.com", "+44777abc")]
+        [Category("Login")]
         public void IncorrectUserDetailsValidated(string firstName, string lastName, string email, string phone)
         {
             // Arrange
@@ -75,6 +77,7 @@ namespace XamUiTest
         [TestCase("Joe", "Bloggs", "joe@bloggs.com", "07777 777777")]
         // test for email with . in first segment
         [TestCase("Joe", "Bloggs", "joe.mail@bloggs.com", "+447777777777")]
+        [Category("Login")]
         public void CorrectUserDetailsValidated(string firstName, string lastName, string email, string phone)
         {
             // Arrange
@@ -99,6 +102,7 @@ namespace XamUiTest
         }
 
         [Test]
+        [Category("Navigation")]
         public void MenuButtonOpensMenu()
         {
             // Arrange
@@ -115,6 +119,7 @@ namespace XamUiTest
         }
 
         [Test]
+        [Category("Navigation")]
         public void ScanPageCanBeAccessed()
         {
             // Arrange
@@ -132,6 +137,7 @@ namespace XamUiTest
         }
 
         [Test]
+        [Category("Navigation")]
         public void RecentFormsPageCanBeAccessed()
         {
             // Arrange
@@ -149,6 +155,7 @@ namespace XamUiTest
         }
 
         [Test]
+        [Category("Navigation")]
         public void HelpPageCanBeAccessed()
         {
             // Arrange
@@ -166,6 +173,7 @@ namespace XamUiTest
         }
 
         [Test]
+        [Category("Navigation")]
         public void LogoutReturnsToLoginPage()
         {
             // Arrange
