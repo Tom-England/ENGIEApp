@@ -8,8 +8,45 @@
              AutomationId="RecentPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Recently Submitted Page"
-                   TextColor="Black"/>
+            <ListView x:Name="listViewm" ItemsSource="{Binding MyItems}">
+                <ListView.Header>
+                    <Grid BackgroundColor="#009fe3"
+                          ColumnSpacing="0"
+                          RowSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Date" HorizontalOptions="Fill"  Grid.Column="0"   FontSize="Medium" FontAttributes="Bold" BackgroundColor="#009fe3" TextColor="White" HorizontalTextAlignment="Center" Margin="1"/>
+                        <Label Text="Time" HorizontalOptions="Fill"  Grid.Column="1"  FontSize="Medium" FontAttributes="Bold" BackgroundColor="#009fe3" TextColor="White" HorizontalTextAlignment="Center" Margin="1"/>
+                        <Label Text="Form" HorizontalOptions="Fill"  Grid.Column="2"  FontSize="Medium" FontAttributes="Bold" BackgroundColor="#009fe3" TextColor="White" HorizontalTextAlignment="Center" Margin="1"/>
+                        <Label Text="Sent?" HorizontalOptions="Fill"  Grid.Column="3"  FontSize="Medium" FontAttributes="Bold" BackgroundColor="#009fe3" TextColor="White" HorizontalTextAlignment="Center" Margin="1"/>
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid BackgroundColor="#009fe3"
+                                  ColumnSpacing="0"
+                                  RowSpacing="0"
+                                  x:Name="RecentlySubmittedGrid">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Text ="{Binding Date}" HorizontalOptions="Fill" BackgroundColor="#FFF" HorizontalTextAlignment="Center" Margin="1"></Label>
+                                <Label Grid.Column="1" Text ="{Binding Time}" HorizontalOptions="Fill" BackgroundColor="#FFF" HorizontalTextAlignment="Center" Margin="1"></Label>
+                                <Label Grid.Column="2" Text ="{Binding Form}" HorizontalOptions="Fill" BackgroundColor="#FFF" HorizontalTextAlignment="Center" Margin="1"></Label>
+                                <Label Grid.Column="3" Text ="{Binding Sent}" HorizontalOptions="Fill" BackgroundColor="#FFF" HorizontalTextAlignment="Center" Margin="1"></Label>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
