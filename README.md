@@ -29,9 +29,10 @@ after the other.
 1. Open “Test Explorer” window in visual studio (CTRL + E, T)
 2. Ensure you have a suitable emulator set up or device connected.  Running the app on that device prior to testing ensures the correct version of the app is loaded there.
 3. Select the test(s) you would like to run in the test explorer.  For example:
-a. select “Tests(Android)” to run all Android test.
-b. select an individual test to only run that test.
-c. select “group by” and “traits” to sort by category.  Now you can select a category like “Navigation” to only run tests from that category
+
+* select “Tests(Android)” to run all Android test.
+* select an individual test to only run that test.
+* select “group by” and “traits” to sort by category.  Now you can select a category like “Navigation” to only run tests from that category
 4. Select “run” in test explorer window (CTRL+R, T) to run selected test(s)
 
 ## Troubleshooting
