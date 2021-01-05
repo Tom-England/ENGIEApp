@@ -7,3 +7,6 @@ ENGIE_App.Android/ENGIE_App.Android.csproj.user
 ENGIE_App.Android/obj/
 ENGIE_App.iOS/obj/
 ENGIE_App/obj/
+/ENGIE_App.iOS/bin/iPhone/Debug
+/XamUiTest/bin/Debug
+/XamUiTest/obj/Debug
