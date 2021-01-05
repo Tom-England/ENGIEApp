@@ -54,6 +54,9 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="sqlite-net-pcl">
+      <Version>1.7.335</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.8.0.1451" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
   </ItemGroup>
@@ -63,6 +66,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".editorconfig" />
+    <AndroidAsset Include="Assets\Lato-Regular.ttf" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
@@ -99,6 +104,24 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\test.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\engiewhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\homeicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\cameraicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\formicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\helpicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\logouticon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>

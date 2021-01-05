@@ -12,21 +12,34 @@
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <BoxView BackgroundColor="White" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5"/>
-                    <ImageButton Source="hamburger.png"
+                    <BoxView BackgroundColor="Transparent" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5"/>
+                    <Label Text="{TemplateBinding Title}"
+                           FontFamily="{StaticResource NormalFont}"
+                           Grid.Column="1"
+                           FontSize="Large"
+                           VerticalTextAlignment="Center"
+                           TextColor="#00a9ff"
+                           Grid.ColumnSpan="4"></Label>
+                    <ImageButton Source="hamburger"
                             Grid.Column="0"
                             HorizontalOptions="Center"
                             VerticalOptions="CenterAndExpand"
                             BorderColor="Transparent"
                             BackgroundColor="Transparent"
                             Clicked="Expand"/>
-
-                    <Image Source="engielogo.png"
-                        HorizontalOptions="Center"
-                        Grid.Column="2"/>
                     <ContentPresenter VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="5"/>
                 </Grid>
             </ControlTemplate>
+            
+            <!--Platform specific font definitions-->
+            <OnPlatform x:TypeArguments="x:String" x:Key="BoldFont">
+                <On Platform="Android" Value="Lato-Regular.ttf#Lato" />
+                <On Platform="iOS" Value="Lato-Regular" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="NormalFont">
+                <On Platform="Android" Value="Lato-Regular.ttf#Lato" />
+                <On Platform="iOS" Value="Lato-Regular" />
+            </OnPlatform>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
