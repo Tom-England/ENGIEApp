@@ -198,24 +198,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\benpa\\.nuget\\packages\\": {},
+    "C:\\Users\\zayn\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\benpa\\Documents\\uni\\CSC2033\\fresh project\\XamUiTest\\XamUiTest.csproj",
+      "projectUniqueName": "C:\\Users\\zayn\\Documents\\teamProject\\engie-app\\XamUiTest\\XamUiTest.csproj",
       "projectName": "XamUiTest",
-      "projectPath": "C:\\Users\\benpa\\Documents\\uni\\CSC2033\\fresh project\\XamUiTest\\XamUiTest.csproj",
-      "packagesPath": "C:\\Users\\benpa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\benpa\\Documents\\uni\\CSC2033\\fresh project\\XamUiTest\\obj\\",
+      "projectPath": "C:\\Users\\zayn\\Documents\\teamProject\\engie-app\\XamUiTest\\XamUiTest.csproj",
+      "packagesPath": "C:\\Users\\zayn\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\zayn\\Documents\\teamProject\\engie-app\\XamUiTest\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\benpa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\zayn\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],

@@ -49,6 +49,11 @@ namespace ENGIE_App
         }
         void GoLogin(object sender, EventArgs args)
         {
+            Application.Current.Properties.Remove("Firstname");
+            Application.Current.Properties.Remove("Lastname");
+            Application.Current.Properties.Remove("Email");
+            Application.Current.Properties.Remove("Phone");
+
             var mainPage = new LoginPage();
             var homePage = App.NavigationPage.Navigation.NavigationStack.First();
             App.NavigationPage.Navigation.InsertPageBefore(mainPage, homePage);
