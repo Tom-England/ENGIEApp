@@ -1,0 +1,69 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\benpa\\Documents\\uni\\CSC2033\\fresh project\\XamUiTest\\XamUiTest.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\benpa\\Documents\\uni\\CSC2033\\fresh project\\XamUiTest\\XamUiTest.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\benpa\\Documents\\uni\\CSC2033\\fresh project\\XamUiTest\\XamUiTest.csproj",
+        "projectName": "XamUiTest",
+        "projectPath": "C:\\Users\\benpa\\Documents\\uni\\CSC2033\\fresh project\\XamUiTest\\XamUiTest.csproj",
+        "packagesPath": "C:\\Users\\benpa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\benpa\\Documents\\uni\\CSC2033\\fresh project\\XamUiTest\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\benpa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net461"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net461": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net461": {
+          "dependencies": {
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.12.0, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[3.13.0, )"
+            },
+            "Xamarin.UITest": {
+              "target": "Package",
+              "version": "[3.0.5, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

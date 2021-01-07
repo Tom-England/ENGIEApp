@@ -4,7 +4,8 @@
              x:Class="ENGIE_App.views.HelpPage"
              BackgroundColor="White"
              ControlTemplate="{StaticResource MainPageTemplate}"
-             Title="Help">
+             Title="Help"
+             AutomationId="HelpPage">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Help Page"

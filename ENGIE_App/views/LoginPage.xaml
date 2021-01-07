@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ENGIE_App.views.LoginPage"
              BackgroundColor="#009fe3"
-             Title="Welcome">
+             Title="Welcome"
+             AutomationId="LoginPage">
     <!--ControlTemplate="{StaticResource MainPageTemplate}"-->
     <ContentPage.Content>
         <ScrollView>
@@ -27,28 +28,28 @@
                            CornerRadius="25"
                            BackgroundColor="White"
                            Grid.Row="1">
-                        <Entry Placeholder="First Name" FontSize="16" x:Name="EntryFirstName"/>
+                        <Entry Placeholder="First Name" FontSize="16" x:Name="EntryFirstName" AutomationId="FirstName"/>
                     </Frame>
 
                     <Frame Padding="25, 0, 25, 0"
                            CornerRadius="25"
                            BackgroundColor="White"
                            Grid.Row="2">
-                        <Entry Placeholder="Last Name" FontSize="16" x:Name="EntryLastName"/>
+                        <Entry Placeholder="Last Name" FontSize="16" x:Name="EntryLastName" AutomationId="LastName"/>
                     </Frame>
 
                     <Frame Padding="25, 0, 25, 0"
                            CornerRadius="25"
                            BackgroundColor="White"
                            Grid.Row="3">
-                        <Entry Placeholder="Email" FontSize="16" x:Name="EntryUserEmail"/>
+                        <Entry Placeholder="Email" FontSize="16" x:Name="EntryUserEmail" AutomationId="Email"/>
                     </Frame>
 
                     <Frame Padding="25, 0, 25, 0"
                            CornerRadius="25"
                            BackgroundColor="White"
                            Grid.Row="4">
-                        <Entry Placeholder="Phone Number" FontSize="16" x:Name="EntryUserPhoneNumber"/>
+                        <Entry Placeholder="Phone Number" FontSize="16" x:Name="EntryUserPhoneNumber" AutomationId="Phone"/>
                     </Frame>
 
                     <StackLayout Grid.Row="5" Padding="0, 50, 0, 100">

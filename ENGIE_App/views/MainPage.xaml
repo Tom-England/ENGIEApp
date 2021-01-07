@@ -4,7 +4,8 @@
              x:Class="ENGIE_App.MainPage"
              BackgroundColor="White"
              ControlTemplate="{StaticResource MainPageTemplate}"
-             Title="Home">
+             Title="Home"
+             AutomationId="HomePage">
     <ContentPage.Content>
         <StackLayout Margin="20">
             <Label
