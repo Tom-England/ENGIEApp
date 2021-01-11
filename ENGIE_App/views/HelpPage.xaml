@@ -16,22 +16,14 @@
                 Padding="30">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet tellus ut lectus lobortis posuere ut eget orci. Maecenas a elementum neque, sed posuere justo. Donec ullamcorper velit vel elit congue tincidunt. Fusce volutpat sapien eros, non condimentum purus efficitur id. Morbi sollicitudin vehicula facilisis. Cras ut justo dapibus, ultricies lorem rhoncus, tincidunt tellus. Sed odio arcu, congue vitae elementum ut, hendrerit at massa. Phasellus eleifend leo at orci varius sollicitudin. Fusce pharetra mattis pellentesque. Sed aliquam dui ut velit aliquet, id placerat orci luctus. Phasellus cursus non velit fringilla laoreet.
             </Label>
-            <StackLayout
-                Orientation="Horizontal"
-                VerticalOptions="FillAndExpand"
-                Padding="10">
-                <WebView 
-                Source="https://www.youtube.com/embed/q0qkBMuSHXY"
-                VerticalOptions="FillAndExpand"
-                HorizontalOptions="FillAndExpand"
-                    />
-                <Label
-                    FontSize="Medium"
-                    FontFamily="{StaticResource NormalFont}"
-                    >Video Title Goes Here</Label>
-            </StackLayout>
-            
-
+            <ScrollView>
+                <Grid x:Name="HelpGrid" Padding="10, 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </ScrollView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
