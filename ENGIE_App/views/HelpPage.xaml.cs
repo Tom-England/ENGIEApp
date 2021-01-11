@@ -21,26 +21,33 @@ namespace ENGIE_App.views
             NavigationPage.SetHasBackButton(this, false);
             InitializeComponent();
 
-            gridSize = 0;
+            gridSize = 0; // Used to track the last row of the grid so we can add to it easily
 
+            // Stores each HelpItem object
             VideoItems = new ObservableCollection<HelpItem>();
             VideoItems.Add(new HelpItem { Url = "https://www.youtube.com/embed/q0qkBMuSHXY", Title = "Test video one", Description = "Test video until real ones are made" });
             VideoItems.Add(new HelpItem { Url = "https://www.youtube.com/embed/DULDin5A5Mk", Title = "Test video two", Description = "Second video for testing" });
             VideoItems.Add(new HelpItem { Url = "https://www.youtube.com/embed/Sgc-K-3GhDs", Title = "Test video three", Description = "Third video for testing" });
 
+            // Loops through the help items, adds them to the grid then increments the current last row value
             foreach (HelpItem item in VideoItems)
             {
                 addHelpItemToGrid(item);
                 gridSize++;
             }
-
-           
-            //helpTable.ItemsSource = VideoItems;
         }
 
-        public void addHelpItemToGrid(HelpItem item)
+        // +==============================================================+
+        // | Function adds a row to the grid then creates the UI elements,|
+        // | inserts the appropriate information from the HelpItem object |
+        // | then adds it to the grids children                           |
+        // +==============================================================+
+        private void addHelpItemToGrid(HelpItem item)
         {
+            // Adds a row to the grid
             HelpGrid.RowDefinitions.Add(new RowDefinition());
+            
+            // Creates UI elements
             var video = new WebView
             {
                 Source = item.Url,
@@ -60,13 +67,18 @@ namespace ENGIE_App.views
                 FontFamily = "NormalFont",
                 Text = item.Description
             };
+
+            // Adds labels to stacklayout
             tagStack.Children.Add(titleLabel);
             tagStack.Children.Add(descLabel);
+
+            // Adds stacklayout and video to grid
             HelpGrid.Children.Add(video, 0, gridSize);
             HelpGrid.Children.Add(tagStack, 1, gridSize);
         }
     }
 
+    // Class to store information about each grid row
     public class HelpItem
     {
         public string Url { get; set; }
