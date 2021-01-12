@@ -25,7 +25,7 @@ namespace ENGIE_App
             InitializeComponent();
             // Set Up For Nav Bar
             var menuPage = new MenuPage();
-            NavigationPage = new NavigationPage(new LoginPage());
+            NavigationPage = new NavigationPage(new HelpPage());
             rootPage = new RootPage();
             rootPage.Master = menuPage;
             rootPage.Detail = NavigationPage;

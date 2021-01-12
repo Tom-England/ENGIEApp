@@ -59,13 +59,15 @@ namespace ENGIE_App.views
             {
                 FontSize = 15,
                 FontFamily = "NormalFont",
-                Text = item.Title
+                Text = item.Title,
+                TextColor = Color.FromHex("#444")
             };
             var descLabel = new Label
             {
                 FontSize = 10,
                 FontFamily = "NormalFont",
-                Text = item.Description
+                Text = item.Description,
+                TextColor = Color.FromHex("#444")
             };
 
             // Adds labels to stacklayout
