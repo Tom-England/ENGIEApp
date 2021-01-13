@@ -9,6 +9,8 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
+                <!--I'll move this button later -Tom -->
+                <Button Text="Admin"/>
                 <Grid Margin="20,0,20,0" VerticalOptions="CenterAndExpand">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>

@@ -4,7 +4,7 @@
              x:Class="ENGIE_App.views.AdminPage"
              Title="Admin"
              AutomationId="AdminPage"
-             ControlTemplate="{StaticResource MainPageTemplate}>
+             ControlTemplate="{StaticResource MainPageTemplate}">
     <ContentPage.Content>
         <StackLayout>
             
