@@ -16,7 +16,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -59,6 +58,9 @@
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.8.0.1451" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+    <PackageReference Include="ZXing.Net.Mobile.Forms">
+      <Version>3.0.0-beta5</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
@@ -95,7 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ENGIE_App\ENGIE_App.csproj">
-      <Project>{7A3B5881-E5C3-4047-A6B3-A2A43E798B66}</Project>
+      <Project>{898FB519-8497-4A47-B1E2-4C2308CE4A02}</Project>
       <Name>ENGIE_App</Name>
     </ProjectReference>
   </ItemGroup>
