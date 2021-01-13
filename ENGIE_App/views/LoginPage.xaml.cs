@@ -215,5 +215,10 @@ namespace ENGIE_App.views
 
 
         }
+
+        private async void Admin_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ENGIE_App.views.AdminPage());
+        }
     }
 }
