@@ -8,12 +8,13 @@
              Title="Scan Asset"
              AutomationId="ScanPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Scan Page"
-                   TextColor="Black"/>
-            <Label x:Name="scanResultText"/>
+        <AbsoluteLayout>
             <zxing:ZXingScannerView IsScanning="True"
                                     OnScanResult="ZXingScannerView_OnScanResult"/>
-        </StackLayout>
+            <Label x:Name="scanResultText"/>
+            <Image Source="crosshair"
+                   HeightRequest="100"
+                   WidthRequest="100"/>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>
