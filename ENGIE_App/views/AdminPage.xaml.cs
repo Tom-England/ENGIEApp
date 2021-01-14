@@ -50,6 +50,7 @@ namespace ENGIE_App.views
                 {
                     // takes user to home page upon succesful login 
                     var result = await this.DisplayAlert("Congratulations", "User Succesfully Registered", "Continue", "Cancel");
+                    Application.Current.Properties["Admin"] = true;
                     if (result)
                     {
                         var mainPage = new MainPage();
