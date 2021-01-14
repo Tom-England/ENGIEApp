@@ -54,7 +54,7 @@
                 Padding="10, 20, 10, 20"
                 Clicked="GoAdmin"
                 ContentLayout="Left, 0"
-                Image="helpicon"
+                Image="adminiconsmall"
                 BackgroundColor="White"
                 IsVisible="false"
                 IsEnabled="false"/>
