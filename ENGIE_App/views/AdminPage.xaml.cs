@@ -3,6 +3,7 @@ using Renci.SshNet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,13 +18,19 @@ namespace ENGIE_App.views
         MySqlConnection connection;
         SshClient client;
         String bnumber = "bnumb";
-        String unipass = "unipass";
+        String unipass = "Unipass";
 
         public AdminPage()
         {
             NavigationPage.SetHasNavigationBar(this, false);
             NavigationPage.SetHasBackButton(this, false);
             InitializeComponent();
+        }
+
+        public string ComputeHash(byte[] bytesToHash, byte[] salt)
+        {
+            var byteResult = new Rfc2898DeriveBytes(bytesToHash, salt, 10000);
+            return Convert.ToBase64String(byteResult.GetBytes(24));
         }
 
         public void Connect_Databse()
@@ -44,26 +51,71 @@ namespace ENGIE_App.views
         {
             var username = EntryUsername.Text;
             var password = EntryPassword.Text;
+            bool check = false;
+            var newsalt = "hvGirlXDVzdsCSrPmOdHRA==";
+            var hashedPassword = ComputeHash(Encoding.UTF8.GetBytes(password),
+                Encoding.UTF8.GetBytes(newsalt));
 
-            if (username.Equals("admin") && password.Equals("admin"))
+            if (connection == null)
             {
-                Device.BeginInvokeOnMainThread(async () =>
+                Connect_Databse();
+            }
+            try
+            {
+                Console.WriteLine("Connecting to MySQL...");
+                Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA " + hashedPassword);
+
+                // SQL code
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "SELECT Username, Password FROM Admin WHERE Username = @username and Password = @password";
+
+                // adds values user inputted to database
+                cmd.Parameters.AddWithValue("@username", username);
+                cmd.Parameters.AddWithValue("@password", hashedPassword);
+                cmd.ExecuteNonQuery();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
                 {
-                    // takes user to home page upon succesful login 
-                    var result = await this.DisplayAlert("Congratulations", "User Succesfully Registered", "Continue", "Cancel");
-                    Application.Current.Properties["Admin"] = true;
-                    if (result)
-                    {
-                        await Navigation.PushAsync(new ENGIE_App.views.AdminOptionsPage());
-                    }
+                    reader.Close();
+                    check = true;
                 }
-                );
+                else
+                {
+                    reader.Close();
+                    check = false;
+                }
+
+                if (check)
+                {
+                    Device.BeginInvokeOnMainThread(async () =>
+                    {
+                        // takes user to home page upon succesful login 
+                        var result = await this.DisplayAlert("Congratulations", "User Succesfully logged on", "Continue", "Cancel");
+                        Application.Current.Properties["Admin"] = true;
+                        if (result)
+                        {
+                            await Navigation.PushAsync(new ENGIE_App.views.AdminOptionsPage());
+                        }
+                    }
+                    );
+                }
+                else
+                {
+                    await DisplayAlert("Access Denied", "username and/or password are incorrect", "Continue", "Cancel");
+                    await Navigation.PushAsync(new ENGIE_App.views.AdminPage());
+                }
+
             }
-            else
+            catch (Exception ex)
             {
-                await DisplayAlert("Access Denied", "username and/or password are incorrect", "Continue", "Cancel");
-                await Navigation.PushAsync(new ENGIE_App.views.AdminPage());
+                Console.WriteLine(ex.ToString());
             }
+
+            connection.Clone();
+            connection.Close();
+            client.Disconnect();
+
 
         }
 

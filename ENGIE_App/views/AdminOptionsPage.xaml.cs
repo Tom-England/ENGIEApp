@@ -33,14 +33,6 @@ namespace ENGIE_App.views
             return Convert.ToBase64String(byteResult.GetBytes(24));
         }
 
-        public string GenerateSalt()
-        {
-            var bytes = new byte[128 / 8];
-            var rng = new RNGCryptoServiceProvider();
-            rng.GetBytes(bytes);
-            return Convert.ToBase64String(bytes);
-        }
-
         public void Connect_Databse()
         {
             PasswordConnectionInfo connectionInfo = new PasswordConnectionInfo("linux.cs.ncl.ac.uk", bnumber, unipass);
@@ -61,7 +53,7 @@ namespace ENGIE_App.views
         {
             var username = EntryUsername.Text;
             var password = EntryPassword.Text;
-            var newsalt = GenerateSalt();
+            var newsalt = "hvGirlXDVzdsCSrPmOdHRA==";
             var hashedPassword = ComputeHash(Encoding.UTF8.GetBytes(password),
                 Encoding.UTF8.GetBytes(newsalt));
 
