@@ -25,6 +25,7 @@ namespace XamUiTest.Pages
         {
             App.Tap(FirstNameText);
             App.EnterText(firstName);
+            App.DismissKeyboard();
             App.Screenshot("First name entered");
         }
 
@@ -32,6 +33,7 @@ namespace XamUiTest.Pages
         {
             App.Tap(LastNameText);
             App.EnterText(lastName);
+            App.DismissKeyboard();
             App.Screenshot("Last name entered");
         }
 
@@ -39,6 +41,7 @@ namespace XamUiTest.Pages
         {
             App.Tap(EmailText);
             App.EnterText(email);
+            App.DismissKeyboard();
             App.Screenshot("Email entered");
         }
 
@@ -46,6 +49,7 @@ namespace XamUiTest.Pages
         {
             App.Tap(PhoneText);
             App.EnterText(phone);
+            App.DismissKeyboard();
             App.Screenshot("Phone entered");
         }
 
@@ -67,7 +71,6 @@ namespace XamUiTest.Pages
             this.EnterLastName(lastName);
             this.EnterEmail(email);
             this.EnterPhone(phone);
-            App.DismissKeyboard();
             this.TapLoginButton();
             App.WaitForElement(x => x.Marked("Continue"));
             App.Tap(x => x.Marked("Continue"));

@@ -58,7 +58,6 @@ namespace XamUiTest
             LoginPage.EnterLastName(lastName);
             LoginPage.EnterEmail(email);
             LoginPage.EnterPhone(phone);
-            App.DismissKeyboard();
             LoginPage.TapLoginButton();
 
             App.WaitForElement(x => x.Marked("Continue"));
@@ -88,7 +87,6 @@ namespace XamUiTest
             LoginPage.EnterLastName(lastName);
             LoginPage.EnterEmail(email);
             LoginPage.EnterPhone(phone);
-            App.DismissKeyboard();
             LoginPage.TapLoginButton();
 
             App.WaitForElement(x => x.Marked("Continue"));
