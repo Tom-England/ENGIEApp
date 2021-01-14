@@ -14,6 +14,8 @@ namespace ENGIE_App.views
     {
         public AdminOptionsPage()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
+            NavigationPage.SetHasBackButton(this, false);
             InitializeComponent();
         }
     }
