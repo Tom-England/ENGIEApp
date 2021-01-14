@@ -7,7 +7,41 @@
              AutomationId="AdminOptionsPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Admin Options"/>
+            <Grid Margin="20,0,20,0" VerticalOptions="CenterAndExpand">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <StackLayout Grid.Row="0" Padding="0, 10, 0, 70">
+                    <Image Source="engiewhite.png"
+                               />
+                </StackLayout>
+
+                <Label Text="Create Admin Account"
+                   TextColor="Black"/>
+                
+                <Frame Padding="25, 0, 25, 0"
+                           CornerRadius="25"
+                           BackgroundColor="White"
+                           Grid.Row="1">
+                    <Entry Placeholder="Username" FontSize="16" x:Name="EntryUsername"/>
+                </Frame>
+
+                <Frame Padding="25, 0, 25, 0"
+                           CornerRadius="25"
+                           BackgroundColor="White"
+                           Grid.Row="2">
+                    <Entry Placeholder="Password" IsPassword="True" FontSize="16" x:Name="EntryPassword"/>
+                </Frame>
+
+                <StackLayout Grid.Row="3" Padding="0, 50, 0, 100">
+                    <Button Text="Login" HorizontalOptions="CenterAndExpand" TextColor="#000" BackgroundColor="#fff" Clicked="Button_Clicked" Padding="125, 20, 125, 20" CornerRadius="10"/>
+                </StackLayout>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
