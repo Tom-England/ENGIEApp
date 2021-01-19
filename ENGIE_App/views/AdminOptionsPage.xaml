@@ -7,7 +7,7 @@
              AutomationId="AdminOptionsPage">
     <ContentPage.Content>
         <StackLayout>
-            <Grid Margin="20,0,20,0" VerticalOptions="CenterAndExpand">
+            <Grid Margin="20,0,20,0" VerticalOptions="Start">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -15,15 +15,22 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-
-                <StackLayout Grid.Row="0" Padding="0, 10, 0, 70">
-                    <Image Source="engiewhite.png"
-                               />
-                </StackLayout>
-
                 <Label Text="Create Admin Account"
-                   TextColor="Black"/>
-                
+                       TextColor="Black"
+                       FontFamily="{StaticResource NormalFont}"
+                       FontSize="Medium"
+                       HorizontalTextAlignment="Center"
+                       Margin="0, 0, 0, 10"/>
+
+                <!--This is an underline for the text similar to the <hr> tag in html-->
+                <Frame Margin="0, 30, 0, 0"
+                       HeightRequest="2"
+                       MinimumHeightRequest="1"
+                       Padding="0, 0, 0, 0"
+                       BackgroundColor="#444"
+                       BorderColor="Transparent">
+                </Frame>
+
                 <Frame Padding="25, 0, 25, 0"
                            CornerRadius="25"
                            BackgroundColor="White"
@@ -38,10 +45,27 @@
                     <Entry Placeholder="Password" IsPassword="True" FontSize="16" x:Name="EntryPassword"/>
                 </Frame>
 
-                <StackLayout Grid.Row="3" Padding="0, 50, 0, 100">
-                    <Button Text="Login" HorizontalOptions="CenterAndExpand" TextColor="#000" BackgroundColor="#fff" Clicked="Button_Clicked" Padding="125, 20, 125, 20" CornerRadius="10"/>
+                <StackLayout Grid.Row="3" Padding="0, 10, 0, 0">
+                    <Button Text="Register" HorizontalOptions="CenterAndExpand" TextColor="#FFF" BackgroundColor="#009fe3" Clicked="Button_Clicked" Padding="125, 20, 125, 20" CornerRadius="10"/>
                 </StackLayout>
             </Grid>
+            <StackLayout Margin="20,30,20,0">
+                <Label Text="New Form"
+                       TextColor="Black"
+                       FontFamily="{StaticResource NormalFont}"
+                       FontSize="Medium"
+                       HorizontalTextAlignment="Center"
+                       Margin="0, 0, 0, 10"/>
+
+                <!--This is an underline for the text similar to the <hr> tag in html-->
+                <Frame HeightRequest="2"
+                       MinimumHeightRequest="1"
+                       Padding="0, 0, 0, 0"
+                       BackgroundColor="#444"
+                       BorderColor="Transparent">
+                </Frame>
+            </StackLayout>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
