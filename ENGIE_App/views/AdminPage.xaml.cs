@@ -98,8 +98,8 @@ namespace ENGIE_App.views
                             var mainPage = new MainPage();
                             var homePage = App.NavigationPage.Navigation.NavigationStack.First();
                             App.NavigationPage.Navigation.InsertPageBefore(mainPage, homePage);
-                            //await Navigation.PushAsync(new ENGIE_App.views.AdminOptionsPage());                        
-                            await App.NavigationPage.PopToRootAsync(false);
+                            await Navigation.PushAsync(new ENGIE_App.views.AdminOptionsPage());                        
+                            //await App.NavigationPage.PopToRootAsync(false);
 
                         }
                     }
