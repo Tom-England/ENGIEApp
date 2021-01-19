@@ -95,7 +95,12 @@ namespace ENGIE_App.views
                         Application.Current.Properties["Admin"] = true;
                         if (result)
                         {
-                            await Navigation.PushAsync(new ENGIE_App.views.AdminOptionsPage());
+                            var mainPage = new MainPage();
+                            var homePage = App.NavigationPage.Navigation.NavigationStack.First();
+                            App.NavigationPage.Navigation.InsertPageBefore(mainPage, homePage);
+                            //await Navigation.PushAsync(new ENGIE_App.views.AdminOptionsPage());                        
+                            await App.NavigationPage.PopToRootAsync(false);
+
                         }
                     }
                     );
