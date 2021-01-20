@@ -20,7 +20,7 @@ namespace ENGIE_App.views
     {
         MySqlConnection connection;
         SshClient client;
-        String bnumber = "bnumber";
+        String bnumber = "bnum";
         String unipass = "unipass";
 
         public LoginPage()
@@ -197,6 +197,8 @@ namespace ENGIE_App.views
                 client.Disconnect();
 
                 Console.WriteLine("Done.");
+
+                Application.Current.Properties["Firstname"] = item.FirstName;
 
                 Device.BeginInvokeOnMainThread(async () =>
                 {

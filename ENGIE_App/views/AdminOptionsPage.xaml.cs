@@ -17,7 +17,7 @@ namespace ENGIE_App.views
     {
         MySqlConnection connection;
         SshClient client;
-        String bnumber = "bnumb";
+        String bnumber = "bnum";
         String unipass = "unipass";
 
         public AdminOptionsPage()
@@ -49,7 +49,7 @@ namespace ENGIE_App.views
 
 
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e)
         {
             var username = EntryUsername.Text;
             var password = EntryPassword.Text;
@@ -86,19 +86,8 @@ namespace ENGIE_App.views
 
             Console.WriteLine("Done.");
 
-            Device.BeginInvokeOnMainThread(async () =>
-            {
-                // takes user to home page upon succesful login 
-                var result = await this.DisplayAlert("Congratulations", "Admin Succesfully Created", "Continue", "Cancel");
-                if (result)
-                {
-                    var mainPage = new MainPage();
-                    var homePage = App.NavigationPage.Navigation.NavigationStack.First();
-                    App.NavigationPage.Navigation.InsertPageBefore(mainPage, homePage);
-                    await App.NavigationPage.PopToRootAsync(false);
-                }
-            }
-                );
+            await this.DisplayAlert("Congratulations", "Admin Succesfully Created", "Continue", "Cancel");
+
         }
     }
 }
