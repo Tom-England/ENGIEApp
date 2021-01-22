@@ -18,5 +18,14 @@ namespace ENGIE_App.views
             NavigationPage.SetHasBackButton(this, false);
             InitializeComponent();
         }
+
+        void ZXingScannerView_OnScanResult(ZXing.Result result)
+        {
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                scanResultText.Text = result.Text;
+            });
+               
+        }
     }
 }
