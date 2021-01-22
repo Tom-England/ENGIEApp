@@ -86,6 +86,8 @@ namespace ENGIE_App.views
                     check = false;
                 }
 
+                Application.Current.Properties["Firstname"] = username;
+
                 if (check)
                 {
                     Device.BeginInvokeOnMainThread(async () =>
