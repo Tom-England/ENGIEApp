@@ -20,7 +20,7 @@ namespace ENGIE_App.views
     {
         MySqlConnection connection;
         SshClient client;
-        String bnumber = "bnumber";
+        String bnumber = "bnum";
         String unipass = "unipass";
 
         public LoginPage()
@@ -198,6 +198,8 @@ namespace ENGIE_App.views
 
                 Console.WriteLine("Done.");
 
+                Application.Current.Properties["Firstname"] = item.FirstName;
+
                 Device.BeginInvokeOnMainThread(async () =>
                 {
                     // takes user to home page upon succesful login 
@@ -214,6 +216,11 @@ namespace ENGIE_App.views
             }
 
 
+        }
+
+        private async void Admin_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ENGIE_App.views.AdminPage());
         }
     }
 }
