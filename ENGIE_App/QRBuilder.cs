@@ -13,6 +13,7 @@ namespace ENGIE_App
     {
         public SKColor lightColour;
         public SKColor darkColour;
+        public string email;
         public QRBuilder()
         {
             lightColour = SKColors.White;
@@ -29,11 +30,11 @@ namespace ENGIE_App
             return qrCodeImageAsBase64;
         }
 
-        public SKBitmap CreateImageFromText(string text, int size=42)
+        public SKBitmap CreateImageFromText(string text, int size=294)
         {
             SKBitmap qr = new SKBitmap(size, size);
-            var pixelHeight = size / 20;
-            var pixelWidth = size / 40;
+            var pixelHeight = size / 21;
+            var pixelWidth = size / 42;
             var currentRow = 0;
             var currentColumn = 0;
             var bufferSize = 8; // QR code is generated with 8 cells of whitespace on either side
@@ -44,12 +45,30 @@ namespace ENGIE_App
                     Console.WriteLine("Y:" + currentRow + " X:" + currentColumn);
                     if (ch.Equals(' '))
                     {
+                        for(int y = 0; y < pixelHeight; y++)
+                        {
+                            for(int x = 0; x < pixelWidth; x++)
+                            {
+                                qr.SetPixel((currentColumn - bufferSize)*pixelWidth+x, (currentRow) * pixelHeight+y, this.lightColour);
+                                //qr.SetPixel((currentColumn - bufferSize) * pixelWidth + x, (currentRow * 2 + 1) * pixelHeight + y, this.lightColour);
+                            }
+                        }
+                        //qr.SetPixel(currentColumn - bufferSize, (currentRow * 2), this.lightColour);
+                        //qr.SetPixel(currentColumn - bufferSize, (currentRow * 2) + 1, this.lightColour);
                         currentColumn++;
                     }
                     else
                     {
-                        qr.SetPixel(currentColumn-bufferSize, (currentRow*2), this.darkColour);
-                        qr.SetPixel(currentColumn - bufferSize, (currentRow*2)+1, this.darkColour);
+                        for (int y = 0; y < pixelHeight; y++)
+                        {
+                            for (int x = 0; x < pixelWidth; x++)
+                            {
+                                qr.SetPixel((currentColumn - bufferSize) * pixelWidth + x, (currentRow) * pixelHeight + y, this.darkColour);
+                                //qr.SetPixel((currentColumn - bufferSize) * pixelWidth + x, (currentRow * 2 + 1) * pixelHeight + y, this.darkColour);
+                            }
+                        }
+                        //qr.SetPixel(currentColumn-bufferSize, (currentRow*2), this.darkColour);
+                        //qr.SetPixel(currentColumn - bufferSize, (currentRow*2)+1, this.darkColour);
                         currentColumn++;
                     }
                 } else
@@ -90,7 +109,7 @@ namespace ENGIE_App
                 {
                     Subject = "QR Code",
                     Body = "Hello, World!",
-                    To = new List<string> { "tomengland6679@gmail.com" }
+                    To = new List<string> { email }
                     //Cc = ccRecipients,
                     //Bcc = bccRecipients
                 };
