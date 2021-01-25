@@ -79,7 +79,8 @@
                     <!-- x:Name="ConvertedImage" />-->
                     <Label x:Name="QRLabel"
                            LineBreakMode="NoWrap"
-                           FontSize="Micro"/> 
+                           FontSize="Micro"/>
+                    <Image x:Name="QRImage"/>
                 </ScrollView>
                 
             </StackLayout>

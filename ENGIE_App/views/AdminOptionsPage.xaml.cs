@@ -100,7 +100,11 @@ namespace ENGIE_App.views
             QRLabel.Text = "Generated Successfully";
             //await Clipboard.SetTextAsync(QRData);
             Console.WriteLine(QRData);
-
+            generator.SaveImage(generator.CreateImageFromText(QRData));
+            var test = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            //var filename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "MyQR.png");
+            var filename = Path.Combine(test, "MyQR.png");
+            QRImage.Source = filename;
         }
     }
 }
