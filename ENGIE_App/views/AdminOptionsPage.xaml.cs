@@ -6,9 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
 
 namespace ENGIE_App.views
 {
@@ -87,6 +89,17 @@ namespace ENGIE_App.views
             Console.WriteLine("Done.");
 
             await this.DisplayAlert("Congratulations", "Admin Succesfully Created", "Continue", "Cancel");
+
+        }
+
+        private void GenerateQR(object sender, EventArgs e)
+        {
+            var generator = new QRBuilder();
+            var QRData = generator.CreateQRCode(EntryQRText.Text);
+
+            QRLabel.Text = "Generated Successfully";
+            //await Clipboard.SetTextAsync(QRData);
+            Console.WriteLine(QRData);
 
         }
     }
