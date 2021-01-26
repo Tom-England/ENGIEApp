@@ -6,23 +6,34 @@ Created by:
 * Zayn Iftikhar
 * Matthew Osborne
 
+# Running the App
+## Logging in
+In order to log into the app, the user must enter their university login details
+in the file DatabaseConnector.cs, located in the ENGIE_App folder. The user needs to
+place their username in the bnumber variable and their password in the unipass variable
+
+E.g.
+```
+String bnumber = "b1234567";
+String unipass = "Hunter2";
+```
 
 # Testing
 ## Overview
 Tests have been written using the Xamarin.UITest framework that uses NUnit.  
-This framework allows for the tests to interact with the application in the same 
+This framework allows for the tests to interact with the application in the same
 way that a user would – by observing controls and tapping them appropriately.
 
 ## Structure
-A “Page Object Architecture” has been followed where there is a class 
-representing each page of the application.  Methods are available for each 
-action a user may make – such as tapping a button or entering text into a 
-textbox.  This reduces code duplication and allows for the tests to be easily 
+A “Page Object Architecture” has been followed where there is a class
+representing each page of the application.  Methods are available for each
+action a user may make – such as tapping a button or entering text into a
+textbox.  This reduces code duplication and allows for the tests to be easily
 
 updated if changes are made.
-Tests have been split into categories (e.g. “Login”, “Navigation”) and these 
+Tests have been split into categories (e.g. “Login”, “Navigation”) and these
 categories can be run when changes are made to relevant underlying code.
-Alternatively, tests can be run individually or all the tests can be run one 
+Alternatively, tests can be run individually or all the tests can be run one
 after the other.
 
 ## Running tests
@@ -36,7 +47,6 @@ after the other.
 4. Select “run” in test explorer window (CTRL+R, T) to run selected test(s)
 
 ## Troubleshooting
-Ensure Xamarin components are installed.  You can check in the 
+Ensure Xamarin components are installed.  You can check in the
 “Individual Components” section under “Tools > Get Tools and Features…”.
 A restart of visual studio is often required to make these changes apply.
-
