@@ -6,11 +6,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
+using MailKit.Net.Smtp;
+using System.Net.Mail;
+using MailKit;
+using MimeKit;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
+using System.ComponentModel;
+using System.IO;
+using System.Text.RegularExpressions;
 
 namespace ENGIE_App.views
 {
@@ -19,8 +25,9 @@ namespace ENGIE_App.views
     {
         MySqlConnection connection;
         SshClient client;
-        String bnumber = "bnum";
+        String bnumber = "bunumb";
         String unipass = "unipass";
+        bool checker = false;
 
         public AdminOptionsPage()
         {
@@ -92,42 +99,80 @@ namespace ENGIE_App.views
 
         }
 
-        private void GenerateQR(object sender, EventArgs e)
+        private void Set_Email(object sender, EventArgs e)
         {
-            
+            var email = EntryDesEmail.Text;
 
-            var text = SetSelectedItem();
-            if (text != null)
-            {
-                var generator = new QRBuilder();
-                var QRData = generator.CreateQRCode(text);
+            Application.Current.Properties["Email"] = email;
 
-                QRLabel.Text = "Generated Successfully";
-                //await Clipboard.SetTextAsync(QRData);
-                Console.WriteLine(QRData);
-                generator.SaveImage(generator.CreateImageFromText(QRData));
-                var test = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-                //var filename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "MyQR.png");
-                var filename = Path.Combine(test, "MyQR.png");
-            } else
-            {
-                QRLabel.Text = "No Item Selected";
-            }
-
-            
+            checker = true;
+            sendEmailBtn.IsEnabled = checker;
         }
 
-        private string SetSelectedItem()
+        public async void Send_Email(object sender, EventArgs e)
         {
-            switch (EntryQRText.SelectedIndex)
+
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress("Team 40", "csc2033team40@gmail.com"));
+            message.To.Add(new MailboxAddress("", (string)Application.Current.Properties["Email"]));
+            message.Subject = "TEST";
+
+            // create our message text, just like before (except don't set it as the message.Body)
+            var body = new TextPart("plain")
             {
-                case 0:
-                    return "EML";
-                case 1:
-                    return "ELT";
-                default:
-                    return null;
+                Text = "Hi there, this is a body of the message."
+            };
+
+            // now create the multipart/mixed container to hold the message text and the
+            // image attachment
+
+
+            message.Body = body;
+
+            using (var client = new MailKit.Net.Smtp.SmtpClient())
+            {
+                client.Connect("smtp.gmail.com", 587, false);
+
+                // Note: since we don't have an OAuth2 token, disable
+                // the XOAUTH2 authentication mechanism.
+                client.AuthenticationMechanisms.Remove("XOAUTH2");
+
+                // Note: only needed if the SMTP server requires authentication
+                client.Authenticate("csc2033team40", "!Passw0rd123");
+
+                try
+                {
+                    await client.SendAsync(message);
+                    await this.DisplayAlert("Succes", "email sent", "Continue", "Cancel");
+                }
+                catch (SmtpCommandException ex)
+                {
+                    Console.WriteLine("Error sending message: {0}", ex.Message);
+                    Console.WriteLine("\tStatusCode: {0}", ex.StatusCode);
+                    switch (ex.ErrorCode)
+                    {
+                        case SmtpErrorCode.RecipientNotAccepted:
+                            Console.WriteLine("\tRecipient not accepted: {0}", ex.Mailbox);
+                            break;
+                        case SmtpErrorCode.SenderNotAccepted:
+                            Console.WriteLine("\tSender not accepted: {0}", ex.Mailbox);
+                            break;
+                        case SmtpErrorCode.MessageNotAccepted:
+                            Console.WriteLine("\tMessage not accepted.");
+                            break;
+                    }
+                }
+                catch (SmtpProtocolException ex)
+                {
+                    Console.WriteLine("Protocol error while sending message: {0}", ex.Message);
+                }
+                client.Disconnect(true);
             }
+        }
+
+        private void ValidateEmail(object sender, TextChangedEventArgs e)
+        {
+            setEmailBtn.IsEnabled = Regex.IsMatch(EntryDesEmail.Text, @"^((([a-z, A-Z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z, A-Z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z, A-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z, A-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z, A-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z, A-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z, A-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z, A-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z, A-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z, A-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$");
         }
     }
-}
+}   

@@ -11,6 +11,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="views\GlobalVariables.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="2.10.1" />
+    <PackageReference Include="MimeKit" Version="2.10.1" />
     <PackageReference Include="MySqlConnector" Version="1.2.1" />
     <PackageReference Include="QRCoder" Version="1.4.1" />
     <PackageReference Include="SkiaSharp" Version="2.80.2" />
