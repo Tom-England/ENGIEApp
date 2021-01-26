@@ -20,6 +20,26 @@ namespace ENGIE_App
             InitializeComponent();
         }
 
+        bool CheckIfAdmin()
+        {
+            if (Application.Current.Properties.ContainsKey("Admin"))
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
+        }
+
+        public void UpdateAdminButton()
+        {
+            if (CheckIfAdmin())
+            {
+                AdminButton.IsVisible = true;
+                AdminButton.IsEnabled = true;
+            }
+        }
+
         void GoHome(object sender, EventArgs args)
         {
             App.MenuIsPresented = false;
@@ -47,12 +67,22 @@ namespace ENGIE_App
             App.MenuIsPresented = false;
             App.NavigationPage.Navigation.PushAsync(new ScanPage());
         }
+        void GoAdmin(object sender, EventArgs args)
+        {
+            App.MenuIsPresented = false;
+            App.NavigationPage.Navigation.PushAsync(new AdminOptionsPage());
+        }
         void GoLogin(object sender, EventArgs args)
         {
             Application.Current.Properties.Remove("Firstname");
             Application.Current.Properties.Remove("Lastname");
             Application.Current.Properties.Remove("Email");
             Application.Current.Properties.Remove("Phone");
+            if (CheckIfAdmin())
+            {
+                Application.Current.Properties.Remove("Admin");
+            }
+            
 
             var mainPage = new LoginPage();
             var homePage = App.NavigationPage.Navigation.NavigationStack.First();

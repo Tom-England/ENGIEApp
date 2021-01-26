@@ -19,9 +19,7 @@ namespace ENGIE_App.views
     public partial class LoginPage : ContentPage
     {
         MySqlConnection connection;
-        SshClient client;
-        String bnumber = "bnumber";
-        String unipass = "unipass";
+        DatabaseConnector dbconn = new DatabaseConnector();
 
         public LoginPage()
         {
@@ -47,20 +45,7 @@ namespace ENGIE_App.views
             }
         }
 
-        // Method to connect to database
-        public void Connect_Databse()
-        {
-            PasswordConnectionInfo connectionInfo = new PasswordConnectionInfo("linux.cs.ncl.ac.uk", bnumber, unipass);
-            connectionInfo.Timeout = TimeSpan.FromSeconds(30);
-            client = new SshClient(connectionInfo);
-            client.Connect();
-            var x = client.IsConnected;
-            ForwardedPortLocal portFwld = new ForwardedPortLocal("127.0.0.1", "cs-db.ncl.ac.uk", 3306);
-            client.AddForwardedPort(portFwld);
-            portFwld.Start();
-            connection = new MySqlConnection("server = 127.0.0.1; Database = t2033t40; UID = t2033t40; PWD = AwedPace%Car; Port = " + portFwld.BoundPort);
-            connection.Open();
-        }
+
 
         public async void Button_Clicked(object sender, System.EventArgs e)
         {
@@ -168,7 +153,8 @@ namespace ENGIE_App.views
             {
                 if (connection == null)
                 {
-                    Connect_Databse();
+                    connection = dbconn.Connect_Database();
+                    connection.Open();
                 }
                 try
                 {
@@ -192,11 +178,11 @@ namespace ENGIE_App.views
                     Console.WriteLine(ex.ToString());
                 }
 
-                connection.Clone();
-                connection.Close();
-                client.Disconnect();
+                dbconn.Close_Connection();
 
                 Console.WriteLine("Done.");
+
+                Application.Current.Properties["Firstname"] = item.FirstName;
 
                 Device.BeginInvokeOnMainThread(async () =>
                 {
@@ -214,6 +200,11 @@ namespace ENGIE_App.views
             }
 
 
+        }
+
+        private async void Admin_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ENGIE_App.views.AdminPage());
         }
     }
 }

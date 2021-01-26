@@ -47,9 +47,19 @@
                 ContentLayout="Left, 0"
                 Image="helpicon"
                 BackgroundColor="White"/>
-
-
             <Button
+                x:Name="AdminButton"
+                Text="Admin"
+                FontFamily="{StaticResource NormalFont}"
+                Padding="10, 20, 10, 20"
+                Clicked="GoAdmin"
+                ContentLayout="Left, 0"
+                Image="adminiconsmall"
+                BackgroundColor="White"
+                IsVisible="false"
+                IsEnabled="false"/>
+
+                <Button
                 Text="Forms (To Be Removed Later)"
                 Padding="10, 20, 10, 20"
                 Clicked="GoForm"/>

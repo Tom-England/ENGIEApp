@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ENGIE_App.views.AdminOptionsPage"
+             ControlTemplate="{StaticResource MainPageTemplate}"
+             Title="Admin"
+             AutomationId="AdminOptionsPage">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout>
+            
+            <StackLayout Margin="20,0,20,0">
+                <Label Text="Location to send PDF forms"
+                       TextColor="Black"
+                       FontFamily="{StaticResource NormalFont}"
+                       FontSize="Medium"
+                       HorizontalTextAlignment="Center"
+                       Margin="0, 0, 0, 10"/>
+
+                <!--This is an underline for the text similar to the <hr> tag in html-->
+                <Frame HeightRequest="2"
+                       MinimumHeightRequest="1"
+                       Padding="0, 0, 0, 0"
+                       BackgroundColor="#444"
+                       BorderColor="Transparent">
+                </Frame>
+                <Frame Padding="25, 0, 25, 0"
+                           CornerRadius="25"
+                           BackgroundColor="White"
+                           Grid.Row="1">
+                    <Entry Placeholder="Email" Keyboard="Email" TextChanged="ValidateEmail" FontSize="16" x:Name="EntryDesEmail"/>
+                </Frame>
+                
+                <StackLayout Padding="0, 10, 0, 0">
+                        <Button Text="Set  Email" HorizontalOptions="CenterAndExpand" TextColor="#FFF" BackgroundColor="#009fe3" Clicked="Set_Email" IsEnabled="False" x:Name="setEmailBtn" Padding="120, 20, 120, 20" CornerRadius="10"/>
+                </StackLayout>
+                <StackLayout Padding="0, 10, 0, 0">
+                        <Button Text="Send  Email" HorizontalOptions="CenterAndExpand" TextColor="#FFF" BackgroundColor="#009fe3" Clicked="Send_Email" IsEnabled="False" x:Name="sendEmailBtn" Padding="115, 20, 115, 20" CornerRadius="10"/>
+                </StackLayout>
+            
+            </StackLayout>
+            
+            <Grid Margin="20,30,20,0" VerticalOptions="Start">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Text="Create Admin Account"
+                       TextColor="Black"
+                       FontFamily="{StaticResource NormalFont}"
+                       FontSize="Medium"
+                       HorizontalTextAlignment="Center"
+                       Margin="0, 0, 0, 10"/>
+
+                <!--This is an underline for the text similar to the <hr> tag in html-->
+                <Frame Margin="0, 30, 0, 0"
+                       HeightRequest="2"
+                       MinimumHeightRequest="1"
+                       Padding="0, 0, 0, 0"
+                       BackgroundColor="#444"
+                       BorderColor="Transparent">
+                </Frame>
+
+                <Frame Padding="25, 0, 25, 0"
+                           CornerRadius="25"
+                           BackgroundColor="White"
+                           Grid.Row="1">
+                    <Entry Placeholder="Username" FontSize="16" x:Name="EntryUsername"/>
+                </Frame>
+
+                <Frame Padding="25, 0, 25, 0"
+                           CornerRadius="25"
+                           BackgroundColor="White"
+                           Grid.Row="2">
+                    <Entry Placeholder="Password" IsPassword="True" FontSize="16" x:Name="EntryPassword"/>
+                </Frame>
+
+                <StackLayout Grid.Row="3" Padding="0, 10, 0, 0">
+                    <Button Text="Register" HorizontalOptions="CenterAndExpand" TextColor="#FFF" BackgroundColor="#009fe3" Clicked="Button_Clicked" Padding="125, 20, 125, 20" CornerRadius="10"/>
+                </StackLayout>
+            </Grid>
+            <StackLayout Margin="20,30,20,0">
+                <Label Text="New Form"
+                       TextColor="Black"
+                       FontFamily="{StaticResource NormalFont}"
+                       FontSize="Medium"
+                       HorizontalTextAlignment="Center"
+                       Margin="0, 0, 0, 10"/>
+
+                <!--This is an underline for the text similar to the <hr> tag in html-->
+                <Frame HeightRequest="2"
+                       MinimumHeightRequest="1"
+                       Padding="0, 0, 0, 0"
+                       BackgroundColor="#444"
+                       BorderColor="Transparent">
+                </Frame>
+
+                <Picker x:Name="EntryQRText"
+                    Title="Select a Form"
+                    SelectedIndex="{Binding FormSelection}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Emergency Lighting</x:String>
+                            <x:String>Electrical Test</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <StackLayout Grid.Row="3" Padding="0, 10, 0, 0">
+                    <Button Text="Create QR" HorizontalOptions="CenterAndExpand" TextColor="#FFF" BackgroundColor="#009fe3" Clicked="GenerateQR" Padding="120, 20, 120, 20" CornerRadius="10"/>
+                </StackLayout>
+                <ScrollView>
+                    <!-- x:Name="ConvertedImage" />-->
+                    <Label x:Name="QRLabel"
+                           LineBreakMode="NoWrap"
+                           FontSize="Micro"/>
+                </ScrollView>
+                
+            </StackLayout>
+            
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

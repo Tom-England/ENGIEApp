@@ -9,6 +9,7 @@ namespace ENGIE_App
     {
         public static NavigationPage NavigationPage { get; private set; }
         private static RootPage rootPage;
+        private static MenuPage menuPage;
         public static bool MenuIsPresented
         {
             get
@@ -24,7 +25,7 @@ namespace ENGIE_App
         {
             InitializeComponent();
             // Set Up For Nav Bar
-            var menuPage = new MenuPage();
+            menuPage = new MenuPage();
             NavigationPage = new NavigationPage(new LoginPage());
             rootPage = new RootPage();
             rootPage.Master = menuPage;
@@ -46,6 +47,7 @@ namespace ENGIE_App
 
         private void Expand(object sender, EventArgs e)
         {
+            menuPage.UpdateAdminButton();
             MenuIsPresented = true;
         }
     }
