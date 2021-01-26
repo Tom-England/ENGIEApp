@@ -1,26 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "/Users/matthewosborne/Documents/University/Stage 2/CSC2033 Software Engineering Team Project/C4TApp/XamUiTest/XamUiTest.csproj": {}
+    "C:\\Users\\benpa\\Documents\\uni\\CSC2033\\06 01 2021\\XamUiTest\\XamUiTest.csproj": {}
   },
   "projects": {
-    "/Users/matthewosborne/Documents/University/Stage 2/CSC2033 Software Engineering Team Project/C4TApp/XamUiTest/XamUiTest.csproj": {
+    "C:\\Users\\benpa\\Documents\\uni\\CSC2033\\06 01 2021\\XamUiTest\\XamUiTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/matthewosborne/Documents/University/Stage 2/CSC2033 Software Engineering Team Project/C4TApp/XamUiTest/XamUiTest.csproj",
+        "projectUniqueName": "C:\\Users\\benpa\\Documents\\uni\\CSC2033\\06 01 2021\\XamUiTest\\XamUiTest.csproj",
         "projectName": "XamUiTest",
-        "projectPath": "/Users/matthewosborne/Documents/University/Stage 2/CSC2033 Software Engineering Team Project/C4TApp/XamUiTest/XamUiTest.csproj",
-        "packagesPath": "/Users/matthewosborne/.nuget/packages/",
-        "outputPath": "/Users/matthewosborne/Documents/University/Stage 2/CSC2033 Software Engineering Team Project/C4TApp/XamUiTest/obj/",
+        "projectPath": "C:\\Users\\benpa\\Documents\\uni\\CSC2033\\06 01 2021\\XamUiTest\\XamUiTest.csproj",
+        "packagesPath": "C:\\Users\\benpa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\benpa\\Documents\\uni\\CSC2033\\06 01 2021\\XamUiTest\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "/Users/matthewosborne/.config/NuGet/NuGet.Config"
+          "C:\\Users\\benpa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net461"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
