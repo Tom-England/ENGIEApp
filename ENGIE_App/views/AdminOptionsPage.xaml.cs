@@ -94,17 +94,40 @@ namespace ENGIE_App.views
 
         private void GenerateQR(object sender, EventArgs e)
         {
-            var generator = new QRBuilder();
-            var QRData = generator.CreateQRCode(EntryQRText.Text);
+            
 
-            QRLabel.Text = "Generated Successfully";
-            //await Clipboard.SetTextAsync(QRData);
-            Console.WriteLine(QRData);
-            generator.SaveImage(generator.CreateImageFromText(QRData));
-            var test = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            //var filename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "MyQR.png");
-            var filename = Path.Combine(test, "MyQR.png");
-            QRImage.Source = filename;
+            var text = SetSelectedItem();
+            if (text != null)
+            {
+                var generator = new QRBuilder();
+                var QRData = generator.CreateQRCode(text);
+
+                QRLabel.Text = "Generated Successfully";
+                //await Clipboard.SetTextAsync(QRData);
+                Console.WriteLine(QRData);
+                generator.SaveImage(generator.CreateImageFromText(QRData));
+                var test = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+                //var filename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "MyQR.png");
+                var filename = Path.Combine(test, "MyQR.png");
+            } else
+            {
+                QRLabel.Text = "No Item Selected";
+            }
+
+            
+        }
+
+        private string SetSelectedItem()
+        {
+            switch (EntryQRText.SelectedIndex)
+            {
+                case 0:
+                    return "EML";
+                case 1:
+                    return "ELT";
+                default:
+                    return null;
+            }
         }
     }
 }

@@ -65,12 +65,16 @@
                        BorderColor="Transparent">
                 </Frame>
 
-                <Frame Padding="25, 0, 25, 0"
-                           CornerRadius="25"
-                           BackgroundColor="White"
-                           Grid.Row="2">
-                    <Entry Placeholder="Text" FontSize="16" x:Name="EntryQRText"/>
-                </Frame>
+                <Picker x:Name="EntryQRText"
+                    Title="Select a Form"
+                    SelectedIndex="{Binding FormSelection}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Emergency Lighting</x:String>
+                            <x:String>Electrical Test</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
 
                 <StackLayout Grid.Row="3" Padding="0, 10, 0, 0">
                     <Button Text="Create QR" HorizontalOptions="CenterAndExpand" TextColor="#FFF" BackgroundColor="#009fe3" Clicked="GenerateQR" Padding="125, 20, 125, 20" CornerRadius="10"/>
@@ -80,7 +84,6 @@
                     <Label x:Name="QRLabel"
                            LineBreakMode="NoWrap"
                            FontSize="Micro"/>
-                    <Image x:Name="QRImage"/>
                 </ScrollView>
                 
             </StackLayout>
