@@ -93,22 +93,22 @@ namespace ENGIE_App.views
         public async void Send_Email(object sender, EventArgs e)
         {
 
+            await Permissions.RequestAsync<Permissions.StorageRead>();
+
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress("Team 40", "csc2033team40@gmail.com"));
             message.To.Add(new MailboxAddress("", (string)Application.Current.Properties["Email"]));
             message.Subject = "TEST";
 
-            // create our message text, just like before (except don't set it as the message.Body)
-            var body = new TextPart("plain")
-            {
-                Text = "Hi there, this is a body of the message."
-            };
+            var builder = new BodyBuilder();
 
-            // now create the multipart/mixed container to hold the message text and the
-            // image attachment
+            // Set the plain-text version of the message text
+            builder.TextBody = @"Hi there, this is a body of the message.";
 
+          //  builder.Attachments.Add(@"/storage/emulated/0/Download/Emergency_Lighting_Full_Sheet.pdf");   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  UNCOMMENT THIS!!! path needs changing to where our PDFs will be
 
-            message.Body = body;
+            // Now we just need to set the message body and we're done
+            message.Body = builder.ToMessageBody();
 
             using (var client = new MailKit.Net.Smtp.SmtpClient())
             {
