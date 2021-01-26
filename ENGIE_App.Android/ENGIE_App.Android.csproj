@@ -53,6 +53,12 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="MailKit">
+      <Version>2.10.1</Version>
+    </PackageReference>
+    <PackageReference Include="MimeKit">
+      <Version>2.10.1</Version>
+    </PackageReference>
     <PackageReference Include="sqlite-net-pcl">
       <Version>1.7.335</Version>
     </PackageReference>

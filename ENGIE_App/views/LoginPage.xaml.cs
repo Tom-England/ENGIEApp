@@ -20,7 +20,7 @@ namespace ENGIE_App.views
     {
         MySqlConnection connection;
         SshClient client;
-        String bnumber = "bnum";
+        String bnumber = "bnumb";
         String unipass = "unipass";
 
         public LoginPage()
