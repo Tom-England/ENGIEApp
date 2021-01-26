@@ -174,5 +174,44 @@ namespace ENGIE_App.views
         {
             setEmailBtn.IsEnabled = Regex.IsMatch(EntryDesEmail.Text, @"^((([a-z, A-Z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z, A-Z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z, A-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z, A-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z, A-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z, A-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z, A-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z, A-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z, A-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z, A-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$");
         }
+
+        private void GenerateQR(object sender, EventArgs e)
+        {
+
+
+            var text = SetSelectedItem();
+            if (text != null)
+            {
+                var generator = new QRBuilder();
+                var QRData = generator.CreateQRCode(text);
+
+                QRLabel.Text = "Generated Successfully";
+                //await Clipboard.SetTextAsync(QRData);
+                Console.WriteLine(QRData);
+                generator.SaveImage(generator.CreateImageFromText(QRData));
+                var test = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+                //var filename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "MyQR.png");
+                var filename = Path.Combine(test, "MyQR.png");
+            }
+            else
+            {
+                QRLabel.Text = "No Item Selected";
+            }
+
+
+        }
+
+        private string SetSelectedItem()
+        {
+            switch (EntryQRText.SelectedIndex)
+            {
+                case 0:
+                    return "EML";
+                case 1:
+                    return "ELT";
+                default:
+                    return null;
+            }
+        }
     }
 }   
