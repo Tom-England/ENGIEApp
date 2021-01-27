@@ -17,11 +17,10 @@ namespace ENGIE_App.views
         }
         public async void Button_Clicked(object sender, System.EventArgs e)
         {
-
-
-            //FileStream outputFileStream = File.Open(filepath, FileMode.Create);
             var assembly = typeof(MainPage).GetTypeInfo().Assembly;
-            Stream stream = assembly.GetManifestResourceStream("ENGIE_APP.RCDTestSheet.pdf");
+
+            Stream stream = assembly.GetManifestResourceStream("ENGIE_App.RCDTestSheet.pdf");
+
             PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream);
 
             PdfLoadedForm form = loadedDocument.Form;
@@ -57,8 +56,8 @@ namespace ENGIE_App.views
             var filename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Output.pdf");
             var email = new EmailHelper();
             var subject = "RCD form submission";
-            var body = "RCD form attatched as PDF.  Submitted by " + Application.Current.Properties["Firstname"] + " " + Application.Current.Properties["Lastname"];
-
+            //var body = "RCD form attatched as PDF.  Submitted by " + Application.Current.Properties["Firstname"] + " " + Application.Current.Properties["Lastname"];
+            var body = "I had to remove the firstname/lastname but we'll work on that";
             email.SendEmail(subject, body, filename);
 
         }
