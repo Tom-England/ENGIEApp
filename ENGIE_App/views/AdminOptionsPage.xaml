@@ -32,10 +32,10 @@
                 </Frame>
                 
                 <StackLayout Padding="0, 10, 0, 0">
-                        <Button Text="Set  Email" HorizontalOptions="CenterAndExpand" TextColor="#FFF" BackgroundColor="#009fe3" Clicked="Set_Email" IsEnabled="False" x:Name="setEmailBtn" Padding="120, 20, 120, 20" CornerRadius="10"/>
+                        <Button Text="Set  Email" HorizontalOptions="CenterAndExpand" TextColor="#FFF" BackgroundColor="#009fe3" Clicked="Set_Email" x:Name="setEmailBtn" Padding="120, 20, 120, 20" CornerRadius="10"/>
                 </StackLayout>
                 <StackLayout Padding="0, 10, 0, 0">
-                        <Button Text="Send  Email" HorizontalOptions="CenterAndExpand" TextColor="#FFF" BackgroundColor="#009fe3" Clicked="Send_Email" IsEnabled="False" x:Name="sendEmailBtn" Padding="115, 20, 115, 20" CornerRadius="10"/>
+                        <Button Text="Send  Email" HorizontalOptions="CenterAndExpand" TextColor="#FFF" BackgroundColor="#009fe3" Clicked="Send_Email" x:Name="sendEmailBtn" Padding="115, 20, 115, 20" CornerRadius="10"/>
                 </StackLayout>
             
             </StackLayout>
@@ -110,7 +110,7 @@
                 </Picker>
 
                 <StackLayout Grid.Row="3" Padding="0, 10, 0, 0">
-                    <Button Text="Create QR" HorizontalOptions="CenterAndExpand" TextColor="#FFF" BackgroundColor="#009fe3" Clicked="GenerateQR" Padding="120, 20, 120, 20" CornerRadius="10"/>
+                    <Button x:Name="QRButton" Text="Create QR" HorizontalOptions="CenterAndExpand" TextColor="#FFF" BackgroundColor="#009fe3" Clicked="GenerateQR" Padding="120, 20, 120, 20" CornerRadius="10"/>
                 </StackLayout>
                 <ScrollView>
                     <!-- x:Name="ConvertedImage" />-->
