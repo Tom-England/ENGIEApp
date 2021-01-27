@@ -24,6 +24,11 @@ namespace ENGIE_App.views
             Device.BeginInvokeOnMainThread(() =>
             {
                 scanResultText.Text = result.Text;
+
+                if (result.Text == "ELT")
+                {
+                    App.Current.MainPage = new RCDPage();
+                }
             });
                
         }

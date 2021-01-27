@@ -19,25 +19,6 @@ namespace ENGIE_App.views
         {
 
 
-            var reference = RefEntry.Text;
-            var address = AddressEntry.Text;
-            var date = DateEntry.Date;
-
-            var annual = AnnualEntry.Text;
-            var threeMonthly = ThreeMonthlyEntry.Text;
-
-            var name = NameEntry.Text;
-            var signature = SignatureEntry.Text;
-
-            var switchboard = SwitchboardEntry.Text;
-            var circuit = CircuitEntry.Text;
-            var functional = FunctionalEntry.Text;
-            var xOne = XOneEntry.Text;
-            var xFive = XFiveEntry.Text;
-
-            var comments = CommentsEntry.Text;
-
-
             //FileStream outputFileStream = File.Open(filepath, FileMode.Create);
             var assembly = typeof(MainPage).GetTypeInfo().Assembly;
             Stream stream = assembly.GetManifestResourceStream("ProjectParseTestingV2.RCDTestSheet.pdf");
@@ -75,7 +56,10 @@ namespace ENGIE_App.views
 
             var filename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Output.pdf");
             var email = new EmailHelper();
-            email.SendEmail(filename);
+            var subject = "RCD form submission";
+            var body = "RCD form attatched as PDF.  Submitted by " + Application.Current.Properties["Firstname"] + " " + Application.Current.Properties["Lastname"];
+
+            email.SendEmail(subject, body, filename);
 
 
 

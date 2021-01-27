@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-
-
 using Xamarin.Forms;
 using ENGIE_App.iOS;
 using UIKit;
