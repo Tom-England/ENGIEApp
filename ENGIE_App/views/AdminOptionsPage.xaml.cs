@@ -26,6 +26,7 @@ namespace ENGIE_App.views
         MySqlConnection connection;
         DatabaseConnector dbconn = new DatabaseConnector();
         bool checker = false;
+        EmailHelper eHelper = new EmailHelper();
 
         public AdminOptionsPage()
         {
@@ -82,9 +83,9 @@ namespace ENGIE_App.views
 
         private void Set_Email(object sender, EventArgs e)
         {
-            var email = EntryDesEmail.Text;
+            eHelper.SetDes(EntryDesEmail.Text);
 
-            Application.Current.Properties["Email"] = email;
+            Application.Current.Properties["Email"] = eHelper.GetDes();
 
             checker = true;
             sendEmailBtn.IsEnabled = checker;
@@ -92,63 +93,8 @@ namespace ENGIE_App.views
 
         public async void Send_Email(object sender, EventArgs e)
         {
-
-            await Permissions.RequestAsync<Permissions.StorageRead>();
-
-            var message = new MimeMessage();
-            message.From.Add(new MailboxAddress("Team 40", "csc2033team40@gmail.com"));
-            message.To.Add(new MailboxAddress("", (string)Application.Current.Properties["Email"]));
-            message.Subject = "TEST";
-
-            var builder = new BodyBuilder();
-
-            // Set the plain-text version of the message text
-            builder.TextBody = @"Hi there, this is a body of the message.";
-
-          //  builder.Attachments.Add(@"/storage/emulated/0/Download/Emergency_Lighting_Full_Sheet.pdf");   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  UNCOMMENT THIS!!! path needs changing to where our PDFs will be
-
-            // Now we just need to set the message body and we're done
-            message.Body = builder.ToMessageBody();
-
-            using (var client = new MailKit.Net.Smtp.SmtpClient())
-            {
-                client.Connect("smtp.gmail.com", 587, false);
-
-                // Note: since we don't have an OAuth2 token, disable
-                // the XOAUTH2 authentication mechanism.
-                client.AuthenticationMechanisms.Remove("XOAUTH2");
-
-                // Note: only needed if the SMTP server requires authentication
-                client.Authenticate("csc2033team40", "!Passw0rd123");
-
-                try
-                {
-                    await client.SendAsync(message);
-                    await this.DisplayAlert("Succes", "email sent", "Continue", "Cancel");
-                }
-                catch (SmtpCommandException ex)
-                {
-                    Console.WriteLine("Error sending message: {0}", ex.Message);
-                    Console.WriteLine("\tStatusCode: {0}", ex.StatusCode);
-                    switch (ex.ErrorCode)
-                    {
-                        case SmtpErrorCode.RecipientNotAccepted:
-                            Console.WriteLine("\tRecipient not accepted: {0}", ex.Mailbox);
-                            break;
-                        case SmtpErrorCode.SenderNotAccepted:
-                            Console.WriteLine("\tSender not accepted: {0}", ex.Mailbox);
-                            break;
-                        case SmtpErrorCode.MessageNotAccepted:
-                            Console.WriteLine("\tMessage not accepted.");
-                            break;
-                    }
-                }
-                catch (SmtpProtocolException ex)
-                {
-                    Console.WriteLine("Protocol error while sending message: {0}", ex.Message);
-                }
-                client.Disconnect(true);
-            }
+            eHelper.SendEmail("Test", "This is bodyText");
+            await this.DisplayAlert("Succes", "email sent", "Continue", "Cancel");
         }
 
         private void ValidateEmail(object sender, TextChangedEventArgs e)
