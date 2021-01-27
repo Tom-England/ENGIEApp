@@ -1,32 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\zayn\\Documents\\teamProject\\engie-app\\XamUiTest\\XamUiTest.csproj": {}
+    "/Users/matthewosborne/Projects/PDF_Form/XamUiTest/XamUiTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\zayn\\Documents\\teamProject\\engie-app\\XamUiTest\\XamUiTest.csproj": {
+    "/Users/matthewosborne/Projects/PDF_Form/XamUiTest/XamUiTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\zayn\\Documents\\teamProject\\engie-app\\XamUiTest\\XamUiTest.csproj",
+        "projectUniqueName": "/Users/matthewosborne/Projects/PDF_Form/XamUiTest/XamUiTest.csproj",
         "projectName": "XamUiTest",
-        "projectPath": "C:\\Users\\zayn\\Documents\\teamProject\\engie-app\\XamUiTest\\XamUiTest.csproj",
-        "packagesPath": "C:\\Users\\zayn\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\zayn\\Documents\\teamProject\\engie-app\\XamUiTest\\obj\\",
+        "projectPath": "/Users/matthewosborne/Projects/PDF_Form/XamUiTest/XamUiTest.csproj",
+        "packagesPath": "/Users/matthewosborne/.nuget/packages/",
+        "outputPath": "/Users/matthewosborne/Projects/PDF_Form/XamUiTest/obj/",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\zayn\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "/Users/matthewosborne/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net461"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

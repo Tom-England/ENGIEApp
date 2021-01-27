@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Kc5KH5qcwO4mM3Kafi/a+yEIqM5NFmBMVYBq09hL5ilQqOzIJlcJkkHBqwAhD1l0SgHEP1/ElE/Zonmbf49UEg==",
+  "dgSpecHash": "7oOvaW+t0XkA/HioBDJj85DRH8YRz7sR6aQgbQhmQoUn7hKWioK5et1YNd1ntwcmMSsJrTKecsSfEBDhFhiaXA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\zayn\\Documents\\teamProject\\engie-app\\XamUiTest\\XamUiTest.csproj",
+  "projectFilePath": "/Users/matthewosborne/Projects/PDF_Form/XamUiTest/XamUiTest.csproj",
   "expectedPackageFiles": [
-    "C:\\Microsoft\\Xamarin\\NuGet\\nunit\\3.12.0\\nunit.3.12.0.nupkg.sha512",
-    "C:\\Microsoft\\Xamarin\\NuGet\\nunit3testadapter\\3.13.0\\nunit3testadapter.3.13.0.nupkg.sha512",
-    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.uitest\\3.0.5\\xamarin.uitest.3.0.5.nupkg.sha512"
+    "/Users/matthewosborne/.nuget/packages/nunit/3.12.0/nunit.3.12.0.nupkg.sha512",
+    "/Users/matthewosborne/.nuget/packages/nunit3testadapter/3.13.0/nunit3testadapter.3.13.0.nupkg.sha512",
+    "/Users/matthewosborne/.nuget/packages/xamarin.uitest/3.0.5/xamarin.uitest.3.0.5.nupkg.sha512"
   ],
   "logs": []
 }
