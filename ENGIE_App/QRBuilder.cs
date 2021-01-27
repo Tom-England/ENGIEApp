@@ -89,7 +89,7 @@ namespace ENGIE_App
             return qr;
         }
 
-        public async void SaveImage(SKBitmap bmp)
+        public async void SaveImage(SKBitmap bmp, string desEmail)
         {
             var image = SKImage.FromBitmap(bmp);
             var data = image.Encode();
@@ -103,7 +103,10 @@ namespace ENGIE_App
                 data.SaveTo(stream);
             }
 
-            try
+            EmailHelper eHelper = new EmailHelper();
+            eHelper.SetDes(desEmail);
+            eHelper.SendEmail("QR Code", "ENGIE App QR Code", filename);
+            /*try
             {
                 var message = new EmailMessage
                 {
@@ -123,7 +126,7 @@ namespace ENGIE_App
             catch (Exception ex)
             {
                 // Some other exception occurred
-            }
+            }*/
         }
     }
 }
