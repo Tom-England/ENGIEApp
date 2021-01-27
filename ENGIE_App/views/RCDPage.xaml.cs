@@ -21,7 +21,7 @@ namespace ENGIE_App.views
 
             //FileStream outputFileStream = File.Open(filepath, FileMode.Create);
             var assembly = typeof(MainPage).GetTypeInfo().Assembly;
-            Stream stream = assembly.GetManifestResourceStream("ProjectParseTestingV2.RCDTestSheet.pdf");
+            Stream stream = assembly.GetManifestResourceStream("ENGIE_APP.RCDTestSheet.pdf");
             PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream);
 
             PdfLoadedForm form = loadedDocument.Form;
@@ -60,8 +60,6 @@ namespace ENGIE_App.views
             var body = "RCD form attatched as PDF.  Submitted by " + Application.Current.Properties["Firstname"] + " " + Application.Current.Properties["Lastname"];
 
             email.SendEmail(subject, body, filename);
-
-
 
         }
     }
