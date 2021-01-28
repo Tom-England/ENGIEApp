@@ -21,6 +21,8 @@ namespace ENGIE_App.views
             NavigationPage.SetHasBackButton(this, false);
             InitializeComponent();
         }
+        // Boolean to pause/resume scanning
+        private bool isScanning = true;
 
         /// <summary>
         /// Method for handling the QR scanner
@@ -30,15 +32,19 @@ namespace ENGIE_App.views
         {
             Device.BeginInvokeOnMainThread(() =>
             {
+                
                 scanResultText.Text = result.Text;
 
-                if (result.Text == "ELT")
+                if (result.Text == "ELT" && isScanning)
                 {
-                    //Navigation.PushAsync(new RCDPage());
-
+                    // Stop app scanning once code is identified
+                    isScanning = false;
+                    // Load relevant page for code ELT
                     var page = new RCDPage();
+                    // Respond to trigger when page is popped off navigation stack
                     page.DidFinishPopping += (parameter) =>
                     {
+                        // Reload app to main page upon successful form submission
                         App.NavigationPage.Navigation.PushAsync(new MainPage());
                     };
                     Navigation.PushAsync(page);
