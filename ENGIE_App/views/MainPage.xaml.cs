@@ -10,6 +10,9 @@ namespace ENGIE_App
 {
     public partial class MainPage : ContentPage
     {
+        /// <summary>
+        /// Initializer for the main page, sets the welcome tag to inclue the users name.
+        /// </summary>
         public MainPage()
         {
             NavigationPage.SetHasNavigationBar(this, false);

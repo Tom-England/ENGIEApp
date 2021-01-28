@@ -21,10 +21,12 @@
                    WidthRequest="500"/>
             <Label 
                 x:Name="MainPageMainTextBody"
-                Text="Welcome to the ENGIE assets app. For help or video tutorials visit the help section of the app accessable through the menu at the top left. Bit more text, filler sort of text to pad out this textbox until I write the rest. This section is quite long on the GUI design and theres a fair bit of space to fill"
+                Text="Welcome to the ENGIE asset maintenance app.  Use the menu button ≡ in the top left of your screen to navigate between pages.  Scan the QR code on the relevant asset to load up the form to fill out.  Information will be loaded into a PDF and sent via email.  &#10; &#10; Please visit the help page of the app (accessible from the menu) for more in-depth instructions including video tutorials."
                 Padding="25, 40, 25, 0"
                 FontSize="Medium"
-                FontFamily="{StaticResource NormalFont}"/>
+                FontFamily="{StaticResource NormalFont}"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"/>
         </StackLayout>
     </ContentPage.Content>
     
