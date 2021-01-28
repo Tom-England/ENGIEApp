@@ -118,8 +118,8 @@ namespace ENGIE_App
             {
                 Application.Current.Properties.Remove("Admin");
             }
-            
 
+            (Application.Current.MainPage as RootPage).disableGesture();
             var mainPage = new LoginPage();
             var homePage = App.NavigationPage.Navigation.NavigationStack.First();
             App.NavigationPage.Navigation.InsertPageBefore(mainPage, homePage);

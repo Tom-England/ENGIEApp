@@ -19,6 +19,15 @@ namespace ENGIE_App
         {
             InitializeComponent();
             MasterBehavior = MasterBehavior.Popover;
+            this.IsGestureEnabled = false;
+        }
+        public void enableGesture()
+        {
+            this.IsGestureEnabled = true;
+        }
+        public void disableGesture()
+        {
+            this.IsGestureEnabled = false;
         }
     }
 }
