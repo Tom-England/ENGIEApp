@@ -13,8 +13,13 @@ namespace ENGIE_App.views
     {
         public RCDPage()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
+            NavigationPage.SetHasBackButton(this, false);
             InitializeComponent();
         }
+
+        public delegate void HandlePopDelegate(string parameter);
+        public event HandlePopDelegate DidFinishPopping;
         public async void Button_Clicked(object sender, System.EventArgs e)
         {
             try
@@ -70,6 +75,11 @@ namespace ENGIE_App.views
                 // Set the destination email address for the form and send
                 email.SetDes((string)Application.Current.Properties["desEmail"]);
                 email.SendEmail(subject, body, filepath);
+
+                // Close page, and trigger event when doing so.
+                // This refreshes scan page to fix a visual bug and refresh qr scanner results
+                await Navigation.PopAsync();
+                DidFinishPopping("FormPopped");
 
             }
             catch (ArgumentNullException)

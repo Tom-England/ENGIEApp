@@ -19,6 +19,8 @@ namespace ENGIE_App.views
             InitializeComponent();
         }
 
+
+
         void ZXingScannerView_OnScanResult(ZXing.Result result)
         {
             Device.BeginInvokeOnMainThread(() =>
@@ -27,7 +29,14 @@ namespace ENGIE_App.views
 
                 if (result.Text == "ELT")
                 {
-                    App.Current.MainPage = new RCDPage();
+                    //Navigation.PushAsync(new RCDPage());
+
+                    var page = new RCDPage();
+                    page.DidFinishPopping += (parameter) =>
+                    {
+                        App.NavigationPage.Navigation.PushAsync(new MainPage());
+                    };
+                    Navigation.PushAsync(page);
                 }
             });
                
