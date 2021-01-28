@@ -1,19 +1,6 @@
-﻿using MySqlConnector;
-using Renci.SshNet;
-using System;
-using System.Security.Cryptography;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using MailKit.Net.Smtp;
-using System.Net.Mail;
-using MailKit;
 using MimeKit;
-
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xamarin.Essentials;
 
 namespace ENGIE_App

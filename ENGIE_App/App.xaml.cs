@@ -1,7 +1,6 @@
 ﻿using ENGIE_App.views;
 using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace ENGIE_App
 {

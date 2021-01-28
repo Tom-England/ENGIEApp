@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using SkiaSharp;
 using QRCoder;
 using System.IO;
-using Xamarin.Forms.PlatformConfiguration;
-using Xamarin.Essentials;
 
 namespace ENGIE_App
 {
