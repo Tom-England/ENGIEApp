@@ -53,7 +53,6 @@ namespace ENGIE_App
                 if (reader.Read())
                 {
                     email = reader.GetValue(0).ToString();
-                    Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + email);
                     reader.Close();
                 }
                 else
@@ -67,7 +66,6 @@ namespace ENGIE_App
             }
 
             dbconn.Close_Connection();
-            Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + email);
             return email;
             
         }
