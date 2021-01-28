@@ -104,7 +104,7 @@ namespace ENGIE_App.views
             {
                 eHelper.SetDes(EntryDesEmail.Text);
 
-                Application.Current.Properties["Email"] = eHelper.GetDes();
+                Application.Current.Properties["desEmail"] = eHelper.GetDes();
 
                 checker = true;
                 sendButtonEnable = checker;

@@ -53,6 +53,7 @@ namespace ENGIE_App.views
             string filepath = await Xamarin.Forms.DependencyService.Get<ISave>().Save(title, "application/pdf", streams);
             var email = new EmailHelper();
             var subject = "RCD form submission";
+            email.SetDes((string)Application.Current.Properties["desEmail"]);
             //var body = "RCD form attatched as PDF.  Submitted by " + Application.Current.Properties["Firstname"] + " " + Application.Current.Properties["Lastname"];
             var body = "I had to remove the firstname/lastname but we'll work on that";
             email.SendEmail(subject, body, filepath);
