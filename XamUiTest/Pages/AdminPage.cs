@@ -35,5 +35,15 @@ namespace XamUiTest.Pages
             App.Tap(Login);
             App.Screenshot("Admin login button tapped");
         }
+
+        public void EnterAdminCredentials(string username, string password)
+        { 
+            this.EnterUsername(username);
+            this.EnterPassword(password);
+            this.TapLogin();
+            App.WaitForElement(x => x.Marked("Continue"));
+            App.Tap(x => x.Marked("Continue"));
+            
+        }
     }
 }

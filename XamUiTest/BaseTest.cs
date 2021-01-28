@@ -22,6 +22,7 @@ namespace XamUiTest
         protected Pages.MainPage MainPage { get; private set; }
         protected Pages.MenuPage MenuPage { get; private set; }
         protected Pages.AdminPage AdminPage { get; private set; }
+        protected Pages.AdminOptionsPage AdminOptionsPage { get; private set; }
 
         [SetUp]
         public virtual void TestSetup()
@@ -31,6 +32,7 @@ namespace XamUiTest
             MainPage = new Pages.MainPage(App, "Home");
             MenuPage = new Pages.MenuPage(App, "Menu");
             AdminPage = new Pages.AdminPage(App, "Admin");
+            AdminOptionsPage = new Pages.AdminOptionsPage(App, "AdminOptions");
         }
     }
 }
