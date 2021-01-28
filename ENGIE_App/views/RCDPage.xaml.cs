@@ -16,6 +16,7 @@ namespace ENGIE_App.views
             NavigationPage.SetHasNavigationBar(this, false);
             NavigationPage.SetHasBackButton(this, false);
             InitializeComponent();
+            (Application.Current.MainPage as RootPage).disableGesture();
         }
 
         public delegate void HandlePopDelegate(string parameter);
@@ -78,6 +79,7 @@ namespace ENGIE_App.views
 
                 // Close page, and trigger event when doing so.
                 // This refreshes scan page to fix a visual bug and refresh qr scanner results
+                (Application.Current.MainPage as RootPage).enableGesture();
                 await Navigation.PopAsync();
                 DidFinishPopping("FormPopped");
 
