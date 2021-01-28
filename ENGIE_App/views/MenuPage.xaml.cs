@@ -70,17 +70,6 @@ namespace ENGIE_App
         }
 
         /// <summary>
-        /// Sends the user to the form page
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        void GoForm(object sender, EventArgs args)
-        {
-            App.MenuIsPresented = false;
-            App.NavigationPage.Navigation.PushAsync(new FormPage());
-        }
-
-        /// <summary>
         /// Sends the user to the recently submitted form
         /// </summary>
         /// <param name="sender"></param>
