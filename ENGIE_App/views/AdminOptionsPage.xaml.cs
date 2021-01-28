@@ -216,7 +216,7 @@ namespace ENGIE_App.views
                         var QRData = generator.CreateQRCode(text);
 
                         QRLabel.Text = "Generated Successfully";
-                        generator.SaveImage(generator.CreateImageFromText(QRData), eHelper.GetDes());
+                        generator.SaveImage(generator.CreateImageFromText(QRData), eHelper.GetDes(), text);
                     }
                 }
                 else
