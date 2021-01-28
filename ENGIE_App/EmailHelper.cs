@@ -3,6 +3,7 @@ using MailKit.Net.Smtp;
 using MimeKit;
 using Xamarin.Essentials;
 using ENGIE_App.views;
+using MySqlConnector;
 
 namespace ENGIE_App
 {
@@ -15,6 +16,7 @@ namespace ENGIE_App
 
         public EmailHelper()
         {
+            SetDes(GetDes());
         }
 
         /// <summary>
@@ -43,7 +45,7 @@ namespace ENGIE_App
 
                 // SQL code
                 MySqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "SELECT TOP 1 Id FROM AdminEmail ORDER BY Id DESC";
+                cmd.CommandText = "SELECT Email FROM AdminEmail ORDER BY Id DESC LIMIT 1";
 
                 cmd.ExecuteNonQuery();
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -51,6 +53,7 @@ namespace ENGIE_App
                 if (reader.Read())
                 {
                     email = reader.GetValue(0).ToString();
+                    Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + email);
                     reader.Close();
                 }
                 else
@@ -64,6 +67,7 @@ namespace ENGIE_App
             }
 
             dbconn.Close_Connection();
+            Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + email);
             return email;
             
         }

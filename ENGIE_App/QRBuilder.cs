@@ -100,7 +100,7 @@ namespace ENGIE_App
         /// <param name="bmp"></param>
         /// <param name="desEmail"></param>
         /// /// <param name="name"></param>
-        public void SaveImage(SKBitmap bmp, string desEmail, string name)
+        public void SaveImage(SKBitmap bmp, string name)
         {
             var image = SKImage.FromBitmap(bmp);
             var data = image.Encode();
@@ -112,7 +112,6 @@ namespace ENGIE_App
             }
 
             EmailHelper eHelper = new EmailHelper();
-            eHelper.SetDes(desEmail);
             eHelper.SendEmail("QR Code", "ENGIE App QR Code", filename);
         }
     }

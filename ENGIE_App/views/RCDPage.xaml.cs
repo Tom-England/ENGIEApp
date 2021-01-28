@@ -74,7 +74,6 @@ namespace ENGIE_App.views
                 }
                 
                 // Set the destination email address for the form and send
-                email.SetDes((string)Application.Current.Properties["desEmail"]);
                 email.SendEmail(subject, body, filepath);
 
                 // Close page, and trigger event when doing so.
