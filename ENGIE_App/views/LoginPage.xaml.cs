@@ -183,6 +183,7 @@ namespace ENGIE_App.views
                 Console.WriteLine("Done.");
 
                 Application.Current.Properties["Firstname"] = item.FirstName;
+                Application.Current.Properties["Lastname"] = item.LastName;
 
                 Device.BeginInvokeOnMainThread(async () =>
                 {

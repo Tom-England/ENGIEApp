@@ -123,6 +123,9 @@ namespace ENGIE_App.views
             if (setButtonEnable)
             {
                 eHelper.SetDes(EntryDesEmail.Text);
+
+                Application.Current.Properties["desEmail"] = eHelper.GetDes();
+
                 checker = true;
                 sendButtonEnable = checker;
                 qrButtonEnable = true;
