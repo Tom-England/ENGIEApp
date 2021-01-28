@@ -50,31 +50,36 @@ namespace ENGIE_App.views
                 loadedDocument.Save(streams);
                 loadedDocument.Close(true);
 
-            var date = DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");
-            var title = "RCD-Form-" + date + ".pdf";
-            string filepath = await Xamarin.Forms.DependencyService.Get<ISave>().Save(title, "application/pdf", streams);
-            var email = new EmailHelper();
-            var subject = "RCD form submission";
-            email.SetDes((string)Application.Current.Properties["desEmail"]);
-            //var body = "RCD form attatched as PDF.  Submitted by " + Application.Current.Properties["Firstname"] + " " + Application.Current.Properties["Lastname"];
-            var body = "I had to remove the firstname/lastname but we'll work on that";
-            email.SendEmail(subject, body, filepath);
-
-                // Return to home afterwards
-                App.NavigationPage.Navigation.PopToRootAsync();
+                var date = DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");
+                var title = "RCD-Form-" + date + ".pdf";
+                string filepath = await Xamarin.Forms.DependencyService.Get<ISave>().Save(title, "application/pdf", streams);
+                var email = new EmailHelper();
+                var subject = "RCD form submission";
+                var body = "";
+                
+                // Check if firstname/lastname are present.  Admins do not need have names stored and as such the message could disrupt admins who are testing the app
+                if (Application.Current.Properties.ContainsKey("Firstname") && Application.Current.Properties.ContainsKey("Lastname"))
+                {
+                    body = "RCD form attatched as PDF.  Submitted by " + Application.Current.Properties["Firstname"] + " " + Application.Current.Properties["Lastname"];
+                }
+                else
+                {
+                    body = "RCD form attatched as PDF.";
+                }
+                
+                // Set the destination email address for the form and send
+                email.SetDes((string)Application.Current.Properties["desEmail"]);
+                email.SendEmail(subject, body, filepath);
 
             }
             catch (ArgumentNullException)
             {
                 DisplayAlert("Error", "All fields must be filled in.", "Continue");
             }
-            catch
+            catch (KeyNotFoundException)
             {
-                DisplayAlert("Error", "Error occured while submitting form.", "Continue");
+                DisplayAlert("Error", "No destination email address set", "Continue");
             }
-
-            
-
         }
     }
 }
