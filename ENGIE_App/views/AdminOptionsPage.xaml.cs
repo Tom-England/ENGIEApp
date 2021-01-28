@@ -1,21 +1,9 @@
 ﻿using MySqlConnector;
-using Renci.SshNet;
 using System;
 using System.Security.Cryptography;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using MailKit.Net.Smtp;
-using System.Net.Mail;
-using MailKit;
-using MimeKit;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Xamarin.Essentials;
-using System.ComponentModel;
-using System.IO;
 using System.Text.RegularExpressions;
 
 namespace ENGIE_App.views
@@ -28,10 +16,16 @@ namespace ENGIE_App.views
         bool checker = false;
         EmailHelper eHelper = new EmailHelper();
 
+        /// <summary>
+        /// Variables for tracking the psuedo-enabled state of the buttons
+        /// </summary>
         bool setButtonEnable = false;
         bool sendButtonEnable = false;
         bool qrButtonEnable = false;
 
+        /// <summary>
+        /// Initialiser method for the page, hides original navigation functionality and disables buttons as needed
+        /// </summary>
         public AdminOptionsPage()
         {
             NavigationPage.SetHasNavigationBar(this, false);
@@ -42,23 +36,44 @@ namespace ENGIE_App.views
             FakeDisable(QRButton);
         }
 
+        /// <summary>
+        /// Computes a hashed password given an array of bytes and a salt
+        /// </summary>
+        /// <param name="bytesToHash"></param>
+        /// <param name="salt"></param>
+        /// <returns></returns>
         public string ComputeHash(byte[] bytesToHash, byte[] salt)
         {
             var byteResult = new Rfc2898DeriveBytes(bytesToHash, salt, 10000);
             return Convert.ToBase64String(byteResult.GetBytes(24));
         }
 
+        /// <summary>
+        /// Method sets the font colour of the provided button object to grey to immitate the isEnabled=false appearence
+        /// </summary>
+        /// <param name="btn"></param>
         private void FakeDisable(Button btn)
         {
             btn.TextColor = Color.FromHex("#444444");
             
         }
+
+        /// <summary>
+        /// Sets the font colour back to white to undo FakeDisable
+        /// </summary>
+        /// <param name="btn"></param>
         private void FakeEnable(Button btn)
         {
             btn.TextColor = Color.FromHex("#FFF");
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
+        /// <summary>
+        /// Function takes data from the XAML page and submits it to the database to create a new admin account
+        /// Also calls ComputeHash to hash the entered password
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void CreateAdmin(object sender, EventArgs e)
         {
             var username = EntryUsername.Text;
             var password = EntryPassword.Text;
@@ -98,6 +113,11 @@ namespace ENGIE_App.views
 
         }
 
+        /// <summary>
+        /// Method sets the email address for sending emails, also enables the send email button if valid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Set_Email(object sender, EventArgs e)
         {
             if (setButtonEnable)
@@ -118,25 +138,43 @@ namespace ENGIE_App.views
             }   
         }
 
+        /// <summary>
+        /// Sends a dummy email to test the set email
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public async void Send_Email(object sender, EventArgs e)
         {
             if (sendButtonEnable)
             {
                 eHelper.SendEmail("Test", "This is bodyText");
-                await this.DisplayAlert("Succes", "email sent", "Continue", "Cancel");
+                await this.DisplayAlert("Success", "email sent", "Continue", "Cancel");
             }
             else
             {
-                DisplayAlert("Alert", "Please enter a valid email", "OK");
+                await DisplayAlert("Alert", "Please enter a valid email", "OK");
             }
         }
 
+        /// <summary>
+        /// Uses regex to validate the email entered into the XAML page. 
+        /// Runs when the box detects that the text has changed.
+        /// When successful, it enables the button for calling Set_Email
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ValidateEmail(object sender, TextChangedEventArgs e)
         {
             setButtonEnable = Regex.IsMatch(EntryDesEmail.Text, @"^((([a-z, A-Z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z, A-Z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z, A-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z, A-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z, A-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z, A-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z, A-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z, A-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z, A-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z, A-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$");
             if (setButtonEnable) { FakeEnable(setEmailBtn); }
         }
 
+        /// <summary>
+        /// Takes the selected form from the XAML page and the set email address.
+        /// Emails the address a newly generated QR code for the selected forms
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GenerateQR(object sender, EventArgs e)
         {
             if (qrButtonEnable)
@@ -150,12 +188,7 @@ namespace ENGIE_App.views
                         var QRData = generator.CreateQRCode(text);
 
                         QRLabel.Text = "Generated Successfully";
-                        //await Clipboard.SetTextAsync(QRData);
-                        Console.WriteLine(QRData);
                         generator.SaveImage(generator.CreateImageFromText(QRData), eHelper.GetDes());
-                        //var test = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-                        //var filename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "MyQR.png");
-                        //var filename = Path.Combine(test, "MyQR.png");
                     }
                 }
                 else
@@ -170,6 +203,10 @@ namespace ENGIE_App.views
 
         }
 
+        /// <summary>
+        /// Method for converting the input from the dropdown list into the code for the QR code generator
+        /// </summary>
+        /// <returns></returns>
         private string SetSelectedItem()
         {
             switch (EntryQRText.SelectedIndex)

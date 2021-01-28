@@ -15,6 +15,10 @@ namespace ENGIE_App.views
     {
         public ObservableCollection<HelpItem> VideoItems { get; set; }
         private int gridSize;
+
+        /// <summary>
+        /// Initializer for the help page, disables original navigation options and adds videos to the page
+        /// </summary>
         public HelpPage()
         {
             NavigationPage.SetHasNavigationBar(this, false);
@@ -37,11 +41,12 @@ namespace ENGIE_App.views
             }
         }
 
-        // +==============================================================+
-        // | Function adds a row to the grid then creates the UI elements,|
-        // | inserts the appropriate information from the HelpItem object |
-        // | then adds it to the grids children                           |
-        // +==============================================================+
+        /// <summary>
+        ///  Function adds a row to the grid then creates the UI elements,
+        ///  inserts the appropriate information from the HelpItem object
+        ///  then adds it to the grids children   
+        /// </summary>
+        /// <param name="item"></param>
         private void addHelpItemToGrid(HelpItem item)
         {
             // Adds a row to the grid
@@ -80,7 +85,9 @@ namespace ENGIE_App.views
         }
     }
 
-    // Class to store information about each grid row
+    /// <summary>
+    /// Helper class to store information about each grid row
+    /// </summary>
     public class HelpItem
     {
         public string Url { get; set; }

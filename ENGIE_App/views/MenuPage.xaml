@@ -58,11 +58,6 @@
                 BackgroundColor="White"
                 IsVisible="false"
                 IsEnabled="false"/>
-
-                <Button
-                Text="Forms (To Be Removed Later)"
-                Padding="10, 20, 10, 20"
-                Clicked="GoForm"/>
             </StackLayout>
         <StackLayout VerticalOptions="End">
                 <Button

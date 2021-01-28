@@ -12,6 +12,9 @@ namespace ENGIE_App
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RootPage : MasterDetailPage
     {
+        /// <summary>
+        /// Sets behaviour for the menu
+        /// </summary>
         public RootPage()
         {
             InitializeComponent();
