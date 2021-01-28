@@ -42,7 +42,11 @@ namespace ENGIE_App.views
         }
 
 
-
+        /// <summary>
+        /// Saves users entries into the database along with the time they logged on
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public async void Button_Clicked(object sender, System.EventArgs e)
         {
             LoginPage dbConnect = new LoginPage();

@@ -153,6 +153,30 @@ namespace ENGIE_App.views
                 eHelper.SetDes(EntryDesEmail.Text);
 
                 Application.Current.Properties["desEmail"] = eHelper.GetDes();
+                if (connection == null)
+                {
+                    connection = dbconn.Connect_Database();
+                    connection.Open();
+                }
+                try
+                {
+                    Console.WriteLine("Connecting to MySQL...");
+
+                    // SQL code
+                    MySqlCommand cmd = connection.CreateCommand();
+                    cmd.CommandText = "INSERT INTO AdminEmail(Email) VALUES (@Email)";
+
+                    // adds values user inputted to database
+                    cmd.Parameters.AddWithValue("@Email", EntryDesEmail.Text);
+                    cmd.ExecuteNonQuery();
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+
+                dbconn.Close_Connection();
 
                 checker = true;
                 sendButtonEnable = checker;

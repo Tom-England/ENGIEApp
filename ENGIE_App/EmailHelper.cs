@@ -2,11 +2,14 @@
 using MailKit.Net.Smtp;
 using MimeKit;
 using Xamarin.Essentials;
+using ENGIE_App.views;
 
 namespace ENGIE_App
 {
     class EmailHelper
     {
+        MySqlConnection connection;
+        DatabaseConnector dbconn = new DatabaseConnector();
 
         public string email = "csc2033team40@gmail.com";
 
@@ -25,11 +28,44 @@ namespace ENGIE_App
 
         /// <summary>
         /// Getter method for the destination email
+        /// Gets most recent email from database
         /// </summary>
         /// <returns>email</returns>
         public string GetDes()
         {
+            if (connection == null)
+            {
+                connection = dbconn.Connect_Database();
+                connection.Open();
+            }
+            try
+            {
+
+                // SQL code
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "SELECT TOP 1 Id FROM AdminEmail ORDER BY Id DESC";
+
+                cmd.ExecuteNonQuery();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    email = reader.GetValue(0).ToString();
+                    reader.Close();
+                }
+                else
+                {
+                    reader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            dbconn.Close_Connection();
             return email;
+            
         }
 
         /// <summary>
