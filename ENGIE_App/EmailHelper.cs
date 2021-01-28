@@ -8,7 +8,7 @@ namespace ENGIE_App
     class EmailHelper
     {
 
-        public string email;
+        public string email = "csc2033team40@gmail.com";
 
         public EmailHelper()
         {

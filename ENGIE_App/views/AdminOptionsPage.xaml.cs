@@ -20,8 +20,8 @@ namespace ENGIE_App.views
         /// Variables for tracking the psuedo-enabled state of the buttons
         /// </summary>
         bool setButtonEnable = false;
-        bool sendButtonEnable = false;
-        bool qrButtonEnable = false;
+        bool sendButtonEnable = true;
+        bool qrButtonEnable = true;
 
         /// <summary>
         /// Initialiser method for the page, hides original navigation functionality and disables buttons as needed
@@ -32,8 +32,8 @@ namespace ENGIE_App.views
             NavigationPage.SetHasBackButton(this, false);
             InitializeComponent();
             FakeDisable(setEmailBtn);
-            FakeDisable(sendEmailBtn);
-            FakeDisable(QRButton);
+            //FakeDisable(sendEmailBtn);
+            //FakeDisable(QRButton);
         }
 
         /// <summary>
