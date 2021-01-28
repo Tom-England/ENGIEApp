@@ -18,6 +18,16 @@ String bnumber = "b1234567";
 String unipass = "Hunter2";
 ```
 
+## QR Scanning and Form Submission
+QR codes are read using the ZXing.Net.Mobile.Forms package. The QR codes contain
+a 3 letter text string of either 'ELT', 'EML' or 'GAS'. Once the QR code has been
+succesfully scanned, the user will be displayed with the correct user input form.
+Once the user has entered all neccesary fields and the submit button has been
+pressed, the user input details will be saved into the relevant text fields in the
+corresponding PDF document. The Syncfusion.Xamarin.PDF library and ISave.cs file
+are used to fill in the PDF document. An email is then sent to the destination email,
+that is set in the admin area.
+
 # Testing
 ## Overview
 Tests have been written using the Xamarin.UITest framework that uses NUnit.  
