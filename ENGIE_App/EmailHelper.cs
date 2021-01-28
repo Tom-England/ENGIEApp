@@ -27,17 +27,30 @@ namespace ENGIE_App
         {
         }
 
+        /// <summary>
+        /// Setter method for the destination email
+        /// </summary>
+        /// <param name="desEmail"></param>
         public void SetDes(string desEmail)
         {
             email = desEmail;
         }
 
+        /// <summary>
+        /// Getter method for the destination email
+        /// </summary>
+        /// <returns>email</returns>
         public string GetDes()
         {
             return email;
         }
 
-        // Main function for sending emails, enter a filepath if you wish to attach a file.
+        /// <summary>
+        /// Main function for sending emails, enter a filepath if you wish to attach a file.
+        /// </summary>
+        /// <param name="subject"></param>
+        /// <param name="bodyText"></param>
+        /// <param name="filepath"></param>
         public async void SendEmail(string subject, string bodyText, string filepath = null)
         {
             if (email!=null) {

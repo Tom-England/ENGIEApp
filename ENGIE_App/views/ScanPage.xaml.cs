@@ -12,6 +12,9 @@ namespace ENGIE_App.views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ScanPage : ContentPage
     {
+        /// <summary>
+        /// Initializer class for the page, hides original menu options.
+        /// </summary>
         public ScanPage()
         {
             NavigationPage.SetHasNavigationBar(this, false);
@@ -19,6 +22,10 @@ namespace ENGIE_App.views
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Method for handling the QR scanner
+        /// </summary>
+        /// <param name="result"></param>
         void ZXingScannerView_OnScanResult(ZXing.Result result)
         {
             Device.BeginInvokeOnMainThread(() =>

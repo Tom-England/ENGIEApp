@@ -16,6 +16,10 @@ namespace ENGIE_App.views
     {
 
         public ObservableCollection<MyItem> MyItems { get; set; }
+
+        /// <summary>
+        /// Initializer for the page, hides the original menu options
+        /// </summary>
         public RecentlySubmitted()
         {
             NavigationPage.SetHasNavigationBar(this, false);
@@ -28,6 +32,10 @@ namespace ENGIE_App.views
             addItemToTable(new MyItem { Date = "17/12/2020", Time = "16:32:12", Form = "Form B", Sent = true });
         }
 
+        /// <summary>
+        /// Adds an item to the table
+        /// </summary>
+        /// <param name="item"></param>
         private void addItemToTable(MyItem item)
         {
             MyItems.Add(item);
@@ -35,6 +43,9 @@ namespace ENGIE_App.views
         }
     }
 
+    /// <summary>
+    /// Helper class for storing a table item
+    /// </summary>
     public class MyItem
     {
         public string Date { get; set; }
