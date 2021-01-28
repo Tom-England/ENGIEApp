@@ -78,38 +78,66 @@ namespace ENGIE_App.views
             var username = EntryUsername.Text;
             var password = EntryPassword.Text;
             var newsalt = "hvGirlXDVzdsCSrPmOdHRA==";
-            var hashedPassword = ComputeHash(Encoding.UTF8.GetBytes(password),
+
+            if (username == null && password == null)
+            {
+                var nullResult = await DisplayAlert("Fill In All Fields", "Must enter Username and Password. Please Try Again", "Continue", "Cancel");
+                if (nullResult)
+                {
+                    await Navigation.PushAsync(new ENGIE_App.views.AdminOptionsPage());
+                }
+            }
+            else if (username == null)
+            {
+                var nullResult = await DisplayAlert("Fill In All Fields", "Must enter Username. Please Try Again", "Continue", "Cancel");
+                if (nullResult)
+                {
+                    await Navigation.PushAsync(new ENGIE_App.views.AdminOptionsPage());
+                }
+            }
+            else if (password == null)
+            {
+                var nullResult = await DisplayAlert("Fill In All Fields", "Must enter Password. Please Try Again", "Continue", "Cancel");
+                if (nullResult)
+                {
+                    await Navigation.PushAsync(new ENGIE_App.views.AdminOptionsPage());
+                }
+            }
+            else
+            {
+                var hashedPassword = ComputeHash(Encoding.UTF8.GetBytes(password),
                 Encoding.UTF8.GetBytes(newsalt));
 
-            if (connection == null)
-            {
-                connection = dbconn.Connect_Database();
-                connection.Open();
+                if (connection == null)
+                {
+                    connection = dbconn.Connect_Database();
+                    connection.Open();
+                }
+                try
+                {
+                    Console.WriteLine("Connecting to MySQL...");
+
+                    // SQL code
+                    MySqlCommand cmd = connection.CreateCommand();
+                    cmd.CommandText = "INSERT INTO Admin(Username, Password) VALUES (@Username, @Password)";
+
+                    // adds values user inputted to database
+                    cmd.Parameters.AddWithValue("@Username", username);
+                    cmd.Parameters.AddWithValue("@Password", hashedPassword);
+                    cmd.ExecuteNonQuery();
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+
+                dbconn.Close_Connection();
+
+                Console.WriteLine("Done.");
+
+                await this.DisplayAlert("Congratulations", "Admin Succesfully Created", "Continue", "Cancel");
             }
-            try
-            {
-                Console.WriteLine("Connecting to MySQL...");
-
-                // SQL code
-                MySqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "INSERT INTO Admin(Username, Password) VALUES (@Username, @Password)";
-
-                // adds values user inputted to database
-                cmd.Parameters.AddWithValue("@Username", username);
-                cmd.Parameters.AddWithValue("@Password", hashedPassword);
-                cmd.ExecuteNonQuery();
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-
-            dbconn.Close_Connection();
-
-            Console.WriteLine("Done.");
-
-            await this.DisplayAlert("Congratulations", "Admin Succesfully Created", "Continue", "Cancel");
 
         }
 

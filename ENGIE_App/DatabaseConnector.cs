@@ -12,7 +12,7 @@ namespace ENGIE_App.views
         /// <summary>
         /// ENTER USERNAME AND PASSWORD HERE FOR LOGIN
         /// </summary>
-        String bnumber = "bnumb";
+        String bnumber = "bnum";
         String unipass = "unipass";
 
         public DatabaseConnector()
