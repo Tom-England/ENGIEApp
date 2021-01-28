@@ -21,7 +21,7 @@ namespace ENGIE_App
     class EmailHelper
     {
 
-        public string email = "benpayne312@gmail.com";
+        public string email;
 
         public EmailHelper()
         {
