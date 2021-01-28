@@ -244,7 +244,6 @@ namespace XamUiTest
             LoginPage.TapAdminButton();
             AdminPage.EnterAdminCredentials(existingUsername, existingPassword);
 
-            App.Repl();
             // Create new account
             AdminOptionsPage.EnterNewUsername(newUsername);
             AdminOptionsPage.EnterNewPassword(newPassword);
