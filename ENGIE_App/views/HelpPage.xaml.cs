@@ -29,7 +29,7 @@ namespace ENGIE_App.views
 
             // Stores each HelpItem object
             VideoItems = new ObservableCollection<HelpItem>();
-            VideoItems.Add(new HelpItem { Url = "https://www.youtube.com/embed/q0qkBMuSHXY", Title = "Test video one", Description = "Test video until real ones are made" });
+            VideoItems.Add(new HelpItem { Url = "https://www.youtube.com/embed/0MQVlKo0duw", Title = "Tutorial 1", Description = "How to scan asset QR code and submit a form" });
             VideoItems.Add(new HelpItem { Url = "https://www.youtube.com/embed/DULDin5A5Mk", Title = "Test video two", Description = "Second video for testing" });
             VideoItems.Add(new HelpItem { Url = "https://www.youtube.com/embed/Sgc-K-3GhDs", Title = "Test video three", Description = "Third video for testing" });
 
@@ -37,7 +37,7 @@ namespace ENGIE_App.views
             foreach (HelpItem item in VideoItems)
             {
                 addHelpItemToGrid(item);
-                gridSize++;
+                gridSize+=2;
             }
         }
 
@@ -81,7 +81,7 @@ namespace ENGIE_App.views
 
             // Adds stacklayout and video to grid
             HelpGrid.Children.Add(video, 0, gridSize);
-            HelpGrid.Children.Add(tagStack, 1, gridSize);
+            HelpGrid.Children.Add(tagStack, 0, gridSize+1);
         }
     }
 

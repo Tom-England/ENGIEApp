@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\zayn\\Documents\\teamProject\\engie-app\\XamUiTest\\XamUiTest.csproj": {}
+    "C:\\Users\\benpa\\Documents\\uni\\CSC2033\\06 01 2021\\XamUiTest\\XamUiTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\zayn\\Documents\\teamProject\\engie-app\\XamUiTest\\XamUiTest.csproj": {
+    "C:\\Users\\benpa\\Documents\\uni\\CSC2033\\06 01 2021\\XamUiTest\\XamUiTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\zayn\\Documents\\teamProject\\engie-app\\XamUiTest\\XamUiTest.csproj",
+        "projectUniqueName": "C:\\Users\\benpa\\Documents\\uni\\CSC2033\\06 01 2021\\XamUiTest\\XamUiTest.csproj",
         "projectName": "XamUiTest",
-        "projectPath": "C:\\Users\\zayn\\Documents\\teamProject\\engie-app\\XamUiTest\\XamUiTest.csproj",
-        "packagesPath": "C:\\Users\\zayn\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\zayn\\Documents\\teamProject\\engie-app\\XamUiTest\\obj\\",
+        "projectPath": "C:\\Users\\benpa\\Documents\\uni\\CSC2033\\06 01 2021\\XamUiTest\\XamUiTest.csproj",
+        "packagesPath": "C:\\Users\\benpa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\benpa\\Documents\\uni\\CSC2033\\06 01 2021\\XamUiTest\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\zayn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\benpa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
