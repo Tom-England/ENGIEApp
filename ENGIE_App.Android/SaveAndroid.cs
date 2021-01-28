@@ -11,43 +11,25 @@ using GettingStarted;
 class SaveAndroid : ISave
 {
     //Method to save document as a file in Android and view the saved document
-    public async Task SaveAndView(string fileName, String contentType, MemoryStream stream)
+    public async Task<string> Save(string fileName, String contentType, MemoryStream stream)
     {
-        string root = null;
-        //Get the root path in android device.
-        if (Android.OS.Environment.IsExternalStorageEmulated)
-        {
-            root = Android.OS.Environment.ExternalStorageDirectory.ToString();
-        }
-        else
-            root = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+   
+        // TODO this line is testing whether I was initially right about emulation
+        string root = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
 
-        //Create directory and file 
-        Java.IO.File myDir = new Java.IO.File(root + "/Syncfusion");
-        myDir.Mkdir();
+        //var folderPath = Path.Combine(root, "Syncfusion");
+        var filePath = Path.Combine(root, fileName);
 
-        Java.IO.File file = new Java.IO.File(myDir, fileName);
+        //Modification made by BP: Create a file and write the stream into it (using code from the iOS solution)
+        FileStream fileStream = System.IO.File.Open(filePath, FileMode.Create);
+        stream.Position = 0;
+        stream.CopyTo(fileStream);
+        fileStream.Flush();
+        fileStream.Close();
 
-        //Remove if the file exists
-        if (file.Exists()) file.Delete();
+        //Modification made by BP: Return filePath so that it can be emailed onwards
+        return filePath;
 
-        //Write the stream into the file
-        FileOutputStream outs = new FileOutputStream(file);
-        outs.Write(stream.ToArray());
-
-        outs.Flush();
-        outs.Close();
-
-        //Invoke the created file for viewing
-        if (file.Exists())
-        {
-            Android.Net.Uri path = Android.Net.Uri.FromFile(file);
-            string extension = Android.Webkit.MimeTypeMap.GetFileExtensionFromUrl(Android.Net.Uri.FromFile(file).ToString());
-            string mimeType = Android.Webkit.MimeTypeMap.Singleton.GetMimeTypeFromExtension(extension);
-            Intent intent = new Intent(Intent.ActionView);
-            intent.SetDataAndType(path, mimeType);
-            Forms.Context.StartActivity(Intent.CreateChooser(intent, "Choose App"));
-        }
     }
 }
 

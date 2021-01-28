@@ -43,22 +43,19 @@ namespace ENGIE_App.views
 
             (form.Fields["Details Comments on any failed RCDs"] as PdfLoadedTextBoxField).Text = CommentsEntry.Text;
 
-
             MemoryStream streams = new MemoryStream();
 
-
             loadedDocument.Save(streams);
-            //Xamarin.Forms.DependencyService.Get<ISave>().SaveTextAsync("Creation.pdf", "application/pdf", streams);
             loadedDocument.Close(true);
 
-            Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", streams);
-
-            var filename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Output.pdf");
+            var date = DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");
+            var title = "RCD-Form-" + date + ".pdf";
+            string filepath = await Xamarin.Forms.DependencyService.Get<ISave>().Save(title, "application/pdf", streams);
             var email = new EmailHelper();
             var subject = "RCD form submission";
             //var body = "RCD form attatched as PDF.  Submitted by " + Application.Current.Properties["Firstname"] + " " + Application.Current.Properties["Lastname"];
             var body = "I had to remove the firstname/lastname but we'll work on that";
-            email.SendEmail(subject, body, filename);
+            email.SendEmail(subject, body, filepath);
 
         }
     }

@@ -9,6 +9,6 @@ namespace GettingStarted
 {
     public interface ISave
     {
-        Task SaveAndView(string filename, string contentType, MemoryStream stream);
+        Task<string> Save(string filename, string contentType, MemoryStream stream);
     }
 }
