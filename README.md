@@ -18,6 +18,9 @@ String bnumber = "b1234567";
 String unipass = "Hunter2";
 ```
 
+## Generating QR codes
+To generate a QR code the admin must have set a destination email address for the code to be sent to. This can be done on the admin options page.
+
 ## QR Scanning and Form Submission
 QR codes are read using the ZXing.Net.Mobile.Forms package. The QR codes contain
 a 3 letter text string of either 'ELT', 'EML' or 'GAS'. Once the QR code has been
