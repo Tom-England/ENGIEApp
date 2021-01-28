@@ -8,6 +8,10 @@ namespace ENGIE_App.views
     {
         MySqlConnection connection;
         SshClient client;
+
+        /// <summary>
+        /// ENTER USERNAME AND PASSWORD HERE FOR LOGIN
+        /// </summary>
         String bnumber = "bnum";
         String unipass = "unipass";
 
@@ -16,6 +20,10 @@ namespace ENGIE_App.views
 
         }
 
+        /// <summary>
+        /// Method for creating a MySqlConnection object that is ready to connect to the database
+        /// </summary>
+        /// <returns>MySqlConnection</returns>
         public MySqlConnection Connect_Database()
         {
             PasswordConnectionInfo connectionInfo = new PasswordConnectionInfo("linux.cs.ncl.ac.uk", bnumber, unipass);
@@ -30,9 +38,11 @@ namespace ENGIE_App.views
             return connection;
         }
 
+        /// <summary>
+        /// Method for closing the connection when done
+        /// </summary>
         public void Close_Connection()
         {
-            connection.Clone();
             connection.Close();
             client.Disconnect();
         }

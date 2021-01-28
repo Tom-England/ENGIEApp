@@ -69,6 +69,8 @@
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <BundleResource Include="Resources\Lato-Regular.ttf" />
+    <Compile Include="SaveiOS.cs" />
+    <Compile Include="PreviewController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\adminicon.imageset\adminicon.png">

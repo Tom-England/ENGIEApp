@@ -110,6 +110,7 @@ namespace ENGIE_App.views
                             Application.Current.Properties["Admin"] = true;
                             if (result)
                             {
+                                (Application.Current.MainPage as RootPage).enableGesture();
                                 var mainPage = new MainPage();
                                 var homePage = App.NavigationPage.Navigation.NavigationStack.First();
                                 App.NavigationPage.Navigation.InsertPageBefore(mainPage, homePage);

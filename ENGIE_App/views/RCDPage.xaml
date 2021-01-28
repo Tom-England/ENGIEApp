@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ENGIE_App.views.RCDPage">
+
+    <ContentPage.Content>
+        <TableView>
+            <TableRoot>
+
+                <TableSection>
+                    <EntryCell Label="Job Ref" x:Name="RefEntry"/>
+                    <EntryCell Label="SiteAddress" x:Name="AddressEntry"/>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="15, 0">
+                            <Label Text="Date" VerticalOptions="Center"/>
+                            <DatePicker HorizontalOptions="EndAndExpand" x:Name="DateEntry"/>
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>
+
+                <TableSection>
+                    <EntryCell Label="Annual Service" x:Name="AnnualEntry"/>
+                    <EntryCell Label="3 Monthly functional test" x:Name="ThreeMonthlyEntry"/>
+                </TableSection>
+
+                <TableSection>
+                    <EntryCell Label="Name of Operative" x:Name="NameEntry"/>
+                    <EntryCell Label="Signature" x:Name="SignatureEntry"/>
+                </TableSection>
+
+                <TableSection>
+                    <EntryCell Label="Switchboard Reference" x:Name="SwitchboardEntry"/>
+                    <EntryCell Label="Circuit Reference" x:Name="CircuitEntry"/>
+                    <EntryCell Label="Functional" x:Name="FunctionalEntry"/>
+                    <TextCell Text="Annual Service only"/>
+                    <EntryCell Label="x1" x:Name="XOneEntry"/>
+                    <EntryCell Label="x5" x:Name="XFiveEntry"/>
+                </TableSection>
+
+                <TableSection>
+                    <TextCell Text="Details / Comments on any failed RCD's"/>
+                    <EntryCell x:Name="CommentsEntry"/>
+                </TableSection>
+
+                <TableSection>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Button Text="Submit" HorizontalOptions="CenterAndExpand" Clicked="Button_Clicked"/>
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>
+
+            </TableRoot>
+        </TableView>
+    </ContentPage.Content>
+</ContentPage>

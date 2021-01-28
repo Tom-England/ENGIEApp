@@ -58,8 +58,6 @@
                 BackgroundColor="White"
                 IsVisible="false"
                 IsEnabled="false"/>
-
-               
             </StackLayout>
         <StackLayout VerticalOptions="End">
                 <Button

@@ -27,6 +27,7 @@ namespace ENGIE_App.views
             NavigationPage.SetHasBackButton(this, false);
             InitializeComponent();
 
+
             if (Application.Current.Properties.ContainsKey("Firstname"))
             {
                 EntryFirstName.Text = (string)Application.Current.Properties["Firstname"];
@@ -183,6 +184,7 @@ namespace ENGIE_App.views
                 Console.WriteLine("Done.");
 
                 Application.Current.Properties["Firstname"] = item.FirstName;
+                Application.Current.Properties["Lastname"] = item.LastName;
 
                 Device.BeginInvokeOnMainThread(async () =>
                 {
@@ -190,6 +192,7 @@ namespace ENGIE_App.views
                     var result = await this.DisplayAlert("Congratulations", "User Succesfully Registered", "Continue", "Cancel");
                     if (result)
                     {
+                        (Application.Current.MainPage as RootPage).enableGesture();
                         var mainPage = new MainPage();
                         var homePage = App.NavigationPage.Navigation.NavigationStack.First();
                         App.NavigationPage.Navigation.InsertPageBefore(mainPage, homePage);
