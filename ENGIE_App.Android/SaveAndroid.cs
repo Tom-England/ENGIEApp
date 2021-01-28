@@ -13,7 +13,7 @@ class SaveAndroid : ISave
     //Method to save document as a file in Android and view the saved document
     public async Task<string> Save(string fileName, String contentType, MemoryStream stream)
     {
-   
+
         // TODO this line is testing whether I was initially right about emulation
         string root = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
 
@@ -32,4 +32,3 @@ class SaveAndroid : ISave
 
     }
 }
-
