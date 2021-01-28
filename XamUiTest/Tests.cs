@@ -187,5 +187,27 @@ namespace XamUiTest
             // Assert
             Assert.IsTrue(results.Any());
         }
+
+        [Test]
+        [Category("Admin")]
+        public void AdminCanLogin()
+        {
+            // Act
+            const string username = "admin";
+            const string password = "admin";
+   
+            // Arrange
+            LoginPage.TapAdminButton();
+            AdminPage.EnterUsername(username);
+            AdminPage.EnterPassword(password);
+            AdminPage.TapLogin();
+            App.WaitForElement(x => x.Marked("Continue"));
+            App.Tap(x => x.Marked("Continue"));
+            AppResult[] results = App.WaitForElement(c => c.Marked("AdminOptionsPage"));
+            App.Screenshot("Admin options page shown after admin logs in");
+
+            // Assert
+            Assert.IsTrue(results.Any());
+        }
     }
 }
