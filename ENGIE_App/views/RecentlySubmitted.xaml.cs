@@ -1,11 +1,13 @@
 ﻿using System;
+using ENGIE_App.Tables;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using SQLite;
+using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -29,7 +31,16 @@ namespace ENGIE_App.views
             MyItems = new ObservableCollection<MyItem>();
 
 
-            addItemToTable(new MyItem { Date = "17/12/2020", Time = "16:32:12", Form = "Form B", Sent = true });
+            //addItemToTable(new MyItem { Date = "17/12/2020", Time = "16:32:12", Form = "Form B", Sent = true });
+            var dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "UserDatabase.db");
+            var db = new SQLiteConnection(dbpath);
+            List<LogRecentForm> rows = db.Table<LogRecentForm>().ToList();
+            rows.Reverse();
+            for (int i = 0; i < 5; i++)
+            {
+                addItemToTable(new MyItem { Date = rows[i].DateTime.ToString(), Form = rows[i].Form, Sent = rows[i].Sent });
+            }
+
         }
 
         /// <summary>
@@ -39,19 +50,25 @@ namespace ENGIE_App.views
         private void addItemToTable(MyItem item)
         {
             MyItems.Add(item);
-            listViewm.ItemsSource = MyItems;
+            listView.ItemsSource = MyItems;
         }
+        void resend(object sender, System.EventArgs e)
+        {
+            //resending code
+        }
+
     }
 
-    /// <summary>
-    /// Helper class for storing a table item
-    /// </summary>
-    public class MyItem
+
+}
+
+/// <summary>
+/// Helper class for storing a table item
+/// </summary>
+public class MyItem
     {
         public string Date { get; set; }
         public string Time { get; set; }
         public string Form { get; set; }
         public bool Sent { get; set; }   
     }
-
-}

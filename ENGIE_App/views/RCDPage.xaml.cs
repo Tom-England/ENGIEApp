@@ -23,6 +23,7 @@ namespace ENGIE_App.views
         public event HandlePopDelegate DidFinishPopping;
         public async void Button_Clicked(object sender, System.EventArgs e)
         {
+            Boolean connected = Connection.isConnected();
             try
             {
                 var assembly = typeof(MainPage).GetTypeInfo().Assembly;
@@ -75,6 +76,11 @@ namespace ENGIE_App.views
                 
                 // Set the destination email address for the form and send
                 email.SendEmail(subject, body, filepath);
+                if (connected)
+                {
+                    email.SendEmail(subject, body, filepath);
+                }
+                RecordForm.addToRecentForms(title, connected);
 
                 // Close page, and trigger event when doing so.
                 // This refreshes scan page to fix a visual bug and refresh qr scanner results

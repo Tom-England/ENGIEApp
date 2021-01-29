@@ -8,7 +8,7 @@
              AutomationId="RecentPage">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="listViewm" ItemsSource="{Binding MyItems}">
+            <ListView x:Name="listView" ItemsSource="{Binding MyItems}">
                 <ListView.Header>
                     <Grid BackgroundColor="#009fe3"
                           ColumnSpacing="0"
@@ -47,6 +47,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Button Text="Resend All" Clicked="resend"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

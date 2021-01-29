@@ -77,49 +77,6 @@ namespace ENGIE_App.views
             HelpGrid.Children.Add(video, 0, gridSize);
             HelpGrid.Children.Add(tagStack, 0, gridSize+1);
         }
-
-        /// <summary>
-        ///  Function adds a row to the grid then creates the UI elements,
-        ///  inserts the appropriate information from the HelpItem object
-        ///  then adds it to the grids children   
-        /// </summary>
-        /// <param name="item"></param>
-        private void addHelpItemToGrid(HelpItem item)
-        {
-            // Adds a row to the grid
-            HelpGrid.RowDefinitions.Add(new RowDefinition());
-            
-            // Creates UI elements
-            var video = new WebView
-            {
-                Source = item.Url,
-                HorizontalOptions = LayoutOptions.Fill,
-                HeightRequest = 150
-            };
-            var tagStack = new StackLayout { HorizontalOptions = LayoutOptions.Fill };
-            var titleLabel = new Label
-            {
-                FontSize = 15,
-                FontFamily = "NormalFont",
-                Text = item.Title,
-                TextColor = Color.FromHex("#444")
-            };
-            var descLabel = new Label
-            {
-                FontSize = 10,
-                FontFamily = "NormalFont",
-                Text = item.Description,
-                TextColor = Color.FromHex("#444")
-            };
-
-            // Adds labels to stacklayout
-            tagStack.Children.Add(titleLabel);
-            tagStack.Children.Add(descLabel);
-
-            // Adds stacklayout and video to grid
-            HelpGrid.Children.Add(video, 0, gridSize);
-            HelpGrid.Children.Add(tagStack, 0, gridSize+1);
-        }
     }
 
     /// <summary>
@@ -132,13 +89,4 @@ namespace ENGIE_App.views
         public string Description { get; set; }
     }
 
-    /// <summary>
-    /// Helper class to store information about each grid row
-    /// </summary>
-    public class HelpItem
-    {
-        public string Url { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-    }
 }
