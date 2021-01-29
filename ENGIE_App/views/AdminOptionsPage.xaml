@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ENGIE_App.views.AdminOptionsPage"
              ControlTemplate="{StaticResource MainPageTemplate}"
-             Title="Admin"
+             Title="AdminOptions"
              AutomationId="AdminOptionsPage">
     <ContentPage.Content>
         <ScrollView>
@@ -28,11 +28,11 @@
                            CornerRadius="25"
                            BackgroundColor="White"
                            Grid.Row="1">
-                    <Entry Placeholder="Email" Keyboard="Email" TextChanged="ValidateEmail" FontSize="16" x:Name="EntryDesEmail"/>
+                        <Entry Placeholder="Email" Keyboard="Email" TextChanged="ValidateEmail" FontSize="16" x:Name="EntryDesEmail" AutomationId="DestinationEmail"/>
                 </Frame>
                 
                 <StackLayout Padding="0, 10, 0, 0">
-                        <Button Text="Set  Email" HorizontalOptions="CenterAndExpand" TextColor="#FFF" BackgroundColor="#009fe3" Clicked="Set_Email" x:Name="setEmailBtn" Padding="120, 20, 120, 20" CornerRadius="10"/>
+                        <Button Text="Set  Email" HorizontalOptions="CenterAndExpand" TextColor="#FFF" BackgroundColor="#009fe3" Clicked="Set_Email" x:Name="setEmailBtn" AutomationId="SetDesEmailButton" Padding="120, 20, 120, 20" CornerRadius="10"/>
                 </StackLayout>
                 <StackLayout Padding="0, 10, 0, 0">
                         <Button Text="Send  Email" HorizontalOptions="CenterAndExpand" TextColor="#FFF" BackgroundColor="#009fe3" Clicked="Send_Email" x:Name="sendEmailBtn" Padding="115, 20, 115, 20" CornerRadius="10"/>
@@ -68,18 +68,18 @@
                            CornerRadius="25"
                            BackgroundColor="White"
                            Grid.Row="1">
-                    <Entry Placeholder="Username" FontSize="16" x:Name="EntryUsername"/>
+                    <Entry Placeholder="Username" FontSize="16" x:Name="EntryUsername" AutomationId="NewAdminUser"/>
                 </Frame>
 
                 <Frame Padding="25, 0, 25, 0"
                            CornerRadius="25"
                            BackgroundColor="White"
                            Grid.Row="2">
-                    <Entry Placeholder="Password" IsPassword="True" FontSize="16" x:Name="EntryPassword"/>
+                    <Entry Placeholder="Password" IsPassword="True" FontSize="16" x:Name="EntryPassword" AutomationId="NewAdminPass"/>
                 </Frame>
 
                 <StackLayout Grid.Row="3" Padding="0, 10, 0, 0">
-                    <Button Text="Register" HorizontalOptions="CenterAndExpand" TextColor="#FFF" BackgroundColor="#009fe3" Clicked="CreateAdmin" Padding="125, 20, 125, 20" CornerRadius="10"/>
+                    <Button Text="Register" HorizontalOptions="CenterAndExpand" TextColor="#FFF" BackgroundColor="#009fe3" Clicked="CreateAdmin" Padding="125, 20, 125, 20" CornerRadius="10" AutomationId="CreateAdminButton"/>
                 </StackLayout>
             </Grid>
             <StackLayout Margin="20,30,20,0">

@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xamarin.UITest;
+﻿using Xamarin.UITest;
 using Query = System.Func<Xamarin.UITest.Queries.AppQuery, Xamarin.UITest.Queries.AppQuery>;
 
 namespace XamUiTest.Pages
 {
     public class LoginPage : BasePage
     {
-        Query FirstNameText, LastNameText, EmailText, PhoneText, LoginButton;
+        Query FirstNameText, LastNameText, EmailText, PhoneText, LoginButton, AdminButton;
 
         public LoginPage(IApp app, string pageTitle) : base(app, pageTitle)
         {
@@ -19,12 +14,14 @@ namespace XamUiTest.Pages
             EmailText = x => x.Marked("Email");
             PhoneText = x => x.Marked("Phone");
             LoginButton = x => x.Marked("Login");
+            AdminButton = x => x.Marked("AdminButton");
         }
 
         public void EnterFirstName(string firstName)
         {
             App.Tap(FirstNameText);
             App.EnterText(firstName);
+            App.DismissKeyboard();
             App.Screenshot("First name entered");
         }
 
@@ -32,6 +29,7 @@ namespace XamUiTest.Pages
         {
             App.Tap(LastNameText);
             App.EnterText(lastName);
+            App.DismissKeyboard();
             App.Screenshot("Last name entered");
         }
 
@@ -39,6 +37,7 @@ namespace XamUiTest.Pages
         {
             App.Tap(EmailText);
             App.EnterText(email);
+            App.DismissKeyboard();
             App.Screenshot("Email entered");
         }
 
@@ -46,6 +45,7 @@ namespace XamUiTest.Pages
         {
             App.Tap(PhoneText);
             App.EnterText(phone);
+            App.DismissKeyboard();
             App.Screenshot("Phone entered");
         }
 
@@ -53,6 +53,12 @@ namespace XamUiTest.Pages
         {
             App.Tap(LoginButton);
             App.Screenshot("Login button tapped");
+        }
+
+        public void TapAdminButton()
+        {
+            App.Tap(AdminButton);
+            App.Screenshot("Admin button tapped");
         }
 
         // method to enter valid login credentials to reduce code duplication in all other tests that would require a login to run
@@ -67,7 +73,6 @@ namespace XamUiTest.Pages
             this.EnterLastName(lastName);
             this.EnterEmail(email);
             this.EnterPhone(phone);
-            App.DismissKeyboard();
             this.TapLoginButton();
             App.WaitForElement(x => x.Marked("Continue"));
             App.Tap(x => x.Marked("Continue"));

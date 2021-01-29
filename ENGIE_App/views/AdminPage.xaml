@@ -26,18 +26,18 @@
                            CornerRadius="25"
                            BackgroundColor="White"
                            Grid.Row="1">
-                        <Entry Placeholder="Username" FontSize="16" x:Name="EntryUsername"/>
+                        <Entry Placeholder="Username" FontSize="16" x:Name="EntryUsername" AutomationId="AdminUser"/>
                     </Frame>
 
                     <Frame Padding="25, 0, 25, 0"
                            CornerRadius="25"
                            BackgroundColor="White"
                            Grid.Row="2">
-                        <Entry Placeholder="Password" IsPassword="True" FontSize="16" x:Name="EntryPassword"/>
+                        <Entry Placeholder="Password" IsPassword="True" FontSize="16" x:Name="EntryPassword" AutomationId="AdminPass"/>
                     </Frame>
 
                     <StackLayout Grid.Row="3" Padding="0, 50, 0, 100">
-                        <Button Text="Login" HorizontalOptions="CenterAndExpand" TextColor="#000" BackgroundColor="#fff" Clicked="Button_Clicked" Padding="125, 20, 125, 20" CornerRadius="10"/>
+                        <Button Text="Login" HorizontalOptions="CenterAndExpand" TextColor="#000" BackgroundColor="#fff" Clicked="Button_Clicked" Padding="125, 20, 125, 20" CornerRadius="10" AutomationId="AdminLogin"/>
                     </StackLayout>
                 </Grid>
             </StackLayout>

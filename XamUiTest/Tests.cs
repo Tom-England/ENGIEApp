@@ -58,7 +58,6 @@ namespace XamUiTest
             LoginPage.EnterLastName(lastName);
             LoginPage.EnterEmail(email);
             LoginPage.EnterPhone(phone);
-            App.DismissKeyboard();
             LoginPage.TapLoginButton();
 
             App.WaitForElement(x => x.Marked("Continue"));
@@ -73,8 +72,6 @@ namespace XamUiTest
 
         // test for phone number beginning 07
         [TestCase("Joe", "Bloggs", "joe@bloggs.com", "07777777777")]
-        // test for phone number with space
-        [TestCase("Joe", "Bloggs", "joe@bloggs.com", "07777 777777")]
         // test for email with . in first segment
         [TestCase("Joe", "Bloggs", "joe.mail@bloggs.com", "+447777777777")]
         [Category("Login")]
@@ -88,7 +85,6 @@ namespace XamUiTest
             LoginPage.EnterLastName(lastName);
             LoginPage.EnterEmail(email);
             LoginPage.EnterPhone(phone);
-            App.DismissKeyboard();
             LoginPage.TapLoginButton();
 
             App.WaitForElement(x => x.Marked("Continue"));
@@ -188,6 +184,84 @@ namespace XamUiTest
 
             // Assert
             Assert.IsTrue(results.Any());
+        }
+
+        
+        [Test]
+        [Category("Admin")]
+        public void AdminCanLogin()
+        {
+            // Act
+            const string username = "admin";
+            const string password = "admin";
+
+            // Arrange
+            LoginPage.TapAdminButton();
+            AdminPage.EnterAdminCredentials(username, password);
+            AppResult[] results = App.WaitForElement(c => c.Marked("AdminOptionsPage"));
+
+            // Assert
+            Assert.IsTrue(results.Any());
+        }
+
+        // test empty login details
+        [TestCase("", "")]
+        // test correct username, incorrect password
+        [TestCase("admin", "password")]
+        // test incorrect username, correct password
+        [TestCase("userdude", "admin")]
+        [Category("Admin")]
+        public void AdminLoginChecksCredentials(string username, string password)
+        {
+            // Act
+            // Done in testcase
+
+            // Arrange
+            LoginPage.TapAdminButton();
+            AdminPage.EnterAdminCredentials(username, password);
+            AppResult[] results = App.WaitForElement(c => c.Marked("AdminPage"));
+            App.Screenshot("Still on admin login page after attempt to login");
+
+            // Assert
+            Assert.IsTrue(results.Any());
+        }
+
+        // Test to make sure admins can create new valid admin accounts
+        [Test]
+        [Category("Admin")]
+        public void AdminsCanCreateNewAdminAccounts()
+        {
+            // Act
+            // Set existing admin login
+            const string existingUsername = "admin";
+            const string existingPassword = "admin";
+            // Set new admin login credentials
+            const string newUsername = "admin2";
+            const string newPassword = "P4ssword!";
+
+            // Arrange
+            // Login as existing admin
+            LoginPage.TapAdminButton();
+            AdminPage.EnterAdminCredentials(existingUsername, existingPassword);
+
+            // Create new account
+            AdminOptionsPage.EnterNewUsername(newUsername);
+            AdminOptionsPage.EnterNewPassword(newPassword);
+            AdminOptionsPage.TapCreateAdminButton();
+            App.WaitForElement(x => x.Marked("Continue"));
+            App.Tap(x => x.Marked("Continue"));
+            // Logout
+            MainPage.TapMenuButton();
+            MenuPage.TapLogoutButton();
+
+            // Login as new account to test
+            LoginPage.TapAdminButton();
+            AdminPage.EnterAdminCredentials(newUsername, newPassword);
+            AppResult[] results = App.WaitForElement(c => c.Marked("AdminOptionsPage"));
+
+            // Assert
+            Assert.IsTrue(results.Any());
+
         }
     }
 }

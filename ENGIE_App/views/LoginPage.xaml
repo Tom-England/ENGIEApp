@@ -16,7 +16,7 @@
                         <ColumnDefinition Width="3*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Button AutomationId="MenuButton"
+                    <Button AutomationId="AdminButton"
                             HorizontalOptions="CenterAndExpand"
                             VerticalOptions="CenterAndExpand"
                             BorderColor="Transparent"
