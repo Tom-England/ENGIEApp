@@ -6,8 +6,10 @@ using Xamarin.Forms;
 using System.Threading.Tasks;
 using GettingStarted;
 
+///<summary>
+/// Implementation of ISave for android
+/// </summary>
 [assembly: Dependency(typeof(SaveAndroid))]
-
 class SaveAndroid : ISave
 {
     //Method to save document as a file in Android and view the saved document

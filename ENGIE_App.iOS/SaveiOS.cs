@@ -12,6 +12,9 @@ using GettingStarted;
 
 [assembly: Dependency(typeof(SaveiOS))]
 
+/// <summary>
+/// iOS implementation of ISave
+/// </summary>
 class SaveiOS : ISave
 {
     //Method to save document as a file and view the saved document

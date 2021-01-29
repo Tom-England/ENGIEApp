@@ -12,6 +12,9 @@ using Xamarin.Forms.Xaml;
 
 namespace ENGIE_App.views
 {
+    /// <summary>
+    /// Class for handling the contents of Form Page, used for recently submitted forms
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FormPage : ContentPage
     {

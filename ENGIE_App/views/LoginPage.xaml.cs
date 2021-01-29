@@ -10,6 +10,9 @@ using Xamarin.Forms.Xaml;
 
 namespace ENGIE_App.views
 {
+    /// <summary>
+    /// Class for handling the contents of Login Page and logging in
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {

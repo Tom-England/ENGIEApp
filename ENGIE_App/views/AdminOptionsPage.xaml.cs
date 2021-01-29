@@ -8,6 +8,9 @@ using System.Text.RegularExpressions;
 
 namespace ENGIE_App.views
 {
+    /// <summary>
+    /// Class for handling the contents of Admin Options Page
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AdminOptionsPage : ContentPage
     {

@@ -4,6 +4,9 @@ using System.Text;
 
 namespace ENGIE_App.Tables
 {
+    /// <summary>
+    /// Helper class for adding user info to the local database
+    /// </summary>
     public class LogUserData
     {
         public Guid UserId { get; set; }

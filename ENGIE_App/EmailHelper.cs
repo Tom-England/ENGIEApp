@@ -7,6 +7,9 @@ using MySqlConnector;
 
 namespace ENGIE_App
 {
+    /// <summary>
+    /// Class for handling the sending of emails
+    /// </summary>
     class EmailHelper
     {
         MySqlConnection connection;

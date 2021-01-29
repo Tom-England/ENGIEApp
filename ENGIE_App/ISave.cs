@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace GettingStarted
 {
+    /// <summary>
+    /// Interface for handling file saving across both iOS and Android
+    /// </summary>
     public interface ISave
     {
         Task<string> Save(string filename, string contentType, MemoryStream stream);

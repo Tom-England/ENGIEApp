@@ -3,6 +3,9 @@ using Xamarin.Forms.Xaml;
 
 namespace ENGIE_App
 {
+    /// <summary>
+    /// Class for controlling the Root page, part of the set up of the page structure of the app
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RootPage : MasterDetailPage
     {

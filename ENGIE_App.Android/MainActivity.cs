@@ -9,6 +9,9 @@ using Android.OS;
 
 namespace ENGIE_App.Droid
 {
+    /// <summary>
+    /// Android main activity class, Launches splashscreen and app
+    /// </summary>
     [Activity(Label = "ENGIE_App", Icon = "@mipmap/icon", Theme = "@style/splashscreen", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {

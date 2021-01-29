@@ -8,6 +8,9 @@ using Xamarin.UITest;
 
 namespace XamUiTest
 {
+    /// <summary>
+    /// Base class for the tests
+    /// </summary>
     public abstract class BaseTest
     {
         Platform platform;

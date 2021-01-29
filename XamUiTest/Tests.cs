@@ -8,6 +8,9 @@ using Xamarin.UITest.Queries;
 
 namespace XamUiTest
 {
+    /// <summary>
+    /// Class containing tests
+    /// </summary>
     [TestFixture(Platform.Android)]
     [TestFixture(Platform.iOS)]
     public class Tests : BaseTest

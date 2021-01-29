@@ -5,6 +5,9 @@ using System.IO;
 
 namespace ENGIE_App
 {
+    /// <summary>
+    /// Class that handles the creation of and emailing of QR Codes
+    /// </summary>
     class QRBuilder
     {
         /// <summary>

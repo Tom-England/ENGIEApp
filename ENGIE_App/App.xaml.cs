@@ -4,6 +4,9 @@ using Xamarin.Forms;
 
 namespace ENGIE_App
 {
+    /// <summary>
+    /// Class for handling the app structure and menu control
+    /// </summary>
     public partial class App : Application
     {
         public static NavigationPage NavigationPage { get; private set; }

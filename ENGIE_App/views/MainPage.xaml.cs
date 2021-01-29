@@ -2,6 +2,9 @@
 
 namespace ENGIE_App
 {
+    /// <summary>
+    /// Class for handling the contents of Welcome Page
+    /// </summary>
     public partial class MainPage : ContentPage
     {
         /// <summary>

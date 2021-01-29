@@ -3,6 +3,9 @@ using Xamarin.Essentials;
 
 namespace ENGIE_App
 {
+    /// <summary>
+    /// Class for checking if the user has internet connection
+    /// </summary>
     class Connection
     {
         public static Boolean isConnected()

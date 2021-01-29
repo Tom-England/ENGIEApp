@@ -13,6 +13,9 @@ using Xamarin.Forms.Xaml;
 
 namespace ENGIE_App.views
 {
+    /// <summary>
+    /// Class for handling the contents of the Recently Submitted forms table
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RecentlySubmitted : ContentPage
     {

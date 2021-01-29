@@ -4,6 +4,9 @@ using System;
 
 namespace ENGIE_App.views
 {
+    /// <summary>
+    /// Class for handling non local database connections
+    /// </summary>
     public class DatabaseConnector
     {
         MySqlConnection connection;

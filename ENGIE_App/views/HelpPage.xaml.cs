@@ -4,6 +4,9 @@ using Xamarin.Forms.Xaml;
 
 namespace ENGIE_App.views
 {
+    /// <summary>
+    /// Class for handling the contents of Help Page
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HelpPage : ContentPage
     {

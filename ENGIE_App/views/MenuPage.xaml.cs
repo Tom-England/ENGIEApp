@@ -6,6 +6,9 @@ using Xamarin.Forms.Xaml;
 
 namespace ENGIE_App
 {
+    /// <summary>
+    /// Class for handling the contents of Menu Page
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MenuPage : ContentPage
     {

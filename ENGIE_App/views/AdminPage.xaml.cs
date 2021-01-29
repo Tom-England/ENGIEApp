@@ -8,6 +8,9 @@ using Xamarin.Forms.Xaml;
 
 namespace ENGIE_App.views
 {
+    /// <summary>
+    /// Class for handling the contents of Admin Page
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AdminPage : ContentPage
     {

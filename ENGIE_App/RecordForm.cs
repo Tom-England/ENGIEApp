@@ -8,6 +8,9 @@ using System.IO;
 
 namespace ENGIE_App
 {
+    /// <summary>
+    /// Class for adding to the local database
+    /// </summary>
     class RecordForm
     {
         public static void addToRecentForms(String form, Boolean connected)

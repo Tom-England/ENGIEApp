@@ -9,6 +9,9 @@ using GettingStarted;
 
 namespace ENGIE_App.views
 {
+    /// <summary>
+    /// Class for handling the contents of RCDForm Page and creating PDFs
+    /// </summary>
     public partial class RCDPage : ContentPage
     {
         public RCDPage()
