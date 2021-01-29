@@ -7,7 +7,7 @@ Created by:
 * Matthew Osborne
 
 # Running the App
-### Logging in
+### Logging in to database
 In order to log into the app, the user must enter their university login details
 in the file DatabaseConnector.cs, located in the ENGIE_App folder. The user needs to
 place their username in the bnumber variable and their password in the unipass variable
@@ -26,17 +26,18 @@ Once the user has entered all necessary fields and the submit button has been
 pressed, the user input details will be saved into the relevant text fields in the
 corresponding PDF document. The Syncfusion.Xamarin.PDF library and ISave.cs file
 are used to fill in the PDF document. An email is then sent to the destination email,
-that is set in the admin area.
+which is stored in the database.
 
 ## Admin Features
 
 ### Logging in as admin
-An admin account for testing has been set up for use with the username admin
-and the password admin. Access to the admin login can be reached from the Login
-page by pressing the admin icon in the top right corner of the screen.
+An admin account for testing has been set up for use with the username "admin"
+and the password "admin". Access to the admin login can be reached from the Login
+page by pressing the admin icon (black silhouette in the top right corner of the screen).
 
 ### Generating QR codes
-To generate a QR code the admin must have set a destination email address for the code to be sent to. This can be done on the admin options page.
+To generate a QR code, the admin must have set a destination email address for the code to be sent to. 
+This can be done on the admin options page.
 
 # Testing
 ### Overview
@@ -66,7 +67,7 @@ after the other.
 * select “group by” and “traits” to sort by category.  Now you can select a category like “Navigation” to only run tests from that category
 4. Select “run” in test explorer window (CTRL+R, T) to run selected test(s)
 
-### Troubleshooting
+### Test Suite Troubleshooting
 Ensure Xamarin components are installed.  You can check in the
 “Individual Components” section under “Tools > Get Tools and Features…”.
 A restart of visual studio is often required to make these changes apply.
