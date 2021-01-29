@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using SkiaSharp;
 using QRCoder;
 using System.IO;
-using Xamarin.Forms.PlatformConfiguration;
-using Xamarin.Essentials;
 
 namespace ENGIE_App
 {
@@ -103,19 +99,19 @@ namespace ENGIE_App
         /// </summary>
         /// <param name="bmp"></param>
         /// <param name="desEmail"></param>
-        public void SaveImage(SKBitmap bmp, string desEmail)
+        /// /// <param name="name"></param>
+        public void SaveImage(SKBitmap bmp, string name)
         {
             var image = SKImage.FromBitmap(bmp);
             var data = image.Encode();
             // get a writable file path
-            var filename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "MyQR.png");
+            var filename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), name+".png");
             using (var stream = File.OpenWrite(filename))
             {
                 data.SaveTo(stream);
             }
 
             EmailHelper eHelper = new EmailHelper();
-            eHelper.SetDes(desEmail);
             eHelper.SendEmail("QR Code", "ENGIE App QR Code", filename);
         }
     }

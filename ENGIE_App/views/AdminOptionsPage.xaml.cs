@@ -20,8 +20,8 @@ namespace ENGIE_App.views
         /// Variables for tracking the psuedo-enabled state of the buttons
         /// </summary>
         bool setButtonEnable = false;
-        bool sendButtonEnable = false;
-        bool qrButtonEnable = false;
+        bool sendButtonEnable = true;
+        bool qrButtonEnable = true;
 
         /// <summary>
         /// Initialiser method for the page, hides original navigation functionality and disables buttons as needed
@@ -32,8 +32,8 @@ namespace ENGIE_App.views
             NavigationPage.SetHasBackButton(this, false);
             InitializeComponent();
             FakeDisable(setEmailBtn);
-            FakeDisable(sendEmailBtn);
-            FakeDisable(QRButton);
+            //FakeDisable(sendEmailBtn);
+            //FakeDisable(QRButton);
         }
 
         /// <summary>
@@ -153,6 +153,30 @@ namespace ENGIE_App.views
                 eHelper.SetDes(EntryDesEmail.Text);
 
                 Application.Current.Properties["desEmail"] = eHelper.GetDes();
+                if (connection == null)
+                {
+                    connection = dbconn.Connect_Database();
+                    connection.Open();
+                }
+                try
+                {
+                    Console.WriteLine("Connecting to MySQL...");
+
+                    // SQL code
+                    MySqlCommand cmd = connection.CreateCommand();
+                    cmd.CommandText = "INSERT INTO AdminEmail(Email) VALUES (@Email)";
+
+                    // adds values user inputted to database
+                    cmd.Parameters.AddWithValue("@Email", EntryDesEmail.Text);
+                    cmd.ExecuteNonQuery();
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+
+                dbconn.Close_Connection();
 
                 checker = true;
                 sendButtonEnable = checker;
@@ -216,7 +240,7 @@ namespace ENGIE_App.views
                         var QRData = generator.CreateQRCode(text);
 
                         QRLabel.Text = "Generated Successfully";
-                        generator.SaveImage(generator.CreateImageFromText(QRData), eHelper.GetDes());
+                        generator.SaveImage(generator.CreateImageFromText(QRData), eHelper.GetDes(), text);
                     }
                 }
                 else

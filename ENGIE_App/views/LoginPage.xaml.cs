@@ -1,15 +1,10 @@
 ﻿using ENGIE_App.Tables;
 using MySqlConnector;
-using Renci.SshNet;
 using SQLite;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -47,7 +42,11 @@ namespace ENGIE_App.views
         }
 
 
-
+        /// <summary>
+        /// Saves users entries into the database along with the time they logged on
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public async void Button_Clicked(object sender, System.EventArgs e)
         {
             LoginPage dbConnect = new LoginPage();

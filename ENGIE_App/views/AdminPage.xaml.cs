@@ -1,12 +1,8 @@
 ﻿using MySqlConnector;
-using Renci.SshNet;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -25,12 +21,23 @@ namespace ENGIE_App.views
             InitializeComponent();
         }
 
+        /// <summary>
+        /// method to hash strings
+        /// </summary>
+        /// <param name="bytesToHash"></param>
+        /// <param name="salt"></param>
+        /// <returns></returns>
         public string ComputeHash(byte[] bytesToHash, byte[] salt)
         {
             var byteResult = new Rfc2898DeriveBytes(bytesToHash, salt, 10000);
             return Convert.ToBase64String(byteResult.GetBytes(24));
         }
 
+        /// <summary>
+        /// Checks with users' entries with external database records
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void Button_Clicked(object sender, EventArgs e)
         {
             var username = EntryUsername.Text;
@@ -74,9 +81,6 @@ namespace ENGIE_App.views
                 }
                 try
                 {
-
-                    Console.WriteLine("Connecting to MySQL...");
-                    Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA " + hashedPassword);
 
                     // SQL code
                     MySqlCommand cmd = connection.CreateCommand();

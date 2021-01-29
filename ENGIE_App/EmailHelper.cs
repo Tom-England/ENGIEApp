@@ -1,30 +1,22 @@
-﻿using MySqlConnector;
-using Renci.SshNet;
-using System;
-using System.Security.Cryptography;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using MailKit.Net.Smtp;
-using System.Net.Mail;
-using MailKit;
 using MimeKit;
-
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xamarin.Essentials;
+using ENGIE_App.views;
+using MySqlConnector;
 
 namespace ENGIE_App
 {
     class EmailHelper
     {
+        MySqlConnection connection;
+        DatabaseConnector dbconn = new DatabaseConnector();
 
-        public string email;
+        public string email = "csc2033team40@gmail.com";
 
         public EmailHelper()
         {
+            SetDes(GetDes());
         }
 
         /// <summary>
@@ -38,11 +30,44 @@ namespace ENGIE_App
 
         /// <summary>
         /// Getter method for the destination email
+        /// Gets most recent email from database
         /// </summary>
         /// <returns>email</returns>
         public string GetDes()
         {
+            if (connection == null)
+            {
+                connection = dbconn.Connect_Database();
+                connection.Open();
+            }
+            try
+            {
+
+                // SQL code
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "SELECT Email FROM AdminEmail ORDER BY Id DESC LIMIT 1";
+
+                cmd.ExecuteNonQuery();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    email = reader.GetValue(0).ToString();
+                    reader.Close();
+                }
+                else
+                {
+                    reader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            dbconn.Close_Connection();
             return email;
+            
         }
 
         /// <summary>
