@@ -32,6 +32,11 @@ If an email fails to send due to a lack of internet connection, an error instruc
 the user to visit the recently submitted forms page - where they can use the "Resend failed forms"
 button to try again. 
 
+To test, please use the RCD Test sheet that is loasded via the 'ELT' QR code.
+Unfortunatley due to time constraints and personal circumstances, only the RCD Test Sheet is working
+within the app.  It would be simple enough to implement the other two forms, however
+we ran out of time.
+
 ## Admin Features
 
 ### Logging in as admin
