@@ -17,11 +17,11 @@
                             <ColumnDefinition Width="1*"></ColumnDefinition>
                             <ColumnDefinition Width="1*"></ColumnDefinition>
                             <ColumnDefinition Width="1*"></ColumnDefinition>
-                            <ColumnDefinition Width="1*"></ColumnDefinition>
+
                         </Grid.ColumnDefinitions>
                         <Label Text="Date" HorizontalOptions="Fill"  Grid.Column="0"   FontSize="Medium" FontAttributes="Bold" BackgroundColor="#009fe3" TextColor="White" HorizontalTextAlignment="Center" Margin="1"/>
-                        <Label Text="Form" HorizontalOptions="Fill"  Grid.Column="2"  FontSize="Medium" FontAttributes="Bold" BackgroundColor="#009fe3" TextColor="White" HorizontalTextAlignment="Center" Margin="1"/>
-                        <Label Text="Sent?" HorizontalOptions="Fill"  Grid.Column="3"  FontSize="Medium" FontAttributes="Bold" BackgroundColor="#009fe3" TextColor="White" HorizontalTextAlignment="Center" Margin="1"/>
+                        <Label Text="Form" HorizontalOptions="Fill"  Grid.Column="1"  FontSize="Medium" FontAttributes="Bold" BackgroundColor="#009fe3" TextColor="White" HorizontalTextAlignment="Center" Margin="1"/>
+                        <Label Text="Sent?" HorizontalOptions="Fill"  Grid.Column="2"  FontSize="Medium" FontAttributes="Bold" BackgroundColor="#009fe3" TextColor="White" HorizontalTextAlignment="Center" Margin="1"/>
                     </Grid>
                 </ListView.Header>
                 <ListView.ItemTemplate>
@@ -35,11 +35,10 @@
                                     <ColumnDefinition Width="1*"></ColumnDefinition>
                                     <ColumnDefinition Width="1*"></ColumnDefinition>
                                     <ColumnDefinition Width="1*"></ColumnDefinition>
-                                    <ColumnDefinition Width="1*"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
                                 <Label Grid.Column="0" Text ="{Binding Date}" HorizontalOptions="Fill" BackgroundColor="#FFF" HorizontalTextAlignment="Center" Margin="1"></Label>
-                                <Label Grid.Column="2" Text ="{Binding Form}" HorizontalOptions="Fill" BackgroundColor="#FFF" HorizontalTextAlignment="Center" Margin="1"></Label>
-                                <Label Grid.Column="3" Text ="{Binding Sent}" HorizontalOptions="Fill" BackgroundColor="#FFF" HorizontalTextAlignment="Center" Margin="1"></Label>
+                                <Label Grid.Column="1" Text ="{Binding Form}" HorizontalOptions="Fill" BackgroundColor="#FFF" HorizontalTextAlignment="Center" Margin="1"></Label>
+                                <Label Grid.Column="2" Text ="{Binding Sent}" HorizontalOptions="Fill" BackgroundColor="#FFF" HorizontalTextAlignment="Center" Margin="1"></Label>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

@@ -60,24 +60,25 @@ namespace ENGIE_App.views
                 var date = DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");
                 var title = "RCD-Form-" + date + ".pdf";
                 string filepath = await Xamarin.Forms.DependencyService.Get<ISave>().Save(title, "application/pdf", streams);
-                var email = new EmailHelper();
-                var subject = "RCD form submission";
-                var body = "";
                 
-                // Check if firstname/lastname are present.  Admins do not need have names stored and as such the message could disrupt admins who are testing the app
-                if (Application.Current.Properties.ContainsKey("Firstname") && Application.Current.Properties.ContainsKey("Lastname"))
-                {
-                    body = "RCD form attatched as PDF.  Submitted by " + Application.Current.Properties["Firstname"] + " " + Application.Current.Properties["Lastname"];
-                }
-                else
-                {
-                    body = "RCD form attatched as PDF.";
-                }
+                
+                
                 
                 // Set the destination email address for the form and send
-                email.SendEmail(subject, body, filepath);
                 if (connected)
                 {
+                    var email = new EmailHelper();
+                    var subject = "RCD form submission";
+                    var body = "";
+                    // Check if firstname/lastname are present.  Admins do not need have names stored and as such the message could disrupt admins who are testing the app
+                    if (Application.Current.Properties.ContainsKey("Firstname") && Application.Current.Properties.ContainsKey("Lastname"))
+                    {
+                        body = "RCD form attatched as PDF.  Submitted by " + Application.Current.Properties["Firstname"] + " " + Application.Current.Properties["Lastname"];
+                    }
+                    else
+                    {
+                        body = "RCD form attatched as PDF.";
+                    }
                     email.SendEmail(subject, body, filepath);
                 }
                 RecordForm.addToRecentForms(title, connected);
