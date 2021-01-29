@@ -44,7 +44,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Text="Resend All" Clicked="resend"></Button>
+            <Button Text="Resend failed forms" Clicked="resend" AutomationId="ResendFailedForms"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
