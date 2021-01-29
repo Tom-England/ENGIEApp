@@ -55,31 +55,34 @@ namespace ENGIE_App.views
             MyItems.Add(item);
             listView.ItemsSource = MyItems;
         }
-        void resend(object sender, System.EventArgs e)
+        async void resend(object sender, System.EventArgs e)
         {
-            //resending code
-            var email = new EmailHelper();
-            var subject = "Re-send email that failed to send";
-            var body = "Re-send email that failed recently.";
-            var filepath = "";
-
-            var dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "UserDatabase.db");
-            var db = new SQLiteConnection(dbpath);
-            var rows = db.Table<LogRecentForm>().ToList();
-
-            for (int i = 0; i < rows.Count; i++)
+            if (Connection.isConnected())
             {
-                if (rows[i].Sent == false)
+                //resending code
+                var email = new EmailHelper();
+                var subject = "Re-send email that failed to send";
+                var body = "Re-send email that failed recently.";
+                var filepath = "";
+
+                var dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "UserDatabase.db");
+                var db = new SQLiteConnection(dbpath);
+                var rows = db.Table<LogRecentForm>().ToList();
+
+                for (int i = 0; i < rows.Count; i++)
                 {
-                    filepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), rows[i].Form);
-                    email.SendEmail(subject, body, filepath);
+                    if (rows[i].Sent == false)
+                    {
+                        filepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), rows[i].Form);
+                        email.SendEmail(subject, body, filepath);
+                    }
                 }
+            } else
+            {
+                await DisplayAlert("Alert", "No internet connection, please try again later", "ok");
             }
         }
-
     }
-
-
 }
 
 /// <summary>
