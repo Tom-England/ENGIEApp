@@ -34,13 +34,16 @@ namespace ENGIE_App.views
             //addItemToTable(new MyItem { Date = "17/12/2020", Time = "16:32:12", Form = "Form B", Sent = true });
             var dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "UserDatabase.db");
             var db = new SQLiteConnection(dbpath);
-            List<LogRecentForm> rows = db.Table<LogRecentForm>().ToList();
-            rows.Reverse();
-            for (int i = 0; i < 5; i++)
+            var info = db.GetTableInfo("LogRecentForm");
+            if (info.Any())
             {
-                addItemToTable(new MyItem { Date = rows[i].DateTime.ToString(), Form = rows[i].Form, Sent = rows[i].Sent });
+                List<LogRecentForm> rows = db.Table<LogRecentForm>().ToList();
+                rows.Reverse();
+                for (int i = 0; i < rows.Count; i++)
+                {
+                    addItemToTable(new MyItem { Date = rows[i].DateTime.ToString(), Form = rows[i].Form, Sent = rows[i].Sent });
+                }
             }
-
         }
 
         /// <summary>
@@ -55,6 +58,23 @@ namespace ENGIE_App.views
         void resend(object sender, System.EventArgs e)
         {
             //resending code
+            var email = new EmailHelper();
+            var subject = "Re-send email that failed to send";
+            var body = "Re-send email that failed recently.";
+            var filepath = "";
+
+            var dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "UserDatabase.db");
+            var db = new SQLiteConnection(dbpath);
+            var rows = db.Table<LogRecentForm>().ToList();
+
+            for (int i = 0; i < rows.Count; i++)
+            {
+                if (rows[i].Sent == false)
+                {
+                    filepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), rows[i].Form);
+                    email.SendEmail(subject, body, filepath);
+                }
+            }
         }
 
     }
@@ -68,7 +88,6 @@ namespace ENGIE_App.views
 public class MyItem
     {
         public string Date { get; set; }
-        public string Time { get; set; }
         public string Form { get; set; }
         public bool Sent { get; set; }   
     }
