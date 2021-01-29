@@ -28,6 +28,10 @@ corresponding PDF document. The Syncfusion.Xamarin.PDF library and ISave.cs file
 are used to fill in the PDF document. An email is then sent to the destination email,
 which is stored in the database.
 
+If an email fails to send due to a lack of internet connection, an error instructs
+the user to visit the recently submitted forms page - where they can use the "Resend failed forms"
+button to try again. 
+
 ## Admin Features
 
 ### Logging in as admin
