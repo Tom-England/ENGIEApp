@@ -77,10 +77,13 @@ namespace ENGIE_App.views
                     }
                     else
                     {
-                        DisplayAlert("No internet connection", "Please use the 'Resend failed forms' button on the Recently Submitted Forms page when you have an internet connection.", "Continue");
                         body = "RCD form attatched as PDF.";
                     }
                     email.SendEmail(subject, body, filepath);
+                }
+                else
+                {
+                    await DisplayAlert("No internet connection", "Please use the 'Resend failed forms' button on the 'Recently Submitted Forms' page when you have an internet connection.", "Continue");
                 }
                 RecordForm.addToRecentForms(title, connected);
 
