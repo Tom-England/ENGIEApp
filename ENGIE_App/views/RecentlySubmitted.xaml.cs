@@ -59,27 +59,52 @@ namespace ENGIE_App.views
         {
             if (Connection.isConnected())
             {
-                //resending code
-                var email = new EmailHelper();
-                var subject = "Re-send email that failed to send";
-                var body = "Re-send email that failed recently.";
-                var filepath = "";
-
                 var dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "UserDatabase.db");
                 var db = new SQLiteConnection(dbpath);
-                var rows = db.Table<LogRecentForm>().ToList();
-
-                for (int i = 0; i < rows.Count; i++)
+                var info = db.GetTableInfo("LogRecentForm");
+                if (info.Any())
                 {
-                    if (rows[i].Sent == false)
+                    //resending code
+                    var email = new EmailHelper();
+                    var subject = "Re-send email that failed to send";
+                    var body = "Re-send email that failed recently.";
+                    var filepath = "";
+
+                    var rows = db.Table<LogRecentForm>().ToList();
+                    db.DropTable<LogRecentForm>();
+                    for (int i = 0; i < rows.Count; i++)
                     {
-                        filepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), rows[i].Form);
-                        email.SendEmail(subject, body, filepath);
+                        if (rows[i].Sent == false)
+                        {
+                            filepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), rows[i].Form);
+                            rows[i].Sent = true;
+                            email.SendEmail(subject, body, filepath);
+                        }
+                        RecordForm.addToRecentForms(rows[i].Form, true);
                     }
+                    RegenTable();
                 }
+                
             } else
             {
                 await DisplayAlert("Alert", "No internet connection, please try again later", "ok");
+            }
+        }
+
+        void RegenTable()
+        {
+            MyItems.Clear();
+            var dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "UserDatabase.db");
+            var db = new SQLiteConnection(dbpath);
+            var info = db.GetTableInfo("LogRecentForm");
+            if (info.Any())
+            {
+                List<LogRecentForm> rows = db.Table<LogRecentForm>().ToList();
+                rows.Reverse();
+                for (int i = 0; i < rows.Count; i++)
+                {
+                    addItemToTable(new MyItem { Date = rows[i].DateTime.ToString(), Form = rows[i].Form, Sent = rows[i].Sent });
+                }
             }
         }
     }
