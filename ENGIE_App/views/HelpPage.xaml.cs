@@ -23,9 +23,8 @@ namespace ENGIE_App.views
 
             // Stores each HelpItem object
             VideoItems = new ObservableCollection<HelpItem>();
-            VideoItems.Add(new HelpItem { Url = "https://www.youtube.com/embed/0MQVlKo0duw", Title = "Tutorial 1", Description = "How to scan asset QR code and submit a form" });
-            VideoItems.Add(new HelpItem { Url = "https://www.youtube.com/embed/DULDin5A5Mk", Title = "Test video two", Description = "Second video for testing" });
-            VideoItems.Add(new HelpItem { Url = "https://www.youtube.com/embed/Sgc-K-3GhDs", Title = "Test video three", Description = "Third video for testing" });
+            VideoItems.Add(new HelpItem { Url = "https://www.youtube.com/embed/0MQVlKo0duw", Title = "How to scan asset QR code and submit a form", Description = "Tutorial Video 1" });
+            VideoItems.Add(new HelpItem { Url = "https://www.youtube.com/embed/3YA0XIK8_SU", Title = "How to resend forms that failed due to a lack of internet connection", Description = "Tutorial Video 2" });
 
             // Loops through the help items, adds them to the grid then increments the current last row value
             foreach (HelpItem item in VideoItems)

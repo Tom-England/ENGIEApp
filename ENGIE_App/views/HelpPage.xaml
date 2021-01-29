@@ -8,7 +8,7 @@
              AutomationId="HelpPage">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout>
+            <StackLayout Padding="20,0">
                 <Label
                  x:Name="HelpPageHeading1"
                  FontSize="Medium"
@@ -21,10 +21,17 @@
                 FontSize="Small"
                 TextColor="#444"
                 FontFamily="{StaticResource NormalFont}"
-                Padding="30"
+                Padding="30, 30, 30, 0"
                 Text="•Advice for using QR scanner&#10;•Tutorial: how to scan an asset QR code and submit a form&#10;•Video tutorials&#10;">
                 </Label>
-
+                <Frame HeightRequest="2"
+                       MinimumHeightRequest="1"
+                       Padding="0, 0, 0, 0"
+                       Margin="0, 0, 0, 10"
+                       BackgroundColor="#444"
+                       BorderColor="Transparent">
+                </Frame>
+                
                 <Label
                  x:Name="HelpPageHeading2"
                  FontSize="Medium"
@@ -37,9 +44,16 @@
                 FontSize="Small"
                 TextColor="#444"
                 FontFamily="{StaticResource NormalFont}"
-                Padding="30"
+                Padding="30, 30, 30, 0"
                 Text="•Try to position the QR code in the centre of your screen&#10;•Try to position the QR code in the centre of your screen&#10;•Start with your phone closer to the QR code, and slowly move it away from the QR code until it scans&#10;•Watch the first tutorial video below for an example&#10;">
                 </Label>
+                <Frame HeightRequest="2"
+                       MinimumHeightRequest="1"
+                       Padding="0, 0, 0, 0"
+                       Margin="0, 0, 0, 10"
+                       BackgroundColor="#444"
+                       BorderColor="Transparent">
+                </Frame>
 
                 <Label
                  x:Name="HelpPageHeading3"
@@ -53,9 +67,40 @@
                 FontSize="Small"
                 TextColor="#444"
                 FontFamily="{StaticResource NormalFont}"
-                Padding="30"
+                Padding="30, 30, 30, 0"
                 Text="•See tutorial videos below for accompanying video&#10;1) Open the menu ☰ and press 'Scan Asset'.  If asked, please allow the application to access your camera - otherwise it cannot scan the codes.&#10;2) Scan the QR code by positioning it in the centre of your screen.  Some tips can be found in the help section 'Advice for using QR scanner'&#10;3) Once scanned, a form will appear with boxes you can type in.  Fill in the boxes and then press the submit button at the bottom.&#10;4) When prompted, allow the application access to storage so the form can be saved.&#10;5) The information you entered is then sent via email.&#10;6) You can see forms you've submitted in the 'Recently Submitted Forms' page.&#10;">
                 </Label>
+                <Frame HeightRequest="2"
+                       MinimumHeightRequest="1"
+                       Padding="0, 0, 0, 0"
+                       Margin="0, 0, 0, 10"
+                       BackgroundColor="#444"
+                       BorderColor="Transparent">
+                </Frame>
+
+                <Label
+                 x:Name="HelpPageHeading4"
+                 FontSize="Medium"
+                TextColor="#444"
+                FontFamily="{StaticResource NormalFont}">
+                    Tutorial: how to resend forms that failed due to a lack of internet connection
+                </Label>
+                <Label
+                x:Name="HelpPagePara4"
+                FontSize="Small"
+                TextColor="#444"
+                FontFamily="{StaticResource NormalFont}"
+                Padding="30, 30, 30, 0"
+                Text="•See tutorial videos below for accompanying video&#10;1) When you have an internet connection, ppen the menu ☰ and press 'Recently Submitted Forms'&#10;2) Press the 'Resend Failed Forms' button at the bottom of the page&#10;3) Your forms will be sent via email.&#10;">
+                </Label>
+                <Frame HeightRequest="2"
+                       MinimumHeightRequest="1"
+                       Padding="0, 0, 0, 0"
+                       Margin="0, 0, 0, 10"
+                       BackgroundColor="#444"
+                       BorderColor="Transparent">
+                </Frame>
+                
                 <ScrollView>
                     <Grid x:Name="HelpGrid" Padding="10, 0">
                         <Grid.ColumnDefinitions>
