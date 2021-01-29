@@ -9,6 +9,7 @@
         <StackLayout>
             <Label Text="Form Page"
                    TextColor="Black"/>
+            <Button Text="SUBMIT" Clicked="submit" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
