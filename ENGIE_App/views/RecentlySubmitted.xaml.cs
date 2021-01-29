@@ -55,6 +55,12 @@ namespace ENGIE_App.views
             MyItems.Add(item);
             listView.ItemsSource = MyItems;
         }
+
+        /// <summary>
+        /// Method attempts to email any unsent forms to the user
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void resend(object sender, System.EventArgs e)
         {
             if (Connection.isConnected())
@@ -91,6 +97,9 @@ namespace ENGIE_App.views
             }
         }
 
+        /// <summary>
+        /// Method regenerates the table with new values
+        /// </summary>
         void RegenTable()
         {
             MyItems.Clear();
